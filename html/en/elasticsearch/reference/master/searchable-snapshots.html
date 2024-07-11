@@ -148,10 +148,10 @@ provides resilience and the query volume is expected to be low enough that a
 single shard copy will be sufficient. However, if you need to support a higher
 query volume, you can add replicas by adjusting the <code class="literal">index.number_of_replicas</code>
 index setting.</p>
-<p>If a node fails and searchable snapshot shards need to be recovered elsewhere, there
-is a brief window of time while Elasticsearch allocates the shards to other nodes where
-the cluster health will not be <code class="literal">green</code>. Searches that hit these shards may fail
-or return partial results until the shards are reallocated to healthy nodes.</p>
+<p>If a node goes offline and searchable snapshot shards need to be recovered elsewhere,
+there is a brief window of time where the cluster health will not be <code class="literal">green</code>
+while Elasticsearch allocates the shards to other nodes. Searches that hit these shards may
+fail or return partial results until the shards are reallocated to healthy nodes.</p>
 <p>You typically manage searchable snapshots through ILM. The
 <a class="xref" href="ilm-searchable-snapshot.html" title="Searchable snapshot">searchable snapshots</a> action automatically converts
 a regular index into a searchable snapshot index when it reaches the <code class="literal">cold</code> or
@@ -256,9 +256,10 @@ index, since there is minimal need to access the snapshot repository. While
 recovery is ongoing, search performance may be slower than with a regular index
 because a search may need some data that has not yet been retrieved into the
 local cache. If that happens, Elasticsearch will eagerly retrieve the data needed to
-complete the search in parallel with the ongoing recovery. On-disk data is
-preserved across restarts, such that the node does not need to re-download data
-that is already stored on the node after a restart.</p>
+complete the search in parallel with the ongoing recovery. Cached data is
+preserved so that the node does not need to re-download data from the snapshot
+repository after a restart, as long as the index shards remain allocated to the
+original node.</p>
 <p>Indices managed by ILM are prefixed with <code class="literal">restored-</code> when fully mounted.</p>
 </dd>
 </dl>
@@ -297,7 +298,8 @@ mounted.</p>
 available. By default, dedicated frozen data tier nodes (nodes with the
 <code class="literal">data_frozen</code> role and no other data roles) have a shared cache configured using
 the greater of 90% of total disk space and total disk space subtracted a
-headroom of 100GB.</p>
+headroom of 100GB. Shard data for partially-mounted indices is removed from
+the node on restart.</p>
 <p>Using a dedicated frozen tier is highly recommended for production use. If you
 do not have a dedicated frozen tier, you must configure the
 <code class="literal">xpack.searchable.snapshot.shared_cache.size</code> setting to reserve space for the
@@ -413,7 +415,7 @@ index. Defaults to <code class="literal">10m</code>.
 </div>
 <h3><a id="searchable-snapshots-costs"></a>Reduce costs with searchable snapshots<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/searchable-snapshots/index.asciidoc">edit</a></h3>
 <p>In most cases, searchable snapshots reduce the costs of running a cluster by removing
-the need for replica shards  and for shard data to be copied between nodes.
+the need for replica shards and for shard data to be copied between nodes.
 However, if it&#8217;s particularly expensive to retrieve data from a snapshot
 repository in your environment, searchable snapshots may be more costly than regular
 indices. Ensure that the cost structure of your operating environment is
