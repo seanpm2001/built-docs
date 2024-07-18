@@ -1288,45 +1288,27 @@ puts response</pre>
 </div>
 </div>
 <p>For example:</p>
-<div class="pre_wrapper lang-ruby alternative">
+<a id="ea67e0308336596a550a566e8813a8de"></a>
+<div class="pre_wrapper lang-console">
 <div class="console_code_copy" title="Copy to clipboard"></div>
-<pre class="programlisting prettyprint lang-ruby alternative">response = client.put_script(
-  id: 'my-search-template',
-  body: {
-    script: {
-      lang: 'mustache',
-      source: {
-        query: {
-          multi_match: {
-            query: '{{query_string}}',
-            fields: '[{{#text_fields}}{{user_name}}{{^last}},{{/last}}{{/text_fields}}]'
-          }
-        }
-      }
-    }
-  }
-)
-puts response</pre>
-</div>
-<a id="98b403c356a9b14544e9b9f646845e9f"></a>
-<div class="pre_wrapper lang-console default has-ruby">
-<div class="console_code_copy" title="Copy to clipboard"></div>
-<pre class="programlisting prettyprint lang-console default has-ruby">PUT _scripts/my-search-template
+<pre class="programlisting prettyprint lang-console">PUT _scripts/my-search-template
 {
   "script": {
     "lang": "mustache",
-    "source": {
+    "source":
+    """
+    {
       "query":{
         "multi_match":{
           "query": "{{query_string}}",
-          "fields": """[{{#text_fields}}{{user_name}}{{^last}},{{/last}}{{/text_fields}}]"""
+          "fields": [{{#text_fields}}"{{user_name}}"{{^last}},{{/last}}{{/text_fields}}]
         }
       }
-    }
+    }"""
   }
 }</pre>
 </div>
-<div class="console_widget has-ruby" data-snippet="snippets/983.console"></div>
+<div class="console_widget" data-snippet="snippets/983.console"></div>
 <p>Testing the <code class="literal">my-search-template</code> again with a variable: <code class="literal">last</code> to determine it&#8217;s the last item in the array:</p>
 <div class="pre_wrapper lang-ruby alternative">
 <div class="console_code_copy" title="Copy to clipboard"></div>
@@ -1373,7 +1355,7 @@ puts response</pre>
 </div>
 <div class="console_widget has-ruby" data-snippet="snippets/984.console"></div>
 <p>When rendered the template outputs:</p>
-<a id="8a99462637859cb768f64c2046714ba6"></a>
+<a id="b4aa851791e9c77e3f11c1e353382670"></a>
 <div class="pre_wrapper lang-console-result">
 <div class="console_code_copy" title="Copy to clipboard"></div>
 <pre class="programlisting prettyprint lang-console-result">{
@@ -1381,7 +1363,7 @@ puts response</pre>
     "query": {
       "multi_match": {
         "query": "My string",
-        "fields": "[John,kimchy]"
+        "fields": ["John","kimchy"]
       }
     }
   }
