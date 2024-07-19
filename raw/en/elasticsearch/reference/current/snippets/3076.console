@@ -1,1 +1,9 @@
-POST /_security/service/elastic/fleet-server/credential/token/token1/_clear_cache
+PUT place/_doc/1
+{
+  "suggest": {
+    "input": [ "timmy's", "starbucks", "dunkin donuts" ],
+    "contexts": {
+      "place_type": [ "cafe", "food" ]                   
+    }
+  }
+}

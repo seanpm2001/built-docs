@@ -1,15 +1,12 @@
-POST my-index-000001/_search
+POST _ml/trained_models/model2/_infer
 {
-  "query" : {
-    "match": {
-      "message": "tring out Elasticsearch"
-    }
-  },
-  "suggest" : {
-    "my-suggestion" : {
-      "text" : "tring out Elasticsearch",
-      "term" : {
-        "field" : "message"
+  "docs": [{"text_field": "The Amazon rainforest covers most of the Amazon basin in South America"}],
+  "inference_config": {
+    "ner": {
+      "tokenization": {
+        "bert": {
+          "truncate": "first"
+        }
       }
     }
   }

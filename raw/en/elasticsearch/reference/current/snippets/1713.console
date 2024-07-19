@@ -1,10 +1,19 @@
-POST my-index-000001/_update/1
+PUT /mv
 {
-  "script": {
-    "source": "if (ctx._source.tags.contains(params['tag'])) { ctx._source.tags.remove(ctx._source.tags.indexOf(params['tag'])) }",
-    "lang": "painless",
-    "params": {
-      "tag": "blue"
+  "mappings": {
+    "properties": {
+      "b": {"type": "long"}
     }
   }
+}
+
+POST /mv/_bulk?refresh
+{ "index" : {} }
+{ "a": 1, "b": [2, 2, 1] }
+{ "index" : {} }
+{ "a": 2, "b": [1, 1] }
+
+POST /_query
+{
+  "query": "FROM mv | LIMIT 2"
 }

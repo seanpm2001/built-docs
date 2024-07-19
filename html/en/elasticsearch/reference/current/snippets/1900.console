@@ -1,15 +1,17 @@
-PUT _slm/policy/hourly-snapshots
+POST /_security/role/remote-replication
 {
-  "name": "<hourly-snapshot-{now/d}>",
-  "schedule": "0 0 * * * ?",
-  "repository": "my_repository",
-  "config": {
-    "indices": "*",
-    "include_global_state": true
-  },
-  "retention": {
-    "expire_after": "1d",
-    "min_count": 1,
-    "max_count": 24
-  }
+  "cluster": [
+    "read_ccr"
+  ],
+  "indices": [
+    {
+      "names": [
+        "leader-index-name"
+      ],
+      "privileges": [
+        "monitor",
+        "read"
+      ]
+    }
+  ]
 }

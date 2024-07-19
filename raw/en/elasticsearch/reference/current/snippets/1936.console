@@ -1,4 +1,7 @@
-POST /_security/user/user1/_password
+PUT _snapshot/my_fs_backup
 {
-  "password" : "new-test-password"
+  "type": "fs",
+  "settings": {
+    "location": "My_fs_backup_location"       
+  }
 }

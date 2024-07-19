@@ -1,21 +1,9 @@
-GET /drivers/_search
+GET /_search
 {
   "query": {
-    "nested": {
-      "path": "driver",
-      "query": {
-        "nested": {
-          "path": "driver.vehicle",
-          "query": {
-            "bool": {
-              "must": [
-                { "match": { "driver.vehicle.make": "Powell Motors" } },
-                { "match": { "driver.vehicle.model": "Canyonero" } }
-              ]
-            }
-          }
-        }
-      }
+    "simple_query_string" : {
+      "query" : "this is a test",
+      "fields" : [ "subject^3", "message" ]
     }
   }
 }

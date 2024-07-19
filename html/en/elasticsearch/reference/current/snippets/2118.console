@@ -1,6 +1,6 @@
 PUT _cluster/settings
 {
   "persistent" : {
-    "cluster.routing.allocation.enable" : "all"
+    "cluster.max_shards_per_node": null
   }
 }

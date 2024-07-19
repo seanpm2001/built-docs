@@ -1,8 +1,4 @@
-GET /_security/_query/user
+DELETE /_security/role
 {
-    "query": {
-        "prefix": {
-            "roles": "other"
-        }
-    }
+    "names": ["my_admin_role", "my_user_role"]
 }

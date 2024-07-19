@@ -1,8 +1,12 @@
-PUT /test/_doc/1
+GET /_search
 {
-  "location":
-    {
-      "coordinates": [[46.25,20.14],[47.49,19.04]],
-      "type": "multipoint"
+  "query": {
+    "query_string": {
+      "fields": [
+        "title"
+      ],
+      "query": "this that thus",
+      "minimum_should_match": 2
     }
+  }
 }

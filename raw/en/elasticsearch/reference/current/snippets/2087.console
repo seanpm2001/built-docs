@@ -1,6 +1,9 @@
-GET _cluster/allocation/explain?filter_path=index,node_allocation_decisions.node_name,node_allocation_decisions.deciders.*
+GET index/_search
 {
-  "index": "my-index",
-  "shard": 0,
-  "primary": false
+  "query": {
+    "simple_query_string": {
+      "fields": [ "body" ],
+      "query": "ski"
+    }
+  }
 }

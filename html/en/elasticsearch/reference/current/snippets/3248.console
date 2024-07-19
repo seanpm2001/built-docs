@@ -1,4 +1,23 @@
-POST _sql?format=txt
+POST /_security/_query/api_key
 {
-  "query": "SELECT * FROM library ORDER BY page_count DESC LIMIT 5"
+  "size": 0,
+  "query": {
+    "bool": {
+      "filter": {
+        "term": {
+          "invalidated": true
+        }
+      }
+    }
+  },
+  "aggs": {
+    "invalidated_keys": {
+      "composite": {
+        "sources": [
+          { "username": { "terms": { "field": "username" } } },
+          { "key_name": { "terms": { "field": "name" } } }
+        ]
+      }
+    }
+  }
 }

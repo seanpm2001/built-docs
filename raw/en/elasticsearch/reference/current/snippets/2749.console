@@ -1,6 +1,5 @@
-PUT /my-index-000001/_settings
-{
-  "index" : {
-    "refresh_interval" : null
-  }
-}
+GET /*/_mapping
+
+GET /_all/_mapping
+
+GET /_mapping

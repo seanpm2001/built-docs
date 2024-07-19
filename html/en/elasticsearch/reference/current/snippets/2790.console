@@ -1,8 +1,9 @@
-PUT _inference/text_embedding/hugging-face-embeddings
+POST my-write-alias/_rollover
 {
-  "service": "hugging_face",
-  "service_settings": {
-    "api_key": "<access_token>",
-    "url": "<url_endpoint>"
+  "conditions": {
+    "max_age": "7d",
+    "max_docs": 1000,
+    "max_primary_shard_size": "50gb",
+    "max_primary_shard_docs": "2000"
   }
 }

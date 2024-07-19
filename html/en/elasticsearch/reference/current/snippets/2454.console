@@ -1,1 +1,6 @@
-HEAD my-index-000001/_source/1
+PUT _connector/my-spo-connector/_configuration
+{
+    "values": {
+        "secret_value": "foo-bar"
+    }
+}

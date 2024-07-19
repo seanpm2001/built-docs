@@ -1,5 +1,19 @@
-PUT my-index-000001/_doc/1
+PUT _connector/my-connector/_features
 {
-  "counter": 1,
-  "tags": [ "production" ]
+  "features": {
+    "document_level_security": {
+      "enabled": true
+    },
+    "incremental_sync": {
+      "enabled": true
+    },
+    "sync_rules": {
+      "advanced": {
+        "enabled": false
+      },
+      "basic": {
+        "enabled": true
+      }
+    }
+  }
 }

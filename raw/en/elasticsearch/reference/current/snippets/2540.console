@@ -1,13 +1,10 @@
-POST _reindex
+POST test/_update/1
 {
-  "source": {
-    "index": "metricbeat-*"
-  },
-  "dest": {
-    "index": "metricbeat"
-  },
   "script": {
+    "source": "if (ctx._source.tags.contains(params.tag)) { ctx._source.tags.remove(ctx._source.tags.indexOf(params.tag)) }",
     "lang": "painless",
-    "source": "ctx._index = 'metricbeat-' + (ctx._index.substring('metricbeat-'.length(), ctx._index.length())) + '-1'"
+    "params": {
+      "tag": "blue"
+    }
   }
 }

@@ -1,17 +1,17 @@
-POST test/_update/1
+POST _data_stream/_modify
 {
-  "scripted_upsert": true,
-  "script": {
-    "source": """
-      if ( ctx.op == 'create' ) {
-        ctx._source.counter = params.count
-      } else {
-        ctx._source.counter += params.count
+  "actions": [
+    {
+      "remove_backing_index": {
+        "data_stream": "my-logs",
+        "index": ".ds-my-logs-2099.01.01-000001"
       }
-    """,
-    "params": {
-      "count": 4
+    },
+    {
+      "add_backing_index": {
+        "data_stream": "my-logs",
+        "index": "index-to-add"
+      }
     }
-  },
-  "upsert": {}
+  ]
 }

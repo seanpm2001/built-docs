@@ -1,1 +1,28 @@
-GET _cat/nodes?v&s=master,name&h=name,master,node.role,heap.percent,disk.used_percent,cpu
+PUT bicycles
+{
+  "mappings": {
+    "properties": {
+      "cycle_type": {
+        "type": "constant_keyword",
+        "value": "bicycle"
+      },
+      "name": {
+        "type": "text"
+      }
+    }
+  }
+}
+
+PUT other_cycles
+{
+  "mappings": {
+    "properties": {
+      "cycle_type": {
+        "type": "keyword"
+      },
+      "name": {
+        "type": "text"
+      }
+    }
+  }
+}

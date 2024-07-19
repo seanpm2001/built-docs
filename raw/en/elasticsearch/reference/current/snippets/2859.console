@@ -1,4 +1,10 @@
-GET _ml/anomaly_detectors/high_sum_total_sales/model_snapshots
+PUT _inference/text_embedding/google_vertex_ai_embeddings
 {
-  "start": "1575402236000"
+    "service": "googlevertexai",
+    "service_settings": {
+        "service_account_json": "<service_account_json>",
+        "model_id": "<model_id>",
+        "location": "<location>",
+        "project_id": "<project_id>"
+    }
 }

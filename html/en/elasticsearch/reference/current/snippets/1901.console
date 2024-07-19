@@ -1,15 +1,19 @@
-PUT _slm/policy/daily-snapshots
+POST /_security/role/remote-replication
 {
-  "name": "<daily-snapshot-{now/d}>",
-  "schedule": "0 45 23 * * ?",         
-  "repository": "my_repository",
-  "config": {
-    "indices": "*",
-    "include_global_state": true
-  },
-  "retention": {
-    "expire_after": "30d",
-    "min_count": 1,
-    "max_count": 31
-  }
+  "cluster": [
+    "manage_ccr"
+  ],
+  "indices": [
+    {
+      "names": [
+        "follower-index-name"
+      ],
+      "privileges": [
+        "monitor",
+        "read",
+        "write",
+        "manage_follow_index"
+      ]
+    }
+  ]
 }

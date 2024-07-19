@@ -1,8 +1,1 @@
-GET /_search
-{
-  "query": {
-    "match_phrase": {
-      "message": "this is a test"
-    }
-  }
-}
+POST _application/search_application/my_search_application/_search

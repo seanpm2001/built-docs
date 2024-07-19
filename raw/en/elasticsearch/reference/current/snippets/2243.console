@@ -1,1 +1,1 @@
-POST /my-index-000001/_search?size=surprise_me
+POST kibana_sample_data_flights,.ds-my-data-stream-2022.06.17-000001/_close

@@ -1,9 +1,4 @@
-POST _render/template
+POST _ml/trained_models/model2/_infer
 {
-  "id": "my-search-template",
-  "params": {
-    "query_string": "hello world",
-    "from": 20,
-    "size": 10
-  }
+	"docs": [{"text_field": "Hi my name is Josh and I live in Berlin"}]
 }

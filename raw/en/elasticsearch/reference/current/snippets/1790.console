@@ -1,8 +1,12 @@
-PUT logs-my_app-default/_settings
+PUT my-index/_mappings
 {
-  "index": {
-    "lifecycle": {
-      "name": "new-lifecycle-policy"
+  "runtime": {
+    "http.clientip": {
+      "type": "ip",
+      "script": """
+        String clientip=grok('%{COMMONAPACHELOG}').extract(doc["message"].value)?.clientip;
+        if (clientip != null) emit(clientip);
+      """
     }
   }
 }

@@ -1,7 +1,4 @@
-POST test/_update/1
+PUT _data_stream/my-data-stream/_lifecycle
 {
-  "doc": {
-    "name": "new_name"
-  },
-  "doc_as_upsert": true
+  "data_retention": "7d"
 }

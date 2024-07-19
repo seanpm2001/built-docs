@@ -1,23 +1,10 @@
-POST /_security/_query/api_key
+POST /_security/role/role_with_remote_indices
 {
-  "size": 0,
-  "query": {
-    "bool": {
-      "filter": {
-        "term": {
-          "invalidated": true
-        }
-      }
+  "remote_indices": [
+    {
+      "clusters": [ "my_remote" ],
+      "names": ["logs*"],
+      "privileges": ["read", "read_cross_cluster", "view_index_metadata"]
     }
-  },
-  "aggs": {
-    "invalidated_keys": {
-      "composite": {
-        "sources": [
-          { "username": { "terms": { "field": "username" } } },
-          { "key_name": { "terms": { "field": "name" } } }
-        ]
-      }
-    }
-  }
+  ]
 }

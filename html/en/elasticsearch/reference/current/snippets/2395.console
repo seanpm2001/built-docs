@@ -1,10 +1,17 @@
-PUT _connector/my-spo-connector/_configuration
-{
-    "values": {
-        "tenant_id": "my-tenant-id",
-        "tenant_name": "my-sharepoint-site",
-        "client_id": "foo",
-        "secret_value": "bar",
-        "site_collections": "*"
-    }
-}
+# returns all stats info of the cluster
+GET /_info/_all
+
+# returns the http info of the cluster
+GET /_info/http
+
+# returns the http info of the cluster
+GET /_info/ingest
+
+# returns the thread_pool info of the cluster
+GET /_info/thread_pool
+
+# returns the script info of the cluster
+GET /_info/script
+
+# returns the http and ingest info of the cluster
+GET /_info/http,ingest

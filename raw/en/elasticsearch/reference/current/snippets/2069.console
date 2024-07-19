@@ -1,1 +1,4 @@
-GET _cat/shards?v=true
+PUT .watches/_settings
+{
+  "index.routing.allocation.include.role": "watcher"
+}

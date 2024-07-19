@@ -1,6 +1,6 @@
-POST /my-index-000001,my-index-000002/_delete_by_query
+POST _connector/_sync_job
 {
-  "query": {
-    "match_all": {}
-  }
+  "id": "connector-id",
+  "job_type": "full",
+  "trigger_method": "on_demand"
 }

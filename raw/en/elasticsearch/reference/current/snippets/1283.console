@@ -1,9 +1,16 @@
-GET /_search
+PUT /items
 {
-  "query": {
-    "terms": {
-      "user.id": [ "kimchy", "elkbee" ],
-      "boost": 1.0
+  "mappings": {
+    "properties": {
+      "name": {
+        "type": "keyword"
+      },
+      "production_date": {
+        "type": "date"
+      },
+      "location": {
+        "type": "geo_point"
+      }
     }
   }
 }

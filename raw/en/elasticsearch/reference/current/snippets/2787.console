@@ -1,12 +1,9 @@
-PUT _inference/rerank/cohere-rerank
+POST my-alias/_rollover
 {
-    "service": "cohere",
-    "service_settings": {
-        "api_key": "<API-KEY>",
-        "model_id": "rerank-english-v3.0"
-    },
-    "task_settings": {
-        "top_n": 10,
-        "return_documents": true
-    }
+  "conditions": {
+    "max_age": "7d",
+    "max_docs": 1000,
+    "max_primary_shard_size": "50gb",
+    "max_primary_shard_docs": "2000"
+  }
 }

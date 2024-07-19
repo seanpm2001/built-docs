@@ -1,4 +1,33 @@
-DELETE /_security/oauth2/token
+POST /_security/api_key
 {
-  "token" : "dGhpcyBpcyBub3QgYSByZWFsIHRva2VuIGJ1dCBpdCBpcyBvbmx5IHRlc3QgZGF0YS4gZG8gbm90IHRyeSB0byByZWFkIHRva2VuIQ=="
+  "name": "my-api-key",
+  "expiration": "1d",  
+  "role_descriptors": {
+    "role-a": {
+      "cluster": ["all"],
+      "indices": [
+        {
+          "names": ["index-a*"],
+          "privileges": ["read"]
+        }
+      ]
+    },
+    "role-b": {
+      "cluster": ["all"],
+      "indices": [
+        {
+          "names": ["index-b*"],
+          "privileges": ["all"]
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "application": "my-application",
+    "environment": {
+       "level": 1,
+       "trusted": true,
+       "tags": ["dev", "staging"]
+    }
+  }
 }

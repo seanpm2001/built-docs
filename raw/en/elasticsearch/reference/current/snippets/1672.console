@@ -1,26 +1,25 @@
-PUT _cluster/settings
+POST /_search
 {
-  "persistent": {
-    "cluster": {
-      "remote": {
-        "cluster_one": {
-          "seeds": [
-            "35.238.149.1:9300"
-          ],
-          "skip_unavailable": true
-        },
-        "cluster_two": {
-          "seeds": [
-            "35.238.149.2:9300"
-          ],
-          "skip_unavailable": false
-        },
-        "cluster_three": { 
-          "seeds": [
-            "35.238.149.3:9300"
-          ]
-        }
+   "size": 0,
+   "aggs": {
+      "my_date_histo": {                 
+         "date_histogram": {
+            "field": "timestamp",
+            "calendar_interval": "day"
+         },
+         "aggs": {
+            "the_sum": {
+               "sum": {
+                  "field": "lemmings"    
+               }
+            },
+            "thirtieth_difference": {
+               "serial_diff": {               
+                  "buckets_path": "the_sum",
+                  "lag" : 30
+               }
+            }
+         }
       }
-    }
-  }
+   }
 }

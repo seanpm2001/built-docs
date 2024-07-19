@@ -1,6 +1,5 @@
-PUT /_nodes/USpTGYaBSIKbgSUJR2Z9lg/shutdown
+GET _ml/anomaly_detectors/high_sum_total_sales/results/influencers
 {
-  "type": "restart",
-  "reason": "Demonstrating how the node shutdown API works",
-  "allocation_delay": "10m"
+  "sort": "influencer_score",
+  "desc": true
 }

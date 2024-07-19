@@ -1,31 +1,57 @@
-GET museums/_mvt/location/13/4207/2692
+PUT example-index
 {
-  "grid_agg": "geotile",
-  "grid_precision": 2,
-  "fields": [
-    "name",
-    "price"
-  ],
-  "query": {
-    "term": {
-      "included": true
+    "mappings": {
+        "properties": {
+            "text" : {
+                "type" : "text"
+            },
+            "vector": {
+                "type": "dense_vector",
+                "dims": 1,
+                "index": true,
+                "similarity": "l2_norm",
+                 "index_options": {
+                     "type": "hnsw"
+                 }
+            },
+            "integer" : {
+                "type" : "integer"
+            }
+        }
     }
-  },
-  "aggs": {
-    "min_price": {
-      "min": {
-        "field": "price"
-      }
-    },
-    "max_price": {
-      "max": {
-        "field": "price"
-      }
-    },
-    "avg_price": {
-      "avg": {
-        "field": "price"
-      }
-    }
-  }
 }
+
+PUT example-index/_doc/1
+{
+    "text" : "rrf",
+    "vector" : [5],
+    "integer": 1
+}
+
+PUT example-index/_doc/2
+{
+    "text" : "rrf rrf",
+    "vector" : [4],
+    "integer": 2
+}
+
+PUT example-index/_doc/3
+{
+    "text" : "rrf rrf rrf",
+    "vector" : [3],
+    "integer": 1
+}
+
+PUT example-index/_doc/4
+{
+    "text" : "rrf rrf rrf rrf",
+    "integer": 2
+}
+
+PUT example-index/_doc/5
+{
+    "vector" : [0],
+    "integer": 1
+}
+
+POST example-index/_refresh

@@ -1,5 +1,12 @@
-PUT index/_doc/1
+POST /_security/role/test_role2
 {
-  "designation": "spoon",
-  "price": 13
+  "indices" : [
+    {
+      "names" : [ "*" ],
+      "privileges" : [ "read" ],
+      "field_security" : {
+        "grant" : [ "event_*" ]
+      }
+    }
+  ]
 }

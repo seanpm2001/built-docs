@@ -1,5 +1,4 @@
-PUT test/_doc/1
+PUT _connector/my-connector/_status
 {
-  "counter" : 1,
-  "tags" : ["red"]
+    "status": "needs_configuration"
 }

@@ -1,15 +1,5 @@
-PUT _slm/policy/monthly-snapshots
+POST /_security/user/cross-cluster-user
 {
-  "name": "<monthly-snapshot-{now/d}>",
-  "schedule": "0 56 23 1 * ?",           
-  "repository": "my_repository",
-  "config": {
-    "indices": "*",
-    "include_global_state": true
-  },
-  "retention": {
-    "expire_after": "366d",
-    "min_count": 1,
-    "max_count": 12
-  }
+  "password" : "l0ng-r4nd0m-p@ssw0rd",
+  "roles" : [ "remote-replication" ]
 }

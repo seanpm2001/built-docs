@@ -1,1 +1,1 @@
-POST _watcher/_stop
+GET logs*/_search?size=0

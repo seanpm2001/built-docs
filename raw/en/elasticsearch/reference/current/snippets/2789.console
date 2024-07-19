@@ -1,8 +1,7 @@
-PUT _inference/sparse_embedding/my-elser-model
+# PUT <my-index-{now/d}-000001>
+PUT %3Cmy-index-%7Bnow%2Fd%7D-000001%3E
 {
-  "service": "elser",
-  "service_settings": {
-    "num_allocations": 1,
-    "num_threads": 1
+  "aliases": {
+    "my-write-alias": { }
   }
 }

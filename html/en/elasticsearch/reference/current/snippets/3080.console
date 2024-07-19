@@ -1,17 +1,18 @@
-POST /_security/api_key
+PUT place/_doc/1
 {
-  "name": "my-restricted-api-key",
-  "role_descriptors": {
-    "my-restricted-role-descriptor": {
-      "indices": [
+  "suggest": {
+    "input": "timmy's",
+    "contexts": {
+      "location": [
         {
-          "names": ["my-search-app"],
-          "privileges": ["read"]
+          "lat": 43.6624803,
+          "lon": -79.3863353
+        },
+        {
+          "lat": 43.6624718,
+          "lon": -79.3873227
         }
-      ],
-      "restriction":  {
-        "workflows": ["search_application_query"]
-      }
+      ]
     }
   }
 }

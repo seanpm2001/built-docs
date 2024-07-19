@@ -1,6 +1,24 @@
-PUT /job-candidates/_doc/2?refresh
+PUT /imdb
 {
-  "name": "Jason Response",
-  "programming_languages": [ "java", "php" ],
-  "required_matches": 2
+  "mappings": {
+    "properties": {
+      "title": {
+        "type": "text",
+        "term_vector": "yes"
+      },
+      "description": {
+        "type": "text"
+      },
+      "tags": {
+        "type": "text",
+        "fields": {
+          "raw": {
+            "type": "text",
+            "analyzer": "keyword",
+            "term_vector": "yes"
+          }
+        }
+      }
+    }
+  }
 }

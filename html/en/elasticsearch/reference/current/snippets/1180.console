@@ -1,11 +1,10 @@
-PUT /my-index-000001
+GET /_search
 {
-  "mappings": {
-    "properties": {
-      "obj1": {
-        "type": "nested"
-      }
+  "query": {
+    "simple_query_string" : {
+        "query": "\"fried eggs\" +(eggplant | potato) -frittata",
+        "fields": ["title^5", "body"],
+        "default_operator": "and"
     }
   }
 }
-

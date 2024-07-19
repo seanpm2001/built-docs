@@ -1,7 +1,4 @@
-POST _application/search_application/my-app/_search
+GET /_search/scroll
 {
-  "params": {
-    "default_field": "author",
-    "query_string": "Jane"
-  }
+  "scroll_id" : "DXF1ZXJ5QW5kRmV0Y2gBAAAAAAAAAD4WYm9laVYtZndUQlNsdDcwakFMNjU1QQ=="
 }

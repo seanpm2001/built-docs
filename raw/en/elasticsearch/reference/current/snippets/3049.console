@@ -1,38 +1,36 @@
-PUT _application/search_application/my-app
+GET example-index/_search
 {
-  "indices": [ "index1", "index2" ],
-  "template": {
-    "script": {
-      "source": {
-        "query": {
-          "query_string": {
-            "query": "{{query_string}}",
-            "default_field": "{{default_field}}"
-          }
+    "retriever": {
+        "rrf": {
+            "retrievers": [
+                {
+                    "standard": {
+                        "query": {
+                            "term": {
+                                "text": "rrf"
+                            }
+                        }
+                    }
+                },
+                {
+                    "knn": {
+                        "field": "vector",
+                        "query_vector": [3],
+                        "k": 5,
+                        "num_candidates": 5
+                    }
+                }
+            ],
+            "rank_window_size": 5,
+            "rank_constant": 1
         }
-      },
-      "params": {
-        "query_string": "*",
-        "default_field": "*"
-      }
     },
-    "dictionary": {
-      "properties": {
-        "query_string": {
-          "type": "string"
-        },
-        "default_field": {
-          "type": "string",
-          "enum": [
-            "title",
-            "description"
-          ]
-        },
-        "additionalProperties": false
-      },
-      "required": [
-        "query_string"
-      ]
+    "size": 3,
+    "aggs": {
+        "int_count": {
+            "terms": {
+                "field": "integer"
+            }
+        }
     }
-  }
 }

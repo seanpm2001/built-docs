@@ -1,10 +1,17 @@
-POST /_reindex
+POST /_query?format=txt
 {
-  "source": {
-    "index": "my_test_scores"
-  },
-  "dest": {
-    "index": "my_test_scores_2",
-    "pipeline": "my_test_scores_pipeline"
+  "query": """
+    FROM library
+    | KEEP author, name, page_count, release_date
+    | SORT page_count DESC
+    | LIMIT 5
+  """,
+  "filter": {
+    "range": {
+      "page_count": {
+        "gte": 100,
+        "lte": 200
+      }
+    }
   }
 }

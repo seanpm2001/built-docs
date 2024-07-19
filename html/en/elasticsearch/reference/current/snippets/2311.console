@@ -1,1 +1,1 @@
-GET _health_report
+GET /_autoscaling/policy/my_autoscaling_policy

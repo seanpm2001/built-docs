@@ -1,5 +1,11 @@
-POST stackoverflow/_terms_enum
+GET /sensor_rollup/_rollup_search
 {
-    "field" : "tags",
-    "string" : "kiba"
+  "size": 0,
+  "aggregations": {
+    "max_temperature": {
+      "max": {
+        "field": "temperature"
+      }
+    }
+  }
 }

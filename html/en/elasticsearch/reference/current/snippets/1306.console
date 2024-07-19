@@ -1,12 +1,16 @@
-GET /my-index-000001/_search
+PUT /test
 {
-  "aggs": {
-    "my-agg-name": {
-      "terms": {
-        "field": "my-field"
+  "mappings": {
+    "properties": {
+      "pagerank": {
+        "type": "rank_feature"
       },
-      "meta": {
-        "my-metadata-field": "foo"
+      "url_length": {
+        "type": "rank_feature",
+        "positive_score_impact": false
+      },
+      "topics": {
+        "type": "rank_features"
       }
     }
   }

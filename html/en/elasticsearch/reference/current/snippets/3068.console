@@ -1,1 +1,13 @@
-POST /_security/role/my_admin_role,my_test_role/_clear_cache
+PUT music/_doc/1?refresh
+{
+  "suggest": [
+    {
+      "input": "Nevermind",
+      "weight": 10
+    },
+    {
+      "input": "Nirvana",
+      "weight": 3
+    }
+  ]
+}

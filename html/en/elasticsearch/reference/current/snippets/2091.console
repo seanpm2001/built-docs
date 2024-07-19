@@ -1,4 +1,18 @@
-PUT _settings
+GET _search
 {
-  "index.number_of_replicas": 1
+  "query": {
+    "bool": {
+      "must": {
+        "match": { "body": "elasticsearch" }
+      },
+      "should": {
+        "rank_feature": {
+          "field": "pagerank",
+          "saturation": {
+            "pivot": 10
+          }
+        }
+      }
+    }
+  }
 }

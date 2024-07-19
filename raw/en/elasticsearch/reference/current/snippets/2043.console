@@ -1,11 +1,1 @@
-PUT index
-{
-  "mappings": {
-    "properties": {
-      "foo": {
-        "type": "keyword",
-        "eager_global_ordinals": true
-      }
-    }
-  }
-}
+GET .ds-my-data-stream-2099.03.09-000003/_doc/2

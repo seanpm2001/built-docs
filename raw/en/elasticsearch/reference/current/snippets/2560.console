@@ -1,17 +1,1 @@
-POST /_mtermvectors
-{
-   "docs": [
-      {
-         "_index": "my-index-000001",
-         "doc" : {
-            "message" : "test test test"
-         }
-      },
-      {
-         "_index": "my-index-000001",
-         "doc" : {
-           "message" : "Another test ..."
-         }
-      }
-   ]
-}
+GET /_tasks/r1A2WoRbTwKZ516z6NEs5A:36619

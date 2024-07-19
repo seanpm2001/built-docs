@@ -1,13 +1,14 @@
-GET index/_search
+POST _security/role/click_role
 {
-  "query": {
-    "script_score": {
+  "indices": [
+    {
+      "names": [ "events-*" ],
+      "privileges": [ "read" ],
       "query": {
-        "match": { "body": "elasticsearch" }
-      },
-      "script": {
-        "source": "_score * saturation(doc['pagerank'].value, 10)"
+        "match": {
+          "category": "click"
+        }
       }
     }
-  }
+  ]
 }

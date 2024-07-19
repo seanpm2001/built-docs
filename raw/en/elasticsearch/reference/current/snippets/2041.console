@@ -1,15 +1,27 @@
-GET index/_search
+POST /_security/role/test_role7
 {
-  "query": {
-    "constant_score": {
-      "filter": {
-        "range": {
-          "my_date": {
-            "gte": "now-1h/m",
-            "lte": "now/m"
-          }
-        }
+  "indices" : [
+    {
+      "names" : [ "*" ],
+      "privileges" : [ "read" ],
+      "field_security" : {
+        "grant": [ "a.*" ],
+        "except" : [ "a.b*" ]
       }
     }
-  }
+  ]
+}
+
+POST /_security/role/test_role8
+{
+  "indices" : [
+    {
+      "names" : [ "*" ],
+      "privileges" : [ "read" ],
+      "field_security" : {
+        "grant": [ "a.b*" ],
+        "except" : [ "a.b.c*" ]
+      }
+    }
+  ]
 }

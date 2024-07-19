@@ -1,11 +1,39 @@
-GET /sensor_rollup/_rollup_search
+PUT _ml/data_frame/analytics/model-flight-delays-pre
 {
-  "size": 0,
-  "aggregations": {
-    "max_temperature": {
-      "max": {
-        "field": "temperature"
+  "source": {
+    "index": [
+      "kibana_sample_data_flights"
+    ],
+    "query": {
+      "range": {
+        "DistanceKilometers": {
+          "gt": 0
+        }
       }
+    },
+    "_source": {
+      "includes": [],
+      "excludes": [
+        "FlightDelay",
+        "FlightDelayType"
+      ]
     }
-  }
+  },
+  "dest": {
+    "index": "df-flight-delays",
+    "results_field": "ml-results"
+  },
+  "analysis": {
+  "regression": {
+    "dependent_variable": "FlightDelayMin",
+    "training_percent": 90
+    }
+  },
+  "analyzed_fields": {
+    "includes": [],
+    "excludes": [
+      "FlightNum"
+    ]
+  },
+  "model_memory_limit": "100mb"
 }

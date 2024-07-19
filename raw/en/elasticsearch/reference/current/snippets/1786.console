@@ -1,8 +1,9 @@
-PUT mylogs-pre-ilm*/_settings
+GET my-index/_search
 {
-  "index": {
-    "lifecycle": {
-      "name": "mylogs_policy_existing"
+  "query": {
+    "match": {
+      "http.response": "304"
     }
-  }
+  },
+  "fields" : ["http.response"]
 }

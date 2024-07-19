@@ -1,15 +1,19 @@
-PUT _ml/data_frame/analytics/house_price_regression_analysis
+POST /_ingest/_simulate
 {
-  "source": {
-    "index": "houses_sold_last_10_yrs"
-  },
-  "dest": {
-    "index": "house_price_predictions"
-  },
-  "analysis":
+  "docs": [
     {
-      "regression": {
-        "dependent_variable": "price"
+      "_index": "my-index",
+      "_id": "123",
+      "_source": {
+        "foo": "bar"
+      }
+    },
+    {
+      "_index": "my-index",
+      "_id": "456",
+      "_source": {
+        "foo": "rab"
       }
     }
+  ]
 }

@@ -1,19 +1,7 @@
-PUT _ilm/policy/my_policy
+POST _scripts/calculate-score
 {
-  "policy": {
-    "phases": {
-      "warm": {
-        "actions": {
-          "migrate" : {
-           "enabled": false
-          },
-          "allocate": {
-            "include" : {
-              "rack_id": "one,two"
-            }
-          }
-        }
-      }
-    }
+  "script": {
+    "lang": "painless",
+    "source": "Math.log(_score * 2) + params['my_modifier']"
   }
 }

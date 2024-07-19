@@ -1,1 +1,8 @@
-DELETE /_enrich/policy/my-policy
+POST test/_search?filter_path=hits.total
+{
+  "query": {
+    "match": {
+      "flag": "foo"
+    }
+  }
+}

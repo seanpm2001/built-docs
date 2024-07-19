@@ -1,8 +1,8 @@
-PUT _synonyms/my-synonyms-set
+POST /_security/_query/user
 {
-  "synonyms_set": [
-    {
-      "synonyms": "hello => hi => howdy"
+    "query": {
+        "prefix": {
+            "roles": "other"
+        }
     }
-  ]
 }

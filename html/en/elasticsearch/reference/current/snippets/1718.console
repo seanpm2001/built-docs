@@ -1,8 +1,4 @@
-PUT /my_test_scores/_mapping
+POST /_query?format=txt
 {
-  "properties": {
-    "total_score": {
-      "type": "long"
-    }
-  }
+  "query": "FROM library | KEEP author, name, page_count, release_date | SORT page_count DESC | LIMIT 5"
 }

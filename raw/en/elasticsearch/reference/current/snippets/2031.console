@@ -1,9 +1,17 @@
-GET index/_search
+POST /_security/api_key
 {
-  "query": {
-    "simple_query_string": {
-      "fields": [ "body.exact" ],
-      "query": "ski"
+  "name": "my-restricted-api-key",
+  "role_descriptors": {
+    "my-restricted-role-descriptor": {
+      "indices": [
+        {
+          "names": ["my-search-app"],
+          "privileges": ["read"]
+        }
+      ],
+      "restriction":  {
+        "workflows": ["search_application_query"]
+      }
     }
   }
 }

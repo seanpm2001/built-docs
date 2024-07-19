@@ -2,19 +2,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>What&#8217;s new in 8.14 | Elasticsearch Guide [8.14] | Elastic</title>
-<meta class="elastic" name="content" content="What&#8217;s new in 8.14 | Elasticsearch Guide [8.14]">
+<title>What&#8217;s new in 8.15 | Elasticsearch Guide [8.15] | Elastic</title>
+<meta class="elastic" name="content" content="What&#8217;s new in 8.15 | Elasticsearch Guide [8.15]">
 
-<link rel="home" href="index.html" title="Elasticsearch Guide [8.14]"/>
-<link rel="up" href="index.html" title="Elasticsearch Guide [8.14]"/>
+<link rel="home" href="index.html" title="Elasticsearch Guide [8.15]"/>
+<link rel="up" href="index.html" title="Elasticsearch Guide [8.15]"/>
 <link rel="prev" href="scalability.html" title="Scalability and resilience: clusters, nodes, and shards"/>
 <link rel="next" href="quickstart.html" title="Quickstart"/>
-<meta class="elastic" name="product_version" content="8.14"/>
+<meta class="elastic" name="product_version" content="8.15"/>
 <meta class="elastic" name="product_name" content="Elasticsearch"/>
 <meta class="elastic" name="website_area" content="documentation"/>
-<meta name="DC.type" content="Learn/Docs/Elasticsearch/Reference/8.14"/>
+<meta name="DC.type" content="Learn/Docs/Elasticsearch/Reference/8.15"/>
 <meta name="DC.subject" content="Elasticsearch"/>
-<meta name="DC.identifier" content="8.14"/>
+<meta name="DC.identifier" content="8.15"/>
 </head>
 <body>
 <div class="navheader">
@@ -29,29 +29,30 @@
 <div class="titlepage">
 <div class="breadcrumbs">
 <span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
-<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.14]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.15]</a></span>
 </div>
 <div>
-<div><h1 class="title"><a id="id-1"></a>What&#8217;s new in 8.14</h1><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.14/docs/reference/release-notes/highlights.asciidoc">edit</a></div>
+<div><h1 class="title"><a id="id-1"></a>What&#8217;s new in 8.15</h1><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.15/docs/reference/release-notes/highlights.asciidoc">edit</a></div>
 </div>
 <!--EXTRA-->
 </div>
 <div id="content">
 <div class="chapter">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="release-highlights"></a>What&#8217;s new in 8.14<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.14/docs/reference/release-notes/highlights.asciidoc">edit</a></h2>
+<h2 class="title"><a id="release-highlights"></a>What&#8217;s new in 8.15<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.15/docs/reference/release-notes/highlights.asciidoc">edit</a></h2>
 </div></div></div>
 <div class="note admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>Coming in 8.14.</p>
+<p>Coming in 8.15.</p>
 </div>
 </div>
-<p>Here are the highlights of what&#8217;s new and improved in Elasticsearch 8.14!
+<p>Here are the highlights of what&#8217;s new and improved in Elasticsearch 8.15!
 For detailed information about this release, see the <a class="xref" href="es-release-notes.html" title="Release notes">Release notes</a> and
 <a class="xref" href="breaking-changes.html" title="Migration guide">Migration guide</a>.</p>
 <p>Other versions:</p>
-<p><a href="/guide/en/elasticsearch/reference/8.13/release-highlights.html" class="ulink" target="_top">8.13</a>
+<p><a href="/guide/en/elasticsearch/reference/8.14/release-highlights.html" class="ulink" target="_top">8.14</a>
+| <a href="/guide/en/elasticsearch/reference/8.13/release-highlights.html" class="ulink" target="_top">8.13</a>
 | <a href="/guide/en/elasticsearch/reference/8.12/release-highlights.html" class="ulink" target="_top">8.12</a>
 | <a href="/guide/en/elasticsearch/reference/8.11/release-highlights.html" class="ulink" target="_top">8.11</a>
 | <a href="/guide/en/elasticsearch/reference/8.10/release-highlights.html" class="ulink" target="_top">8.10</a>
@@ -65,37 +66,42 @@ For detailed information about this release, see the <a class="xref" href="es-re
 | <a href="/guide/en/elasticsearch/reference/8.2/release-highlights.html" class="ulink" target="_top">8.2</a>
 | <a href="/guide/en/elasticsearch/reference/8.1/release-highlights.html" class="ulink" target="_top">8.1</a>
 | <a href="/guide/en/elasticsearch/reference/8.0/release-highlights.html" class="ulink" target="_top">8.0</a></p>
-<h3><a id="query_phase_knn_supports_query_vector_builder"></a>Query phase KNN now supports query_vector_builder<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.14/docs/reference/release-notes/highlights.asciidoc">edit</a></h3>
-<p>It is now possible to pass <code class="literal">model_text</code> and <code class="literal">model_id</code> within a <code class="literal">knn</code> query
-in the <a href="/guide/en/elasticsearch/reference/current/query-dsl-knn-query.html" class="ulink" target="_top">query DSL</a> to convert a text query into a dense vector and run the
-nearest neighbor query on it, instead of requiring the dense vector to be
-directly passed (within the <code class="literal">query_vector</code> parameter). Similar to the
-<a href="/guide/en/elasticsearch/reference/current/knn-search.html" class="ulink" target="_top">top-level knn query</a> (executed in the DFS phase), it is possible to supply
-a <code class="literal">query_vector_builder</code> object containing a <code class="literal">text_embedding</code> object with
-<code class="literal">model_text</code> (the text query to be converted into a dense vector) and
-<code class="literal">model_id</code> (the identifier of a deployed model responsible for transforming
-the text query into a dense vector). Note that an embedding model with the
-referenced <code class="literal">model_id</code> needs to be <a href="/guide/en/machine-learning/current/ml-nlp-deploy-models.html" class="ulink" target="_top">deployed on a ML node</a>.
-in the cluster.</p>
-<p><a href="https://github.com/elastic/elasticsearch/pull/106068" class="ulink" target="_top">#106068</a></p>
-<h3><a id="simd_neon_optimised_vector_distance_function_for_merging_int8_scalar_quantized_vectors_has_been_added"></a>A SIMD (Neon) optimised vector distance function for merging int8 Scalar Quantized vectors has been added<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.14/docs/reference/release-notes/highlights.asciidoc">edit</a></h3>
-<p>An optimised int8 vector distance implementation for aarch64 has been added.
-This implementation is currently only used during merging.
-The vector distance implementation outperforms Lucene&#8217;s Pamana Vector
-implementation for binary comparisons by approx 5x (depending on the number
-of dimensions). It does so by means of SIMD (Neon) intrinsics compiled into a
-separate native library and link by Panama&#8217;s FFI. Comparisons are performed on
-off-heap mmap&#8217;ed vector data.
-Macro benchmarks, SO_Dense_Vector with scalar quantization enabled, shows
-significant improvements in merge times, approximately 3 times faster.</p>
-<p><a href="https://github.com/elastic/elasticsearch/pull/106133" class="ulink" target="_top">#106133</a></p>
-<h3><a id="preview_support_for_anonymous_ip_enterprise_databases_in_geoip_processor"></a>Preview: Support for the <em>Anonymous IP</em> and <em>Enterprise</em> databases in the geoip processor<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.14/docs/reference/release-notes/highlights.asciidoc">edit</a></h3>
-<p>As a Technical Preview, the <a href="/guide/en/elasticsearch/reference/8.14/geoip-processor.html" class="ulink" target="_top"><code class="literal">geoip</code></a> processor can now use the commercial
-<a href="https://www.maxmind.com/en/solutions/geoip2-enterprise-product-suite/enterprise-database" class="ulink" target="_top">GeoIP2 <em>Enterprise</em></a>
+<h3><a id="stored_fields_are_compressed_with_zstandard_instead_of_lz4_deflate"></a>Stored fields are now compressed with ZStandard instead of LZ4/DEFLATE<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.15/docs/reference/release-notes/highlights.asciidoc">edit</a></h3>
+<p>Stored fields are now compressed by splitting documents into blocks, which
+are then compressed independently with ZStandard. <code class="literal">index.codec: default</code>
+(default) uses blocks of at most 14kB or 128 documents compressed with level
+0, while <code class="literal">index.codec: best_compression</code> uses blocks of at most 240kB or
+2048 documents compressed at level 3. On most datasets that we tested
+against, this yielded storage improvements in the order of 10%, slightly
+faster indexing and similar retrieval latencies.</p>
+<p><a href="https://github.com/elastic/elasticsearch/pull/103374" class="ulink" target="_top">#103374</a></p>
+<h3><a id="new_custom_parser_for_iso_8601_datetimes"></a>New custom parser for ISO-8601 datetimes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.15/docs/reference/release-notes/highlights.asciidoc">edit</a></h3>
+<p>This introduces a new custom parser for ISO-8601 datetimes, for the <code class="literal">iso8601</code>, <code class="literal">strict_date_optional_time</code>, and
+<code class="literal">strict_date_optional_time_nanos</code> built-in date formats. This provides a performance improvement over the
+default Java date-time parsing. Whilst it maintains much of the same behaviour,
+the new parser does not accept nonsensical date-time strings that have multiple fractional seconds fields
+or multiple timezone specifiers. If the new parser fails to parse a string, it will then use the previous parser
+to parse it. If a large proportion of the input data consists of these invalid strings, this may cause
+a small performance degradation. If you wish to force the use of the old parsers regardless,
+set the JVM property <code class="literal">es.datetime.java_time_parsers=true</code> on all ES nodes.</p>
+<p><a href="https://github.com/elastic/elasticsearch/pull/106486" class="ulink" target="_top">#106486</a></p>
+<h3><a id="preview_support_for_connection_type_domain_isp_databases_in_geoip_processor"></a>Preview: Support for the <em>Connection Type, 'Domain</em>, and <em>ISP</em> databases in the geoip processor<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.15/docs/reference/release-notes/highlights.asciidoc">edit</a></h3>
+<p>As a Technical Preview, the <a href="/guide/en/elasticsearch/reference/8.15/geoip-processor.html" class="ulink" target="_top"><code class="literal">geoip</code></a> processor can now use the commercial
+<a href="https://dev.maxmind.com/geoip/docs/databases/connection-type" class="ulink" target="_top">GeoIP2 <em>Connection Type</em></a>,
+<a href="https://dev.maxmind.com/geoip/docs/databases/domain" class="ulink" target="_top">GeoIP2 <em>Domain</em></a>,
 and
-<a href="https://www.maxmind.com/en/solutions/geoip2-enterprise-product-suite/anonymous-ip-database" class="ulink" target="_top">GeoIP2 <em>Anonymous IP</em></a>
+<a href="https://dev.maxmind.com/geoip/docs/databases/isp" class="ulink" target="_top">GeoIP2 <em>ISP</em></a>
 databases from MaxMind.</p>
-<p><a href="https://github.com/elastic/elasticsearch/pull/107377" class="ulink" target="_top">#107377</a></p>
+<p><a href="https://github.com/elastic/elasticsearch/pull/108683" class="ulink" target="_top">#108683</a></p>
+<h3><a id="update_elasticsearch_to_lucene_9_11"></a>Update Elasticsearch to Lucene 9.11<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.15/docs/reference/release-notes/highlights.asciidoc">edit</a></h3>
+<p>Elasticsearch is now updated using the latest Lucene version 9.11.
+Here are the full release notes:
+But, here are some particular highlights:
+- Usage of MADVISE for better memory management: <a href="https://github.com/apache/lucene/pull/13196" class="ulink" target="_top">https://github.com/apache/lucene/pull/13196</a>
+- Use RWLock to access LRUQueryCache to reduce contention: <a href="https://github.com/apache/lucene/pull/13306" class="ulink" target="_top">https://github.com/apache/lucene/pull/13306</a>
+- Speedup multi-segment HNSW graph search for nested kNN queries: <a href="https://github.com/apache/lucene/pull/13121" class="ulink" target="_top">https://github.com/apache/lucene/pull/13121</a>
+- Add a MemorySegment Vector scorer - for scoring without copying on-heap vectors: <a href="https://github.com/apache/lucene/pull/13339" class="ulink" target="_top">https://github.com/apache/lucene/pull/13339</a></p>
+<p><a href="https://github.com/elastic/elasticsearch/pull/109219" class="ulink" target="_top">#109219</a></p>
 </div>
 </div>
 </div><div class="navfooter">

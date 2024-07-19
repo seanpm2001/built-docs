@@ -1,2 +1,4 @@
-GET metricbeat-2016.05.30-1/_doc/1
-GET metricbeat-2016.05.31-1/_doc/1
+POST test/_update/1
+{
+  "script" : "ctx._source.new_field = 'value_of_new_field'"
+}

@@ -1,39 +1,37 @@
-PUT _ml/data_frame/analytics/model-flight-delays-pre
+POST /_ingest/pipeline/_simulate?verbose=true
 {
-  "source": {
-    "index": [
-      "kibana_sample_data_flights"
-    ],
-    "query": {
-      "range": {
-        "DistanceKilometers": {
-          "gt": 0
+  "pipeline" :
+  {
+    "description": "_description",
+    "processors": [
+      {
+        "set" : {
+          "field" : "field2",
+          "value" : "_value2"
+        }
+      },
+      {
+        "set" : {
+          "field" : "field3",
+          "value" : "_value3"
         }
       }
-    },
-    "_source": {
-      "includes": [],
-      "excludes": [
-        "FlightDelay",
-        "FlightDelayType"
-      ]
-    }
-  },
-  "dest": {
-    "index": "df-flight-delays",
-    "results_field": "ml-results"
-  },
-  "analysis": {
-  "regression": {
-    "dependent_variable": "FlightDelayMin",
-    "training_percent": 90
-    }
-  },
-  "analyzed_fields": {
-    "includes": [],
-    "excludes": [
-      "FlightNum"
     ]
   },
-  "model_memory_limit": "100mb"
+  "docs": [
+    {
+      "_index": "index",
+      "_id": "id",
+      "_source": {
+        "foo": "bar"
+      }
+    },
+    {
+      "_index": "index",
+      "_id": "id",
+      "_source": {
+        "foo": "rab"
+      }
+    }
+  ]
 }

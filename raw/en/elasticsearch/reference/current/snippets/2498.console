@@ -1,11 +1,8 @@
-PUT _ingest/pipeline/set-foo
+POST my-index-000001/_doc/
 {
-  "description" : "sets foo",
-  "processors" : [ {
-      "set" : {
-        "field": "foo",
-        "value": "bar"
-      }
-  } ]
+  "@timestamp": "2099-11-15T13:12:00",
+  "message": "GET /search HTTP/1.1 200 1070000",
+  "user": {
+    "id": "kimchy"
+  }
 }
-POST my-index-000001/_update_by_query?pipeline=set-foo

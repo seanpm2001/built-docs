@@ -1,17 +1,31 @@
-PUT _ml/data_frame/analytics/loganalytics
+POST /_ingest/_simulate
 {
-  "description": "Outlier detection on log data",
-  "source": {
-    "index": "logdata"
-  },
-  "dest": {
-    "index": "logdata_out"
-  },
-  "analysis": {
-    "outlier_detection": {
-      "compute_feature_influence": true,
-      "outlier_fraction": 0.05,
-      "standardization_enabled": true
+  "docs": [
+    {
+      "_index": "my-index",
+      "_id": "id",
+      "_source": {
+        "foo": "bar"
+      }
+    },
+    {
+      "_index": "my-index",
+      "_id": "id",
+      "_source": {
+        "foo": "rab"
+      }
+    }
+  ],
+  "pipeline_substitutions": {
+    "my-pipeline": {
+      "processors": [
+        {
+          "set": {
+            "field": "field3",
+            "value": "value3"
+          }
+        }
+      ]
     }
   }
 }

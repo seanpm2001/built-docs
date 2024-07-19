@@ -1,6 +1,12 @@
-GET /_search
+GET /my_locations/_search
 {
-  "query": {
-    "span_term" : { "user.id" : "kimchy" }
+  "size" : 0,
+  "aggs" : {
+     "grouped" : {
+        "geohex_grid" : {
+           "field" : "location",
+           "precision" : 1
+        }
+     }
   }
 }

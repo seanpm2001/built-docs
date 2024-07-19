@@ -1,19 +1,8 @@
-PUT /example
+GET /_search
 {
-  "mappings": {
-    "properties": {
-      "location": {
-        "type": "geo_shape"
-      }
+  "query": {
+    "query_string": {
+      "query": "(content:this OR name:this) AND (content:that OR name:that)"
     }
-  }
-}
-
-POST /example/_doc?refresh
-{
-  "name": "Wind & Wetter, Berlin, Germany",
-  "location": {
-    "type": "point",
-    "coordinates": [ 13.400544, 52.530286 ]
   }
 }

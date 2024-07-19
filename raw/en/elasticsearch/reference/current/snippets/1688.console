@@ -1,9 +1,14 @@
-POST /_sql?format=txt
+GET /my-data-stream/_eql/search?filter_path=-hits.events._source
 {
-  "query": "SELECT * FROM library",
-  "filter": {
-    "terms": {
-      "_routing": ["abc"]
+  "query": """
+    process where process.name == "regsvr32.exe"
+  """,
+  "fields": [
+    "event.type",
+    "process.*",               
+    {
+      "field": "@timestamp",
+      "format": "epoch_millis" 
     }
-  }
+  ]
 }

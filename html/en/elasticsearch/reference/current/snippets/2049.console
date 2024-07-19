@@ -1,1 +1,16 @@
-GET _cat/shards?v=true&h=index,prirep,shard,store&s=prirep,store&bytes=gb
+POST /_security/role/example1
+{
+  "indices" : [
+    {
+      "names" : [ "my-index-000001" ],
+      "privileges" : [ "read" ],
+      "query" : {
+        "template" : {
+          "source" : {
+            "term" : { "acl.username" : "{{_user.username}}" }
+          }
+        }
+      }
+    }
+  ]
+}

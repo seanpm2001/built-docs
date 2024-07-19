@@ -1,11 +1,15 @@
-POST my-image-index/_search
+GET /my-index-000001/_search
 {
-  "size" : 3,
-  "query" : {
-    "knn": {
-      "field": "image-vector",
-      "query_vector": [-5, 9, -12],
-      "num_candidates": 10
+  "query": {
+    "has_parent": {
+      "parent_type": "parent",
+      "query": {
+        "term": {
+          "tag": {
+            "value": "Elasticsearch"
+          }
+        }
+      }
     }
   }
 }

@@ -1,11 +1,16 @@
-POST /_security/role_mapping/mapping1
+POST _search?typed_keys
 {
-  "roles": [ "user"],
-  "enabled": true,
-  "rules": {
-    "field" : { "username" : "*" }
-  },
-  "metadata" : {
-    "version" : 1
+  "suggest": {
+    "text" : "some test mssage",
+    "my-first-suggester" : {
+      "term" : {
+        "field" : "message"
+      }
+    },
+    "my-second-suggester" : {
+      "phrase" : {
+        "field" : "message"
+      }
+    }
   }
 }

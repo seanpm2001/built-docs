@@ -1,1 +1,1 @@
-GET /_dangling
+DELETE /_template/my-legacy-index-template

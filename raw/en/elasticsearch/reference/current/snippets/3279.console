@@ -1,26 +1,11 @@
-PUT _watcher/watch/my_watch
+POST /_security/profile/u_P_0BMHgaOK3p7k-PFWUCbw9dQ-UFjt01oWJ_Dp2PmPc_0/_data
 {
-  "trigger" : {
-    "schedule" : {
-      "yearly" : { "in" : "february", "on" : 29, "at" : "noon" }
-    }
+  "labels": {
+    "direction": "west"
   },
-  "input": {
-    "simple": {
-      "payload": {
-        "send": "yes"
-      }
-    }
-  },
-  "condition": {
-    "always": {}
-  },
-  "actions": {
-    "test_index": {
-      "throttle_period": "15m",
-      "index": {
-        "index": "test"
-      }
+  "data": {
+    "app1": {
+      "font": "large"
     }
   }
 }

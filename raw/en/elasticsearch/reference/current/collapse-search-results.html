@@ -2,19 +2,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Collapse search results | Elasticsearch Guide [8.14] | Elastic</title>
-<meta class="elastic" name="content" content="Collapse search results | Elasticsearch Guide [8.14]">
+<title>Collapse search results | Elasticsearch Guide [8.15] | Elastic</title>
+<meta class="elastic" name="content" content="Collapse search results | Elasticsearch Guide [8.15]">
 
-<link rel="home" href="index.html" title="Elasticsearch Guide [8.14]"/>
+<link rel="home" href="index.html" title="Elasticsearch Guide [8.15]"/>
 <link rel="up" href="search-your-data.html" title="The search API"/>
 <link rel="prev" href="search-multiple-indices.html" title="Search multiple data streams and indices"/>
 <link rel="next" href="filter-search-results.html" title="Filter search results"/>
-<meta class="elastic" name="product_version" content="8.14"/>
+<meta class="elastic" name="product_version" content="8.15"/>
 <meta class="elastic" name="product_name" content="Elasticsearch"/>
 <meta class="elastic" name="website_area" content="documentation"/>
-<meta name="DC.type" content="Learn/Docs/Elasticsearch/Reference/8.14"/>
+<meta name="DC.type" content="Learn/Docs/Elasticsearch/Reference/8.15"/>
 <meta name="DC.subject" content="Elasticsearch"/>
-<meta name="DC.identifier" content="8.14"/>
+<meta name="DC.identifier" content="8.15"/>
 </head>
 <body>
 <div class="navheader">
@@ -29,19 +29,19 @@
 <div class="titlepage">
 <div class="breadcrumbs">
 <span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
-<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.14]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.15]</a></span>
 <span class="chevron-right">›</span><span class="breadcrumb-link"><a href="search-with-elasticsearch.html">Search your data</a></span>
 <span class="chevron-right">›</span><span class="breadcrumb-link"><a href="search-your-data.html">The search API</a></span>
 </div>
 <div>
-<div><h1 class="title"><a id="id-1"></a>Collapse search results</h1><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.14/docs/reference/search/search-your-data/collapse-search-results.asciidoc">edit</a></div>
+<div><h1 class="title"><a id="id-1"></a>Collapse search results</h1><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.15/docs/reference/search/search-your-data/collapse-search-results.asciidoc">edit</a></div>
 </div>
 <!--EXTRA-->
 </div>
 <div id="content">
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="collapse-search-results"></a>Collapse search results<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.14/docs/reference/search/search-your-data/collapse-search-results.asciidoc">edit</a></h2>
+<h2 class="title"><a id="collapse-search-results"></a>Collapse search results<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.15/docs/reference/search/search-your-data/collapse-search-results.asciidoc">edit</a></h2>
 </div></div></div>
 <p>You can use the <code class="literal">collapse</code> parameter to collapse search results based
 on field values. The collapsing is done by selecting only the top sorted
@@ -59,24 +59,24 @@ by <code class="literal">http.response.bytes</code>.</p>
     }
   },
   "collapse": {
-    "field": "user.id"         <a id="CO218-1"></a><i class="conum" data-value="1"></i>
+    "field": "user.id"         <a id="CO223-1"></a><i class="conum" data-value="1"></i>
   },
   "sort": [
     {
-      "http.response.bytes": { <a id="CO218-2"></a><i class="conum" data-value="2"></i>
+      "http.response.bytes": { <a id="CO223-2"></a><i class="conum" data-value="2"></i>
         "order": "desc"
       }
     }
   ],
-  "from": 0                    <a id="CO218-3"></a><i class="conum" data-value="3"></i>
+  "from": 0                    <a id="CO223-3"></a><i class="conum" data-value="3"></i>
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/891.console"></div>
+<div class="console_widget" data-snippet="snippets/908.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO218-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO223-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Collapse the result set using the <code class="literal">user.id</code> field</p>
@@ -84,7 +84,7 @@ by <code class="literal">http.response.bytes</code>.</p>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO218-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO223-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Sort the results by <code class="literal">http.response.bytes</code></p>
@@ -92,7 +92,7 @@ by <code class="literal">http.response.bytes</code>.</p>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO218-3"><i class="conum" data-value="3"></i></a></p>
+<p><a href="#CO223-3"><i class="conum" data-value="3"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Define the offset of the first collapsed result</p>
@@ -114,8 +114,8 @@ The total number of distinct group is unknown.</p>
 <p>Collapsing is applied to the top hits only and does not affect aggregations.</p>
 </div>
 </div>
-<h4><a id="expand-collapse-results"></a>Expand collapse results<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.14/docs/reference/search/search-your-data/collapse-search-results.asciidoc">edit</a></h4>
-<p>It is also possible to expand each collapsed top hits with the <code class="literal">inner_hits</code> option.</p>
+<h4><a id="expand-collapse-results"></a>Expand collapse results<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.15/docs/reference/search/search-your-data/collapse-search-results.asciidoc">edit</a></h4>
+<p>It is also possible to expand each collapsed top hits with the <a class="xref" href="inner-hits.html" title="Retrieve inner hits"><code class="literal">inner hits</code></a> option.</p>
 <a id="2898cf033b5bdefdbe3723af850b25c5"></a>
 <div class="pre_wrapper lang-console">
 <div class="console_code_copy" title="Copy to clipboard"></div>
@@ -127,13 +127,13 @@ The total number of distinct group is unknown.</p>
     }
   },
   "collapse": {
-    "field": "user.id",                       <a id="CO219-1"></a><i class="conum" data-value="1"></i>
+    "field": "user.id",                       <a id="CO224-1"></a><i class="conum" data-value="1"></i>
     "inner_hits": {
-      "name": "most_recent",                  <a id="CO219-2"></a><i class="conum" data-value="2"></i>
-      "size": 5,                              <a id="CO219-3"></a><i class="conum" data-value="3"></i>
-      "sort": [ { "@timestamp": "desc" } ]    <a id="CO219-4"></a><i class="conum" data-value="4"></i>
+      "name": "most_recent",                  <a id="CO224-2"></a><i class="conum" data-value="2"></i>
+      "size": 5,                              <a id="CO224-3"></a><i class="conum" data-value="3"></i>
+      "sort": [ { "@timestamp": "desc" } ]    <a id="CO224-4"></a><i class="conum" data-value="4"></i>
     },
-    "max_concurrent_group_searches": 4        <a id="CO219-5"></a><i class="conum" data-value="5"></i>
+    "max_concurrent_group_searches": 4        <a id="CO224-5"></a><i class="conum" data-value="5"></i>
   },
   "sort": [
     {
@@ -144,12 +144,12 @@ The total number of distinct group is unknown.</p>
   ]
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/892.console"></div>
+<div class="console_widget" data-snippet="snippets/909.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO219-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO224-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Collapse the result set using the <code class="literal">user.id</code> field</p>
@@ -157,7 +157,7 @@ The total number of distinct group is unknown.</p>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO219-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO224-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>The name used for the inner hit section in the response</p>
@@ -165,7 +165,7 @@ The total number of distinct group is unknown.</p>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO219-3"><i class="conum" data-value="3"></i></a></p>
+<p><a href="#CO224-3"><i class="conum" data-value="3"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>The number of <code class="literal">inner_hits</code> to retrieve per collapse key</p>
@@ -173,7 +173,7 @@ The total number of distinct group is unknown.</p>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO219-4"><i class="conum" data-value="4"></i></a></p>
+<p><a href="#CO224-4"><i class="conum" data-value="4"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>How to sort the document inside each group</p>
@@ -181,7 +181,7 @@ The total number of distinct group is unknown.</p>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO219-5"><i class="conum" data-value="5"></i></a></p>
+<p><a href="#CO224-5"><i class="conum" data-value="5"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>The number of concurrent requests allowed to retrieve the <code class="literal">inner_hits</code> per group</p>
@@ -190,7 +190,7 @@ The total number of distinct group is unknown.</p>
 </table>
 </div>
 <p>See <a class="xref" href="inner-hits.html" title="Retrieve inner hits">inner hits</a> for the complete list of supported options and the format of the response.</p>
-<p>It is also possible to request multiple <code class="literal">inner_hits</code> for each collapsed hit. This can be useful when you want to get
+<p>It is also possible to request multiple <a class="xref" href="inner-hits.html" title="Retrieve inner hits"><code class="literal">inner hits</code></a> for each collapsed hit. This can be useful when you want to get
 multiple representations of the collapsed hits.</p>
 <a id="24275847128b68da6e14233aa1259fb9"></a>
 <div class="pre_wrapper lang-console">
@@ -203,10 +203,10 @@ multiple representations of the collapsed hits.</p>
     }
   },
   "collapse": {
-    "field": "user.id",                   <a id="CO220-1"></a><i class="conum" data-value="1"></i>
+    "field": "user.id",                   <a id="CO225-1"></a><i class="conum" data-value="1"></i>
     "inner_hits": [
       {
-        "name": "largest_responses",      <a id="CO220-2"></a><i class="conum" data-value="2"></i>
+        "name": "largest_responses",      <a id="CO225-2"></a><i class="conum" data-value="2"></i>
         "size": 3,
         "sort": [
           {
@@ -217,7 +217,7 @@ multiple representations of the collapsed hits.</p>
         ]
       },
       {
-        "name": "most_recent",             <a id="CO220-3"></a><i class="conum" data-value="3"></i>
+        "name": "most_recent",             <a id="CO225-3"></a><i class="conum" data-value="3"></i>
         "size": 3,
         "sort": [
           {
@@ -234,12 +234,12 @@ multiple representations of the collapsed hits.</p>
   ]
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/893.console"></div>
+<div class="console_widget" data-snippet="snippets/910.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO220-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO225-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Collapse the result set using the <code class="literal">user.id</code> field</p>
@@ -247,7 +247,7 @@ multiple representations of the collapsed hits.</p>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO220-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO225-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Return the three largest HTTP responses for the user</p>
@@ -255,7 +255,7 @@ multiple representations of the collapsed hits.</p>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO220-3"><i class="conum" data-value="3"></i></a></p>
+<p><a href="#CO225-3"><i class="conum" data-value="3"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Return the three most recent HTTP responses for the user</p>
@@ -273,11 +273,10 @@ The default is based on the number of data nodes and the default search thread p
 <div class="warning admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p><code class="literal">collapse</code> cannot be used in conjunction with <a class="xref" href="paginate-search-results.html#scroll-search-results" title="Scroll search results">scroll</a> or
-<a class="xref" href="filter-search-results.html#rescore" title="Rescore filtered search results">rescore</a>.</p>
+<p><code class="literal">collapse</code> cannot be used in conjunction with <a class="xref" href="paginate-search-results.html#scroll-search-results" title="Scroll search results">scroll</a>.</p>
 </div>
 </div>
-<h4><a id="collapsing-with-search-after"></a>Collapsing with <code class="literal">search_after</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.14/docs/reference/search/search-your-data/collapse-search-results.asciidoc">edit</a></h4>
+<h4><a id="collapsing-with-search-after"></a>Collapsing with <code class="literal">search_after</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.15/docs/reference/search/search-your-data/collapse-search-results.asciidoc">edit</a></h4>
 <p>Field collapsing can be used with the <a class="xref" href="paginate-search-results.html#search-after" title="Search after"><code class="literal">search_after</code></a>
 parameter. Using <code class="literal">search_after</code> is only supported when sorting and collapsing
 on the same field. Secondary sorts are also not allowed. For example, we can
@@ -300,8 +299,76 @@ collapse and sort on <code class="literal">user.id</code>, while paging through 
   "search_after": ["dd5ce1ad"]
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/894.console"></div>
-<h4><a id="second-level-of-collapsing"></a>Second level of collapsing<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.14/docs/reference/search/search-your-data/collapse-search-results.asciidoc">edit</a></h4>
+<div class="console_widget" data-snippet="snippets/911.console"></div>
+<h4><a id="rescore-collapse-results"></a>Rescore collapse results<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.15/docs/reference/search/search-your-data/collapse-search-results.asciidoc">edit</a></h4>
+<p>You can use field collapsing alongside the <a class="xref" href="filter-search-results.html#rescore" title="Rescore filtered search results"><code class="literal">rescore</code></a> search parameter.
+Rescorers run on every shard for the top-ranked document per collapsed field.
+To maintain a reliable order, it is recommended to cluster documents sharing the same collapse
+field value on one shard.
+This is achieved by assigning the collapse field value as the <a class="xref" href="search-shard-routing.html#search-routing" title="Use a routing value">routing key</a>
+during indexing:</p>
+<a id="29e002ab596bae58712eb048ac1768d1"></a>
+<div class="pre_wrapper lang-console">
+<div class="console_code_copy" title="Copy to clipboard"></div>
+<pre class="programlisting prettyprint lang-console">POST /my-index-000001/_doc?routing=xyz      <a id="CO226-1"></a><i class="conum" data-value="1"></i>
+{
+  "@timestamp": "2099-11-15T13:12:00",
+  "message": "You know for search!",
+  "user.id": "xyz"
+}</pre>
+</div>
+<div class="console_widget" data-snippet="snippets/912.console"></div>
+<div class="calloutlist">
+<table border="0" summary="Callout list">
+<tr>
+<td align="left" valign="top" width="5%">
+<p><a href="#CO226-1"><i class="conum" data-value="1"></i></a></p>
+</td>
+<td align="left" valign="top">
+<p>Assign routing with the collapse field value (<code class="literal">user.id</code>).</p>
+</td>
+</tr>
+</table>
+</div>
+<p>By doing this, you guarantee that only one top document per
+collapse key gets rescored globally.</p>
+<p>The following request utilizes field collapsing on the <code class="literal">user.id</code>
+field and then rescores the top groups with a <a class="xref" href="filter-search-results.html#query-rescorer" title="Query rescorer">query rescorer</a>:</p>
+<a id="3a3e6e2627cafa08e4402a0de95785cc"></a>
+<div class="pre_wrapper lang-console">
+<div class="console_code_copy" title="Copy to clipboard"></div>
+<pre class="programlisting prettyprint lang-console">GET /my-index-000001/_search
+{
+  "query": {
+    "match": {
+      "message": "you know for search"
+    }
+  },
+  "collapse": {
+    "field": "user.id"
+  },
+  "rescore" : {
+      "window_size" : 50,
+      "query" : {
+         "rescore_query" : {
+            "match_phrase": {
+                "message": "you know for search"
+            }
+         },
+         "query_weight" : 0.3,
+         "rescore_query_weight" : 1.4
+      }
+   }
+}</pre>
+</div>
+<div class="console_widget" data-snippet="snippets/913.console"></div>
+<div class="warning admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Rescorers are not applied to <a class="xref" href="inner-hits.html" title="Retrieve inner hits"><code class="literal">inner hits</code></a>.</p>
+</div>
+</div>
+<h4><a id="second-level-of-collapsing"></a>Second level of collapsing<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.15/docs/reference/search/search-your-data/collapse-search-results.asciidoc">edit</a></h4>
 <p>A second level of collapsing is also supported and is applied to <code class="literal">inner_hits</code>.</p>
 <p>For example, the following search collapses results by <code class="literal">geo.country_name</code>.
 Within each <code class="literal">geo.country_name</code>, inner hits are collapsed by <code class="literal">user.id</code>.</p>
@@ -331,7 +398,7 @@ Within each <code class="literal">geo.country_name</code>, inner hits are collap
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/895.console"></div>
+<div class="console_widget" data-snippet="snippets/914.console"></div>
 <a id="b5e7ec8c762197206f806ad625fc42b9"></a>
 <div class="pre_wrapper lang-console-result">
 <div class="console_code_copy" title="Copy to clipboard"></div>
@@ -421,7 +488,7 @@ Within each <code class="literal">geo.country_name</code>, inner hits are collap
   }
 }</pre>
 </div>
-<h4><a id="_track_scores_2"></a>Track Scores<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.14/docs/reference/search/search-your-data/collapse-search-results.asciidoc">edit</a></h4>
+<h4><a id="_track_scores_2"></a>Track Scores<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.15/docs/reference/search/search-your-data/collapse-search-results.asciidoc">edit</a></h4>
 <p>When <code class="literal">collapse</code> is used with <code class="literal">sort</code> on a field, scores are not computed.
 Setting <code class="literal">track_scores</code> to true instructs Elasticsearch to compute and track scores.</p>
 </div>

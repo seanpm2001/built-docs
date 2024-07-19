@@ -1,17 +1,12 @@
-PUT index
+POST /_security/role/test_role4
 {
-  "mappings": {
-    "properties": {
-      "price_range": {
-        "type": "keyword"
+  "indices" : [
+    {
+      "names" : [ "*" ],
+      "privileges" : [ "read" ],
+      "field_security" : {
+        "grant" : [ "customer.*" ]
       }
     }
-  }
-}
-
-PUT index/_doc/1
-{
-  "designation": "spoon",
-  "price": 13,
-  "price_range": "10-100"
+  ]
 }

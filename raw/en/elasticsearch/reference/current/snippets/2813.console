@@ -1,30 +1,15 @@
-POST /_ingest/_simulate
+POST /my-index-000001/_close
+
+PUT /my-index-000001/_settings
 {
-  "docs": [
-    {
-      "_index": "my-index",
-      "_id": "123",
-      "_source": {
-        "foo": "bar"
+  "analysis" : {
+    "analyzer":{
+      "content":{
+        "type":"custom",
+        "tokenizer":"whitespace"
       }
-    },
-    {
-      "_index": "my-index",
-      "_id": "456",
-      "_source": {
-        "foo": "rab"
-      }
-    }
-  ],
-  "pipeline_substitutions": {
-    "my-pipeline": {
-      "processors": [
-        {
-          "uppercase": {
-            "field": "foo"
-          }
-        }
-      ]
     }
   }
 }
+
+POST /my-index-000001/_open

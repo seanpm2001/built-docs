@@ -1,46 +1,61 @@
-POST my-data-stream/_async_search
+PUT _watcher/watch/log_errors
 {
-  "runtime_mappings": {
-    "source.ip": {
-      "type": "ip",
-      "script": """
-        String sourceip=grok('%{IPORHOST:sourceip} .*').extract(doc[ "message" ].value)?.sourceip;
-        if (sourceip != null) emit(sourceip);
-      """
+  "metadata" : {
+    "color" : "red"
+  },
+  "trigger" : {
+    "schedule" : {
+      "interval" : "5m"
     }
   },
-  "query": {
-    "bool": {
-      "filter": [
-        {
-          "range": {
-            "@timestamp": {
-              "gte": "now-2y/d",
-              "lt": "now/d"
+  "input" : {
+    "search" : {
+      "request" : {
+        "indices" : "log-events",
+        "body" : {
+          "size" : 0,
+          "query" : { "match" : { "status" : "error" } }
+        }
+      }
+    }
+  },
+  "condition" : {
+    "compare" : { "ctx.payload.hits.total" : { "gt" : 5 }}
+  },
+  "transform" : {
+    "search" : {
+        "request" : {
+          "indices" : "log-events",
+          "body" : {
+            "query" : { "match" : { "status" : "error" } }
+          }
+        }
+    }
+  },
+  "actions" : {
+    "my_webhook" : {
+      "webhook" : {
+        "method" : "POST",
+        "host" : "mylisteninghost",
+        "port" : 9200,
+        "path" : "/{{watch_id}}",
+        "body" : "Encountered {{ctx.payload.hits.total}} errors"
+      }
+    },
+    "email_administrator" : {
+      "email" : {
+        "to" : "sys.admino@host.domain",
+        "subject" : "Encountered {{ctx.payload.hits.total}} errors",
+        "body" : "Too many error in the system, see attached data",
+        "attachments" : {
+          "attached_data" : {
+            "data" : {
+              "format" : "json"
             }
           }
         },
-        {
-          "range": {
-            "source.ip": {
-              "gte": "192.0.2.0",
-              "lte": "192.0.2.255"
-            }
-          }
-        }
-      ]
+        "priority" : "high"
+      }
     }
-  },
-  "fields": [
-    "*"
-  ],
-  "_source": false,
-  "sort": [
-    {
-      "@timestamp": "desc"
-    },
-    {
-      "source.ip": "desc"
-    }
-  ]
+  }
 }

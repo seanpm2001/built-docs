@@ -1,12 +1,11 @@
-GET my-index-000001/_search?pretty
+GET /_search
 {
   "query": {
-    "terms": {
-        "color" : {
-            "index" : "my-index-000001",
-            "id" : "2",
-            "path" : "color"
-        }
+    "more_like_this" : {
+      "fields" : ["title", "description"],
+      "like" : "Once upon a time",
+      "min_term_freq" : 1,
+      "max_query_terms" : 12
     }
   }
 }

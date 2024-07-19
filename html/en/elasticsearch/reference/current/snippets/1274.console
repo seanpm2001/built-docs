@@ -1,11 +1,14 @@
-GET /_search
+GET test-index/_search
 {
   "query": {
-    "range": {
-      "age": {
-        "gte": 10,
-        "lte": 20,
-        "boost": 2.0
+    "nested": {
+      "path": "inference_field.inference.chunks",
+      "query": {
+        "sparse_vector": {
+          "field": "inference_field.inference.chunks.embeddings",
+          "inference_id": "my-inference-id",
+          "query": "mountain lake"
+        }
       }
     }
   }

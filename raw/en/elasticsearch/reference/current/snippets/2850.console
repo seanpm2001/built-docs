@@ -1,4 +1,10 @@
-POST _ml/anomaly_detectors/low_request_rate/_forecast
+PUT _inference/completion/azure_ai_studio_completion
 {
-  "duration": "10d"
+    "service": "azureaistudio",
+    "service_settings": {
+        "api_key": "<api_key>",
+        "target": "<target_uri>",
+        "provider": "<model_provider>",
+        "endpoint_type": "<endpoint_type>"
+    }
 }

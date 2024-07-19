@@ -1,1 +1,1 @@
-POST /_features/_reset
+POST my-new-index-000001/_search?size=0&filter_path=hits.total

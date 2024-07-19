@@ -1,13 +1,10 @@
-POST _cluster/reroute?metric=none
+GET index/_search
 {
-  "commands": [
-    {
-      "allocate_empty_primary": {
-        "index": "my-index",
-        "shard": 0,
-        "node": "my-node",
-        "accept_data_loss": "true"
+  "aggs": {
+    "price_ranges": {
+      "terms": {
+        "field": "price_range"
       }
     }
-  ]
+  }
 }

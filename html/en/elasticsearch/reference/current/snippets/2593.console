@@ -1,11 +1,10 @@
-POST _aliases
+POST _reindex
 {
-  "actions": [
-    {
-      "add": {
-        "index": "my-data-stream",
-        "alias": "my-alias"
-      }
-    }
-  ]
+  "max_docs": 1,
+  "source": {
+    "index": "my-index-000001"
+  },
+  "dest": {
+    "index": "my-new-index-000001"
+  }
 }

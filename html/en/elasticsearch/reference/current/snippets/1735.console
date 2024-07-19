@@ -1,14 +1,10 @@
-PUT /my-index/
+POST /_security/role/cli_or_drivers_minimal
 {
-  "mappings": {
-    "properties": {
-      "@timestamp": {
-        "format": "strict_date_optional_time||epoch_second",
-        "type": "date"
-      },
-      "message": {
-        "type": "wildcard"
-      }
+  "cluster": ["cluster:monitor/main"],
+  "indices": [
+    {
+      "names": ["test"],
+      "privileges": ["read", "indices:admin/get"]
     }
-  }
+  ]
 }

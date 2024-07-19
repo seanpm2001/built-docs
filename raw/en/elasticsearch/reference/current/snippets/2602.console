@@ -1,5 +1,16 @@
-GET /analyze_sample/_analyze
+POST _reindex
 {
-  "field" : "obj1.field1",
-  "text" : "this is a test"
+  "max_docs": 10,
+  "source": {
+    "index": "my-index-000001",
+    "query": {
+      "function_score" : {
+        "random_score" : {},
+        "min_score" : 0.9   
+      }
+    }
+  },
+  "dest": {
+    "index": "my-new-index-000001"
+  }
 }

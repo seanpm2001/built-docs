@@ -1,20 +1,17 @@
-GET /_search
+POST my-image-index/_search
 {
-  "query": {
-    "pinned": {
-      "docs": [
-        {
-          "_index": "my-index-000001",
-          "_id": "1"
-        },
-        {
-          "_id": "4"
+  "size" : 10,
+  "query" : {
+    "bool" : {
+      "must" : {
+        "knn": {
+          "field": "image-vector",
+          "query_vector": [-5, 9, -12],
+          "k": 3
         }
-      ],
-      "organic": {
-        "match": {
-          "description": "iphone"
-        }
+      },
+      "filter" : {
+        "term" : { "file-type" : "png" }
       }
     }
   }

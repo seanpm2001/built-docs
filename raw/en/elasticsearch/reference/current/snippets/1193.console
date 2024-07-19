@@ -1,12 +1,14 @@
-GET /my-index-000001/_search
+GET my_locations/_search
 {
   "query": {
-    "has_parent": {
-      "parent_type": "parent",
-      "query": {
-        "term": {
-          "tag": {
-            "value": "Elasticsearch"
+    "bool": {
+      "must": {
+        "match_all": {}
+      },
+      "filter": {
+        "geo_bounding_box": {
+          "pin.location": {
+            "wkt": "BBOX (-74.1, -71.12, 40.73, 40.01)"
           }
         }
       }

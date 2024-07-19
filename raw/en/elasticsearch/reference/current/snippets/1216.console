@@ -1,19 +1,19 @@
-GET /items/_search
+PUT /example
 {
-  "query": {
-    "bool": {
-      "must": {
-        "match": {
-          "name": "chocolate"
-        }
-      },
-      "should": {
-        "distance_feature": {
-          "field": "production_date",
-          "pivot": "7d",
-          "origin": "now"
-        }
+  "mappings": {
+    "properties": {
+      "location": {
+        "type": "geo_shape"
       }
     }
+  }
+}
+
+POST /example/_doc?refresh
+{
+  "name": "Wind & Wetter, Berlin, Germany",
+  "location": {
+    "type": "point",
+    "coordinates": [ 13.400544, 52.530286 ]
   }
 }

@@ -1,1 +1,1 @@
-DELETE *?expand_wildcards=all
+POST _snapshot/my_repository/_cleanup

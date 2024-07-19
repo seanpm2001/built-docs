@@ -1,7 +1,10 @@
-PUT _snapshot/my_unverified_backup?verify=false
+POST _reindex
 {
-  "type": "fs",
-  "settings": {
-    "location": "my_unverified_backup_location"
+  "source": {
+    "index": "mylogs-*"
+  },
+  "dest": {
+    "index": "mylogs",
+    "op_type": "create"
   }
 }

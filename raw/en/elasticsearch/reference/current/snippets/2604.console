@@ -1,5 +1,19 @@
-GET /_analyze
+POST _reindex
 {
-  "filter" : ["lowercase"],
-  "text" : "BaR"
+  "source": {
+    "remote": {
+      "host": "http://otherhost:9200",
+      "username": "user",
+      "password": "pass"
+    },
+    "index": "my-index-000001",
+    "query": {
+      "match": {
+        "test": "data"
+      }
+    }
+  },
+  "dest": {
+    "index": "my-new-index-000001"
+  }
 }

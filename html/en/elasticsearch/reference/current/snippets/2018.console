@@ -1,4 +1,4 @@
-GET /_watcher/_query/watches
+POST /_security/saml/prepare
 {
-  "size" : 100
+  "realm" : "saml1"
 }

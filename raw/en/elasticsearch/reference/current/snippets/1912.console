@@ -1,7 +1,6 @@
-PUT _cluster/settings
+### On clusterA ###
+PUT /kibana_sample_data_ecommerce/_ccr/follow?wait_for_active_shards=1
 {
-  "persistent": {
-    "ingest.geoip.downloader.enabled": false,
-    "indices.lifecycle.history_index_enabled": false
-  }
+  "remote_cluster": "clusterB",
+  "leader_index": "kibana_sample_data_ecommerce2"
 }

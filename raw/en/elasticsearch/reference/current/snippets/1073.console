@@ -1,15 +1,24 @@
-GET /_search?include_named_queries_score
+PUT _cluster/settings
 {
-  "query": {
-    "bool": {
-      "should": [
-        { "match": { "name.first": { "query": "shay", "_name": "first" } } },
-        { "match": { "name.last": { "query": "banon", "_name": "last" } } }
-      ],
-      "filter": {
-        "terms": {
-          "name.last": [ "banon", "kimchy" ],
-          "_name": "test"
+  "persistent": {
+    "cluster": {
+      "remote": {
+        "cluster_one": {
+          "seeds": [
+            "35.238.149.1:9300"
+          ],
+          "skip_unavailable": true
+        },
+        "cluster_two": {
+          "seeds": [
+            "35.238.149.2:9300"
+          ],
+          "skip_unavailable": false
+        },
+        "cluster_three": { 
+          "seeds": [
+            "35.238.149.3:9300"
+          ]
         }
       }
     }

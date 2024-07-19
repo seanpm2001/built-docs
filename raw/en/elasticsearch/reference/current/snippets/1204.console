@@ -1,11 +1,16 @@
-GET /_search
+GET /my_locations/_search
 {
   "query": {
-    "span_first": {
-      "match": {
-        "span_term": { "user.id": "kimchy" }
+    "bool": {
+      "must": {
+        "match_all": {}
       },
-      "end": 3
+      "filter": {
+        "geo_distance": {
+          "distance": "12km",
+          "pin.location": "drm3btev3e86"
+        }
+      }
     }
   }
 }

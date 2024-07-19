@@ -1,17 +1,6 @@
-GET bicycles,other_cycles/_search
+PUT /_security/role_mapping/admins
 {
-  "query": {
-    "bool": {
-      "must": {
-        "match": {
-          "description": "dutch"
-        }
-      },
-      "filter": {
-        "term": {
-          "cycle_type": "bicycle"
-        }
-      }
-    }
-  }
+  "roles" : [ "monitoring", "user" ],
+  "rules" : { "field" : { "groups" : "cn=admins,dc=example,dc=com" } },
+  "enabled": true
 }

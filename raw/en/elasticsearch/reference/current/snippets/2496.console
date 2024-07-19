@@ -1,9 +1,4 @@
-POST my-index-000001/_update_by_query
+POST /my-time-series-index/_downsample/my-downsampled-time-series-index
 {
-  "query": {
-    "term": {
-      "user.id": "kimchy"
-    }
-  },
-  "max_docs": 1
+    "fixed_interval": "1d"
 }

@@ -1,1 +1,4 @@
-GET _cat/shards/my-index-*
+POST /_search
+{
+  "size": "1000"
+}

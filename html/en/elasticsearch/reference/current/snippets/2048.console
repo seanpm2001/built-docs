@@ -1,15 +1,6 @@
-PUT index
+PUT /_security/role_mapping/basic_user
 {
-  "mappings": {
-    "dynamic_templates": [
-      {
-        "strings": {
-          "match_mapping_type": "string",
-          "mapping": {
-            "type": "keyword"
-          }
-        }
-      }
-    ]
-  }
+  "roles" : [ "user" ],
+  "rules" : { "field" : { "dn" : "cn=John Doe,ou=example,o=com" } },
+  "enabled": true
 }

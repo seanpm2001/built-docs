@@ -1,15 +1,28 @@
-POST _reindex
+POST my-index-000001/_delete_by_query
 {
-  "source": {
-    "index": "source",
-    "query": {
-      "match": {
-        "company": "cat"
+  "slice": {
+    "id": 0,
+    "max": 2
+  },
+  "query": {
+    "range": {
+      "http.response.bytes": {
+        "lt": 2000000
       }
     }
+  }
+}
+POST my-index-000001/_delete_by_query
+{
+  "slice": {
+    "id": 1,
+    "max": 2
   },
-  "dest": {
-    "index": "dest",
-    "routing": "=cat"
+  "query": {
+    "range": {
+      "http.response.bytes": {
+        "lt": 2000000
+      }
+    }
   }
 }

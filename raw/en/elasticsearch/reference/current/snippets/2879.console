@@ -1,1 +1,31 @@
-POST _ml/anomaly_detectors/low_request_rate/model_snapshots/1828371/_upgrade?timeout=45m&wait_for_completion=true
+POST /_ingest/pipeline/_simulate
+{
+  "pipeline" :
+  {
+    "description": "_description",
+    "processors": [
+      {
+        "set" : {
+          "field" : "field2",
+          "value" : "_value"
+        }
+      }
+    ]
+  },
+  "docs": [
+    {
+      "_index": "index",
+      "_id": "id",
+      "_source": {
+        "foo": "bar"
+      }
+    },
+    {
+      "_index": "index",
+      "_id": "id",
+      "_source": {
+        "foo": "rab"
+      }
+    }
+  ]
+}

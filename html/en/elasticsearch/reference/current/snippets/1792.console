@@ -1,5 +1,9 @@
-PUT my-index/_settings
+GET my-index/_search
 {
-  "index.routing.allocation.require.data": null,
-  "index.routing.allocation.include._tier_preference": "data_hot"
+  "query": {
+    "match": {
+      "http.clientip": "40.135.0.0"
+    }
+  },
+  "fields" : ["http.clientip"]
 }

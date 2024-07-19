@@ -1,5 +1,4 @@
-POST /_security/saml/logout
+POST _snapshot/my_repository/my_snapshot_2099.05.06/_restore
 {
-  "token" : "46ToAxZVaXVVZTVKOVF5YU04ZFJVUDVSZlV3",
-  "refresh_token": "mJdXLtmvTUSpoLwMvdBt_w"
+  "indices": "my-index,logs-my_app-default"
 }

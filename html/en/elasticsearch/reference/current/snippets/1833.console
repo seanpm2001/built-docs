@@ -1,1 +1,17 @@
-GET sample_weblogs_by_clientip/_search
+PUT _ilm/policy/datastream_policy
+{
+  "policy": {
+    "phases": {
+      "hot": {
+        "actions": {
+          "rollover": {
+            "max_docs": 1
+          },
+          "downsample": {
+  	          "fixed_interval": "1h"
+  	      }
+        }
+      }
+    }
+  }
+}

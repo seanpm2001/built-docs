@@ -1,1 +1,5 @@
-POST /_security/service/elastic/fleet-server/credential/token/token1,token2/_clear_cache
+PUT place_path_category/_doc/1
+{
+  "suggest": ["timmy's", "starbucks", "dunkin donuts"],
+  "cat": ["cafe", "food"]
+}

@@ -1,17 +1,1 @@
-POST _search
-{
-  "suggest": {
-    "my-suggest-1" : {
-      "text" : "tring out Elasticsearch",
-      "term" : {
-        "field" : "message"
-      }
-    },
-    "my-suggest-2" : {
-      "text" : "kmichy",
-      "term" : {
-        "field" : "user.id"
-      }
-    }
-  }
-}
+POST _ml/trained_models/elastic__distilbert-base-uncased-finetuned-conll03-english/deployment/_start?wait_for=started&timeout=1m

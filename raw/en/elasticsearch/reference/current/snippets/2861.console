@@ -1,5 +1,8 @@
-GET _ml/anomaly_detectors/job-*/results/overall_buckets
+PUT _inference/text_embedding/hugging-face-embeddings
 {
-  "overall_score": 80,
-  "start": "1403532000000"
+  "service": "hugging_face",
+  "service_settings": {
+    "api_key": "<access_token>",
+    "url": "<url_endpoint>"
+  }
 }

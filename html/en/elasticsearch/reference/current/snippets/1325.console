@@ -1,25 +1,19 @@
-GET /_search
+GET /my-index-000001/_explain/0
 {
-  "runtime_mappings": {
-    "day_of_week": {
-      "type": "keyword",
-      "script": """
-        emit(doc['timestamp'].value.dayOfWeekEnum
-          .getDisplayName(TextStyle.FULL, Locale.ROOT))
-      """
-    }
-  },
-  "size": 0,
-  "aggs": {
-    "my_buckets": {
-      "composite": {
-        "sources": [
-          {
-            "dow": {
-              "terms": { "field": "day_of_week" }
-            }
+  "query": {
+    "script_score": {
+      "query": {
+        "match": { "message": "elasticsearch" }
+      },
+      "script": {
+        "source": """
+          long count = doc['count'].value;
+          double normalizedCount = count / 10;
+          if (explanation != null) {
+            explanation.set('normalized count = count / 10 = ' + count + ' / 10 = ' + normalizedCount);
           }
-        ]
+          return normalizedCount;
+        """
       }
     }
   }

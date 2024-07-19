@@ -1,5 +1,5 @@
-### On clusterB ###
-POST kibana_sample_data_ecommerce2/_doc/
+PUT my-index/_settings
 {
-  "user": "kimchy"
+  "index.routing.allocation.require.data": null,
+  "index.routing.allocation.include._tier_preference": "data_warm,data_hot"
 }

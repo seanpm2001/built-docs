@@ -1,19 +1,13 @@
-PUT /example
+GET /_search
 {
-  "mappings": {
-    "properties": {
-      "geometry": {
-        "type": "shape"
-      }
+  "query": {
+    "query_string": {
+      "fields": [
+        "title",
+        "content"
+      ],
+      "query": "this that thus",
+      "minimum_should_match": 2
     }
-  }
-}
-
-PUT /example/_doc/1?refresh=wait_for
-{
-  "name": "Lucky Landing",
-  "geometry": {
-    "type": "point",
-    "coordinates": [ 1355.400544, 5255.530286 ]
   }
 }

@@ -1,1 +1,4 @@
-GET /_cluster/settings?flat_settings
+PUT _settings
+{
+  "index.number_of_replicas": 1
+}

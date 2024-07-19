@@ -1,17 +1,8 @@
-POST /_security/role/remote-replication
+PUT test-index
 {
-  "cluster": [
-    "read_ccr"
-  ],
-  "indices": [
-    {
-      "names": [
-        "leader-index-name"
-      ],
-      "privileges": [
-        "monitor",
-        "read"
-      ]
-    }
-  ]
+  "settings": {
+    "number_of_shards": 1,
+    "number_of_replicas": 1,
+    "index.lifecycle.name": "my_policy"
+  }
 }

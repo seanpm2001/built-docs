@@ -1,15 +1,4 @@
-PUT my-index-000001
+PUT _connector/my-connector/_index_name
 {
-   "mappings": {
-       "properties": {
-          "counter": {
-             "type": "integer",
-             "store": false
-          },
-          "tags": {
-             "type": "keyword",
-             "store": true
-          }
-       }
-   }
+    "index_name": "data-from-my-google-drive"
 }

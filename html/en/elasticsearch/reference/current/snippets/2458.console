@@ -1,5 +1,21 @@
-PUT my-index-000001/_doc/2?routing=user1
+PUT _connector/my-g-drive-connector/_filtering
 {
-  "counter" : 1,
-  "tags" : ["env2"]
+    "rules": [
+         {
+            "field": "file_extension",
+            "id": "exclude-txt-files",
+            "order": 0,
+            "policy": "exclude",
+            "rule": "equals",
+            "value": "txt"
+        },
+        {
+            "field": "_",
+            "id": "DEFAULT",
+            "order": 1,
+            "policy": "include",
+            "rule": "regex",
+            "value": ".*"
+        }
+    ]
 }

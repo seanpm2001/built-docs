@@ -1,8 +1,7 @@
-PUT _inference/completion/openai-completion
+PUT /my_source_index/_settings
 {
-    "service": "openai",
-    "service_settings": {
-        "api_key": "<api_key>",
-        "model_id": "gpt-3.5-turbo"
-    }
+  "settings": {
+    "index.number_of_replicas": 0,                               
+    "index.routing.allocation.require._name": "shrink_node_name" 
+  }
 }

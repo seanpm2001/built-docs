@@ -1,1 +1,5 @@
-GET _connector?index_name=search-google-drive
+# All groups with all stats
+GET /_nodes/stats?groups=_all
+
+# Some groups from just the indices stats
+GET /_nodes/stats/indices?groups=foo,bar

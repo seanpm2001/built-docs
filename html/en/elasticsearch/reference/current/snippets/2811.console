@@ -1,31 +1,6 @@
-POST /_ingest/_simulate
+PUT /my-index-000001/_settings
 {
-  "docs": [
-    {
-      "_index": "my-index",
-      "_id": "id",
-      "_source": {
-        "foo": "bar"
-      }
-    },
-    {
-      "_index": "my-index",
-      "_id": "id",
-      "_source": {
-        "foo": "rab"
-      }
-    }
-  ],
-  "pipeline_substitutions": {
-    "my-pipeline": {
-      "processors": [
-        {
-          "set": {
-            "field": "field3",
-            "value": "value3"
-          }
-        }
-      ]
-    }
+  "index" : {
+    "refresh_interval" : "1s"
   }
 }

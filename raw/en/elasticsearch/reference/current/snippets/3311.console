@@ -1,9 +1,6 @@
-POST _reindex
+POST index_1/_close
+
+POST /_snapshot/my_repository/snapshot_2/_restore?wait_for_completion=true
 {
-  "source": {
-    "index": "my-index-000001"
-  },
-  "dest": {
-    "index": "my-index-000002"
-  }
+  "indices": "index_1"
 }

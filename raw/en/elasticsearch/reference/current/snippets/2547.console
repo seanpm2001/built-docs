@@ -1,20 +1,7 @@
-POST _reindex
+POST test/_update/1
 {
-  "source": {
-    "remote": {
-      "host": "http://otherhost:9200",
-      ...,
-      "socket_timeout": "1m",
-      "connect_timeout": "10s"
-    },
-    "index": "source",
-    "query": {
-      "match": {
-        "test": "data"
-      }
-    }
+  "doc": {
+    "name": "new_name"
   },
-  "dest": {
-    "index": "dest"
-  }
+  "detect_noop": false
 }

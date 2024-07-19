@@ -1,4 +1,11 @@
-PUT _application/search_application/my_search_application
+PUT _inference/text_embedding/amazon_bedrock_embeddings
 {
-  "indices": ["index1", "index2"]
+    "service": "amazonbedrock",
+    "service_settings": {
+        "access_key": "<aws_access_key>",
+        "secret_key": "<aws_secret_key>",
+        "region": "<region>",
+        "provider": "<provider>",
+        "model": "<model_id>"
+    }
 }

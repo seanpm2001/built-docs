@@ -1,7 +1,11 @@
-PUT /_snapshot/my_repository
+POST /_security/_query/role
 {
-  "type": "fs",
-  "settings": {
-    "location": "my_backup_location"
-  }
+  "query": {
+    "match": {
+      "description": {
+        "query": "user access"
+      }
+    }
+  },
+  "size": 1
 }

@@ -1,32 +1,18 @@
-PUT my-index-000001
+PUT index_1/_doc/1
 {
-  "mappings": {
-    "properties": {
-      "message": {
-        "type": "keyword",
-        "ignore_above": 20
-      }
-    }
-  }
+  "text": "Document in index 1"
 }
 
-PUT my-index-000001/_doc/1
+PUT index_2/_doc/2?refresh=true
 {
-  "message": "Syntax error"
+  "text": "Document in index 2"
 }
 
-PUT my-index-000001/_doc/2
+GET index_1,index_2/_search
 {
-  "message": "Syntax error with some long stacktrace"
-}
-
-GET my-index-000001/_search
-{
-  "aggs": {
-    "messages": {
-      "terms": {
-        "field": "message"
-      }
+  "query": {
+    "terms": {
+      "_tier": ["data_hot", "data_warm"]
     }
   }
 }

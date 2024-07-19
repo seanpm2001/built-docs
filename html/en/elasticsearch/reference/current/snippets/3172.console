@@ -1,8 +1,4 @@
-GET /_security/_query/user?with_profile_uid=true
+DELETE /_security/role
 {
-    "query": {
-        "prefix": {
-            "roles": "other"
-        }
-    }
+    "names": ["my_admin_role", "not_an_existing_role"]
 }

@@ -1,2 +1,15 @@
-### On clusterA ###
-GET kibana_sample_data_ecommerce/_search?q=kimchy
+PUT _ilm/policy/shrink-index
+{
+  "policy": {
+    "phases": {
+      "warm": {
+        "min_age": "5d",
+        "actions": {
+          "shrink": {
+            "number_of_shards": 1
+          }
+        }
+      }
+    }
+  }
+}

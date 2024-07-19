@@ -1,8 +1,28 @@
-PUT /_security/role_mapping/oidc-example
+# Delete the original index
+DELETE my-index
+
+# Reindex the restored index to rename it
+POST _reindex
 {
-  "roles": [ "example_role" ],
-  "enabled": true,
-  "rules": {
-    "field": { "realm.name": "oidc1" }
+  "source": {
+    "index": "restored-my-index"
+  },
+  "dest": {
+    "index": "my-index"
+  }
+}
+
+# Delete the original data stream
+DELETE _data_stream/logs-my_app-default
+
+# Reindex the restored data stream to rename it
+POST _reindex
+{
+  "source": {
+    "index": "restored-logs-my_app-default"
+  },
+  "dest": {
+    "index": "logs-my_app-default",
+    "op_type": "create"
   }
 }

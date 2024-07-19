@@ -1,19 +1,10 @@
-POST _reindex
+POST test/_update/1
 {
-  "source": {
-    "remote": {
-      "host": "http://otherhost:9200",
-      "username": "user",
-      "password": "pass"
-    },
-    "index": "my-index-000001",
-    "query": {
-      "match": {
-        "test": "data"
-      }
+  "script": {
+    "source": "if (ctx._source.tags.contains(params.tag)) { ctx.op = 'delete' } else { ctx.op = 'noop' }",
+    "lang": "painless",
+    "params": {
+      "tag": "green"
     }
-  },
-  "dest": {
-    "index": "my-new-index-000001"
   }
 }

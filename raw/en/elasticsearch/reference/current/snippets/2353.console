@@ -1,1 +1,1 @@
-GET /_internal/desired_nodes/_latest
+GET _cat/shards?h=index,shard,prirep,state,unassigned.reason

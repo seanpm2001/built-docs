@@ -1,8 +1,27 @@
-PUT /_enrich/policy/my-policy
+PUT test
 {
-  "match": {
-    "indices": "users",
-    "match_field": "email",
-    "enrich_fields": ["first_name", "last_name", "city", "zip", "state"]
+  "mappings": {
+    "dynamic": false,  
+    "properties": {
+      "text": {"type": "text"}
+    }
+  }
+}
+
+POST test/_doc?refresh
+{
+  "text": "words words",
+  "flag": "bar"
+}
+POST test/_doc?refresh
+{
+  "text": "words words",
+  "flag": "foo"
+}
+PUT test/_mapping  
+{
+  "properties": {
+    "text": {"type": "text"},
+    "flag": {"type": "text", "analyzer": "keyword"}
   }
 }

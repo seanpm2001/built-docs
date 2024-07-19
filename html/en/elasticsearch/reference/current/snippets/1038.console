@@ -1,12 +1,10 @@
-GET /_analyze
+PUT _inference/text_embedding/azure_ai_studio_embeddings
 {
-  "tokenizer": "standard",
-  "filter" : [
-    "lowercase",
-    {
-      "type": "synonym_graph",
-      "synonyms": ["pc => personal computer", "computer, pc, laptop"]
+    "service": "azureaistudio",
+    "service_settings": {
+        "api_key": "<api_key>",
+        "target": "<target_uri>",
+        "provider": "<provider>",
+        "endpoint_type": "<endpoint_type>"
     }
-  ],
-  "text" : "Check how PC synonyms work"
 }

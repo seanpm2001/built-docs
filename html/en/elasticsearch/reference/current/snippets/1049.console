@@ -1,12 +1,14 @@
-POST _application/search_application/my-search-app/_search
+PUT _ingest/pipeline/hugging_face_embeddings
 {
-  "params": {
-    "query_string": "What is the most popular brand of coffee sold in the United States?",
-    "elser_fields": ["title", "meta_description"],
-    "text_fields": ["title", "meta_description"],
-    "rrf": {
-      "window_size": 50,
-      "rank_constant": 25
+  "processors": [
+    {
+      "inference": {
+        "model_id": "hugging_face_embeddings",
+        "input_output": {
+          "input_field": "content",
+          "output_field": "content_embedding"
+        }
+      }
     }
-  }
+  ]
 }

@@ -1,24 +1,13 @@
-PUT /imdb
+PUT /test/_doc/1
 {
-  "mappings": {
-    "properties": {
-      "title": {
-        "type": "text",
-        "term_vector": "yes"
-      },
-      "description": {
-        "type": "text"
-      },
-      "tags": {
-        "type": "text",
-        "fields": {
-          "raw": {
-            "type": "text",
-            "analyzer": "keyword",
-            "term_vector": "yes"
-          }
-        }
-      }
+  "location": [
+    {
+      "coordinates": [46.25,20.14],
+      "type": "point"
+    },
+    {
+      "coordinates": [47.49,19.04],
+      "type": "point"
     }
-  }
+  ]
 }

@@ -1,15 +1,12 @@
-GET index/_search
+POST /_security/role/test_role3
 {
-  "aggs": {
-    "price_ranges": {
-      "range": {
-        "field": "price",
-        "ranges": [
-          { "to": 10 },
-          { "from": 10, "to": 100 },
-          { "from": 100 }
-        ]
+  "indices" : [
+    {
+      "names" : [ "*" ],
+      "privileges" : [ "read" ],
+      "field_security" : {
+        "grant" : [ "customer.handle" ]
       }
     }
-  }
+  ]
 }

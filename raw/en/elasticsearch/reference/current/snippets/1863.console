@@ -1,1 +1,7 @@
-POST _snapshot/my_unverified_backup/_verify
+PUT _cluster/settings
+{
+  "persistent": {
+    "indices.lifecycle.poll_interval": null
+  }
+}
+

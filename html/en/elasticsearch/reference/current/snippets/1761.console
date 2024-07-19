@@ -1,10 +1,11 @@
-PUT _ilm/policy/my_policy
+GET my-index-000001/_search
 {
-  "policy": {
-    "phases": {
-      "delete": {
-        "actions": {
-          "delete" : { }
+  "script_fields": {
+    "my_doubled_field": {
+      "script": {
+        "source": "doc['my_field'].value * params['multiplier']",
+        "params": {
+          "multiplier": 2
         }
       }
     }

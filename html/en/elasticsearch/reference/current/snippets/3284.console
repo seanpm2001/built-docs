@@ -1,1 +1,14 @@
-POST _watcher/watch/my_watch/_ack
+POST /_security/cross_cluster/api_key
+{
+  "name": "my-cross-cluster-api-key",
+  "access": {
+    "search": [
+      {
+        "names": ["logs*"]
+      }
+    ]
+  },
+  "metadata": {
+    "application": "search"
+  }
+}

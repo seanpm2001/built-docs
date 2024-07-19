@@ -16,7 +16,6 @@
 <meta name="DC.type" content="Learn/Docs/Elasticsearch/Reference/8.15"/>
 <meta name="DC.subject" content="Elasticsearch"/>
 <meta name="DC.identifier" content="8.15"/>
-<meta name="robots" content="noindex,nofollow"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -102,9 +101,6 @@
                 <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   
-<div class="page_header">
-This documentation contains work-in-progress information for future Elastic Stack and Cloud releases. Use the version selector to view supported release docs. It also contains some Elastic Cloud serverless information. Check out our <a href="https://www.elastic.co/docs/current/serverless">serverless docs</a> for more details.
-</div>
 <div class="navheader">
 <span class="prev">
 <a href="document-level-security.html">« Document level security</a>
@@ -122,14 +118,14 @@ This documentation contains work-in-progress information for future Elastic Stac
 <span class="chevron-right">›</span><span class="breadcrumb-link"><a href="authorization.html">User authorization</a></span>
 </div>
 <div>
-<div><h1 class="title"><a id="id-1"></a>Field level security</h1><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.15/docs/reference/security/authorization/field-level-security.asciidoc">edit</a></div>
+<div><h1 class="title"><a id="id-1"></a>Field level security</h1><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.15/docs/reference/security/authorization/field-level-security.asciidoc">edit</a></div>
 </div>
 <!--EXTRA-->
 </div>
 <div id="content">
 <div class="section xpack">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="field-level-security"></a>Field level security<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.15/docs/reference/security/authorization/field-level-security.asciidoc">edit</a></h2>
+<h2 class="title"><a id="field-level-security"></a>Field level security<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.15/docs/reference/security/authorization/field-level-security.asciidoc">edit</a></h2>
 </div></div></div>
 <p>Field level security restricts the fields that users have read access to.
 In particular, it restricts which fields can be accessed from document-based
@@ -156,7 +152,7 @@ thus bound to a well-defined set of data streams or indices (and potentially a s
   ]
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2036.console"></div>
+<div class="console_widget" data-snippet="snippets/2035.console"></div>
 <p>Access to the following metadata fields is always allowed: <code class="literal">_id</code>,
 <code class="literal">_type</code>, <code class="literal">_parent</code>, <code class="literal">_routing</code>, <code class="literal">_timestamp</code>, <code class="literal">_ttl</code>, <code class="literal">_size</code> and <code class="literal">_index</code>. If
 you specify an empty list of fields, only these metadata fields are accessible.</p>
@@ -184,7 +180,7 @@ example grants read access to all fields that start with an <code class="literal
   ]
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2037.console"></div>
+<div class="console_widget" data-snippet="snippets/2036.console"></div>
 <p>Use the dot notations to refer to nested fields in more complex documents. For
 example, assuming the following document:</p>
 <div class="pre_wrapper lang-js">
@@ -215,7 +211,7 @@ field:</p>
   ]
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2038.console"></div>
+<div class="console_widget" data-snippet="snippets/2037.console"></div>
 <p>This is where wildcard support shines. For example, use <code class="literal">customer.*</code> to enable
 only read access to the <code class="literal">customer</code> data:</p>
 <a id="bb28d1f7f3f09f5061d7f4351aee89fc"></a>
@@ -234,7 +230,7 @@ only read access to the <code class="literal">customer</code> data:</p>
   ]
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2039.console"></div>
+<div class="console_widget" data-snippet="snippets/2038.console"></div>
 <p>You can deny permission to access fields with the following syntax:</p>
 <a id="7a987cd13383bdc990155d7bd5fb221e"></a>
 <div class="pre_wrapper lang-console">
@@ -253,7 +249,7 @@ only read access to the <code class="literal">customer</code> data:</p>
   ]
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2040.console"></div>
+<div class="console_widget" data-snippet="snippets/2039.console"></div>
 <p>The following rules apply:</p>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -289,7 +285,7 @@ those which match the pattern in the denied fields.
   ]
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2041.console"></div>
+<div class="console_widget" data-snippet="snippets/2040.console"></div>
 <p>In the above example, users can read all fields with the prefix "customer."
 except for "customer.handle".</p>
 <p>An empty array for <code class="literal">grant</code> (for example, <code class="literal">"grant" : []</code>) means that access has
@@ -328,7 +324,7 @@ POST /_security/role/test_role8
   ]
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2042.console"></div>
+<div class="console_widget" data-snippet="snippets/2041.console"></div>
 <p>The resulting permission is equal to:</p>
 <div class="pre_wrapper lang-js">
 <div class="console_code_copy" title="Copy to clipboard"></div>

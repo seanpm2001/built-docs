@@ -1,41 +1,5 @@
-PUT index
+POST /_security/oidc/logout
 {
-  "settings": {
-    "analysis": {
-      "analyzer": {
-        "english_exact": {
-          "tokenizer": "standard",
-          "filter": [
-            "lowercase"
-          ]
-        }
-      }
-    }
-  },
-  "mappings": {
-    "properties": {
-      "body": {
-        "type": "text",
-        "analyzer": "english",
-        "fields": {
-          "exact": {
-            "type": "text",
-            "analyzer": "english_exact"
-          }
-        }
-      }
-    }
-  }
+  "token" : "dGhpcyBpcyBub3QgYSByZWFsIHRva2VuIGJ1dCBpdCBpcyBvbmx5IHRlc3QgZGF0YS4gZG8gbm90IHRyeSB0byByZWFkIHRva2VuIQ==",
+  "refresh_token": "vLBPvmAB6KvwvJZr27cS"
 }
-
-PUT index/_doc/1
-{
-  "body": "Ski resort"
-}
-
-PUT index/_doc/2
-{
-  "body": "A pair of skis"
-}
-
-POST index/_refresh

@@ -1,13 +1,5 @@
-POST music/_search
+PUT /_nodes/USpTGYaBSIKbgSUJR2Z9lg/shutdown
 {
-  "_source": "suggest",    
-  "suggest": {
-    "song-suggest": {
-      "prefix": "nir",
-      "completion": {
-        "field": "suggest",
-        "size": 5          
-      }
-    }
-  }
+  "type": "restart",
+  "reason": "Demonstrating how the node shutdown API works"
 }

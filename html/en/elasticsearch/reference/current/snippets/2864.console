@@ -1,1 +1,8 @@
-GET _ml/calendars/planned-outages/events?start=1635638400000&end=1635724800000
+PUT _inference/completion/openai-completion
+{
+    "service": "openai",
+    "service_settings": {
+        "api_key": "<api_key>",
+        "model_id": "gpt-3.5-turbo"
+    }
+}

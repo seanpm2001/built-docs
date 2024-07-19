@@ -1,32 +1,8 @@
-GET example-index/_search
+PUT _ml/trained_models/elastic__distilbert-base-uncased-finetuned-conll03-english/vocabulary
 {
-    "retriever": {
-        "rrf": {
-            "retrievers": [
-                {
-                    "standard": {
-                        "query": {
-                            "term": {
-                                "text": "blue shoes sale"
-                            }
-                        }
-                    }
-                },
-                {
-                    "standard": {
-                        "query": {
-                            "text_expansion":{
-                                "ml.tokens":{
-                                    "model_id":"my_elser_model",
-                                    "model_text":"What blue shoes are on sale?"
-                                }
-                            }
-                        }
-                    }
-                }
-            ],
-            "window_size": 50,
-            "rank_constant": 20
-        }
-    }
+  "vocabulary": [
+    "[PAD]",
+    "[unused0]",
+    ...
+  ]
 }

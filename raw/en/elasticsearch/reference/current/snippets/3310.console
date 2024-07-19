@@ -1,11 +1,9 @@
-PUT my-index-000002
+POST /_snapshot/my_repository/snapshot_2/_restore?wait_for_completion=true
 {
-  "mappings": {
-    "properties": {
-      "datetime": {
-        "type": "date",
-        "format": "uuuu/MM/dd HH:mm:ss||uuuu/MM/dd||epoch_millis"
-      }
-    }
-  }
+  "indices": "index_1,index_2",
+  "ignore_unavailable": true,
+  "include_global_state": false,
+  "rename_pattern": "index_(.+)",
+  "rename_replacement": "restored_index_$1",
+  "include_aliases": false
 }

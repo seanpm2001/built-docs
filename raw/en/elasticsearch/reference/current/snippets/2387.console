@@ -1,1 +1,1 @@
-DELETE _connector/another-connector?delete_sync_jobs=true
+POST /_internal/prevalidate_node_removal?names=node1,node2

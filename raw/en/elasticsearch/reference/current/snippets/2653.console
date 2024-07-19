@@ -1,1 +1,11 @@
-GET /my-index-000001/_field_usage_stats
+POST _aliases
+{
+  "actions": [
+    {
+      "add": {
+        "index": "my-data-stream",
+        "alias": "my-alias"
+      }
+    }
+  ]
+}

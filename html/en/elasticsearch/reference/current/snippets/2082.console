@@ -1,1 +1,6 @@
-GET _nodes/stats?filter_path=nodes.*.jvm.mem.pools.old
+GET .watcher-history*/_search?pretty
+{
+  "query" : {
+    "match" : { "result.condition.met" : true }
+  }
+}

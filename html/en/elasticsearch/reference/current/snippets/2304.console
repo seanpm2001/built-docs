@@ -1,7 +1,8 @@
-GET _cluster/allocation/explain
+PUT /_autoscaling/policy/my_autoscaling_policy
 {
-  "index": "my-index-000001",
-  "shard": 0,
-  "primary": false,
-  "current_node": "my-node"
+  "roles" : [ "data_hot" ],
+  "deciders": {
+    "fixed": {
+    }
+  }
 }

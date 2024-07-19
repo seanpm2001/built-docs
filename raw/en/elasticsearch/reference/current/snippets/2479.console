@@ -1,10 +1,4 @@
-POST test/_update/1
+PUT _connector/_sync_job/my-connector-sync-job/_error
 {
-  "script": {
-    "source": "ctx._source.tags.add(params.tag)",
-    "lang": "painless",
-    "params": {
-      "tag": "blue"
-    }
-  }
+    "error": "some-error"
 }

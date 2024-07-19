@@ -1,8 +1,14 @@
 GET /_search
 {
   "query": {
-    "term" : {
-      "query.extraction_result" : "failed"
+    "has_child": {
+      "type": "child",
+      "query": {
+        "match_all": {}
+      },
+      "max_children": 10,
+      "min_children": 2,
+      "score_mode": "min"
     }
   }
 }

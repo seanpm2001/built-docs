@@ -1,1 +1,14 @@
-POST /_security/api_key/yVGMr3QByxdh1MSaicYx/_clear_cache
+POST music/_search?pretty
+{
+  "suggest": {
+    "song-suggest": {
+      "prefix": "nor",
+      "completion": {
+        "field": "suggest",
+        "fuzzy": {
+          "fuzziness": 2
+        }
+      }
+    }
+  }
+}

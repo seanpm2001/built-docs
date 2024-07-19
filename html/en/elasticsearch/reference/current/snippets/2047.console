@@ -1,11 +1,6 @@
-PUT index
+PUT /_security/role_mapping/admin_user
 {
-  "mappings": {
-    "properties": {
-      "foo": {
-        "type": "integer",
-        "index": false
-      }
-    }
-  }
+  "roles" : [ "monitoring" ],
+  "rules" : { "field" : { "dn" : "cn=Admin,ou=example,o=com" } },
+  "enabled": true
 }

@@ -1,16 +1,10 @@
-PUT _synonyms/my-synonyms-set
+POST /_security/user/jacknich
 {
-  "synonyms_set": [
-    {
-      "id": "test-1",
-      "synonyms": "hello, hi"
-    },
-    {
-      "synonyms": "bye, goodbye"
-    },
-    {
-      "id": "test-2",
-      "synonyms": "test => check"
-    }
-  ]
+  "password" : "l0ng-r4nd0m-p@ssw0rd",
+  "roles" : [ "admin", "other_role1" ],
+  "full_name" : "Jack Nicholson",
+  "email" : "jacknich@example.com",
+  "metadata" : {
+    "intelligence" : 7
+  }
 }

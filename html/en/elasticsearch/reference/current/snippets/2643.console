@@ -1,23 +1,10 @@
-PUT /_template/template_1
+POST /_query
 {
-  "index_patterns" : ["te*"],
-  "order" : 0,
-  "settings" : {
-    "number_of_shards" : 1
-  },
-  "mappings" : {
-    "_source" : { "enabled" : false }
-  }
-}
-
-PUT /_template/template_2
-{
-  "index_patterns" : ["tes*"],
-  "order" : 1,
-  "settings" : {
-    "number_of_shards" : 1
-  },
-  "mappings" : {
-    "_source" : { "enabled" : true }
-  }
+  "query": """
+    FROM library
+    | EVAL year = DATE_TRUNC(1 YEARS, release_date)
+    | STATS MAX(page_count) BY year
+    | SORT year
+    | LIMIT 5
+  """
 }

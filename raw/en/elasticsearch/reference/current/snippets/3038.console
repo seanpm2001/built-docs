@@ -1,1 +1,1 @@
-GET _field_caps?fields=rating,title&include_unmapped
+GET /_async_search/status/FmRldE8zREVEUzA2ZVpUeGs2ejJFUFEaMkZ5QTVrSTZSaVN3WlNFVmtlWHJsdzoxMDc=

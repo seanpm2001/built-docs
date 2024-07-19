@@ -1,28 +1,6 @@
-GET example-index/_search
+PUT _ml/trained_models/elastic__distilbert-base-uncased-finetuned-conll03-english/definition/0
 {
-    "retriever": {
-        "rrf": {
-            "retrievers": [
-                {
-                    "standard": {
-                        "query": {
-                            "term": {
-                                "text": "shoes"
-                            }
-                        }
-                    }
-                },
-                {
-                    "knn": {
-                        "field": "vector",
-                        "query_vector": [1.25, 2, 3.5],
-                        "k": 50,
-                        "num_candidates": 100
-                    }
-                }
-            ],
-            "window_size": 50,
-            "rank_constant": 20
-        }
-    }
+    "definition": "...",
+    "total_definition_length": 265632637,
+    "total_parts": 64
 }

@@ -1,31 +1,6 @@
-PUT /my-index-000001
+GET _ml/anomaly_detectors/low_request_rate/results/records
 {
-  "settings": {
-    "index": {
-      "analysis": {
-        "analyzer": {
-          "my_synonyms": {
-            "tokenizer": "whitespace",
-            "filter": [ "synonym" ]
-          }
-        },
-        "filter": {
-          "synonym": {
-            "type": "synonym_graph",
-            "synonyms_path": "analysis/synonym.txt", 
-            "updateable": true                       
-          }
-        }
-      }
-    }
-  },
-  "mappings": {
-    "properties": {
-      "text": {
-        "type": "text",
-        "analyzer": "standard",
-        "search_analyzer": "my_synonyms"             
-      }
-    }
-  }
+  "sort": "record_score",
+  "desc": true,
+  "start": "1454944100000"
 }

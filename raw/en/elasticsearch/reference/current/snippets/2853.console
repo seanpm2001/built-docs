@@ -1,6 +1,9 @@
-GET _ml/anomaly_detectors/esxi_log/results/categories
+PUT _inference/text_embedding/cohere-embeddings
 {
-  "page":{
-    "size": 1
-  }
+    "service": "cohere",
+    "service_settings": {
+        "api_key": "<api_key>",
+        "model_id": "embed-english-light-v3.0",
+        "embedding_type": "byte"
+    }
 }

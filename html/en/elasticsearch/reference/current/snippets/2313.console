@@ -1,1 +1,1 @@
-GET _health_report?verbose=false
+DELETE _application/analytics/my_analytics_collection/

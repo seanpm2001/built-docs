@@ -1,17 +1,19 @@
-GET /items/_search
+GET /example/_search
 {
   "query": {
     "bool": {
       "must": {
-        "match": {
-          "name": "chocolate"
-        }
+        "match_all": {}
       },
-      "should": {
-        "distance_feature": {
-          "field": "location",
-          "pivot": "1000m",
-          "origin": [-71.3, 41.15]
+      "filter": {
+        "geo_shape": {
+          "location": {
+            "shape": {
+              "type": "envelope",
+              "coordinates": [ [ 13.0, 53.0 ], [ 14.0, 52.0 ] ]
+            },
+            "relation": "within"
+          }
         }
       }
     }

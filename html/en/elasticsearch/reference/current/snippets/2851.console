@@ -1,5 +1,10 @@
-GET _ml/anomaly_detectors/low_request_rate/results/buckets
+PUT _inference/text_embedding/azure_openai_embeddings
 {
-  "anomaly_score": 80,
-  "start": "1454530200001"
+    "service": "azureopenai",
+    "service_settings": {
+        "api_key": "<api_key>",
+        "resource_name": "<resource_name>",
+        "deployment_id": "<deployment_id>",
+        "api_version": "2024-02-01"
+    }
 }

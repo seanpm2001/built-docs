@@ -1,18 +1,7 @@
-GET my-index/_search
-{
-  "runtime_mappings": {
-    "http.clientip": {
-      "type": "ip",
-      "script": """
-        String clientip=grok('%{COMMONAPACHELOG}').extract(doc["message"].value)?.clientip;
-        if (clientip != null) emit(clientip);
-      """
-    }
-  },
-  "query": {
-    "match": {
-      "http.clientip": "40.135.0.0"
-    }
-  },
-  "fields" : ["http.clientip"]
-}
+PUT /library/_bulk?refresh
+{"index":{"_id": "Leviathan Wakes"}}
+{"name": "Leviathan Wakes", "author": "James S.A. Corey", "release_date": "2011-06-02", "page_count": 561}
+{"index":{"_id": "Hyperion"}}
+{"name": "Hyperion", "author": "Dan Simmons", "release_date": "1989-05-26", "page_count": 482}
+{"index":{"_id": "Dune"}}
+{"name": "Dune", "author": "Frank Herbert", "release_date": "1965-06-01", "page_count": 604}

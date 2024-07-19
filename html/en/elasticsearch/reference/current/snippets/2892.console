@@ -1,14 +1,15 @@
-POST _ml/data_frame/_evaluate
+PUT _license?acknowledge=true
 {
-   "index": "animal_classification",
-   "evaluation": {
-      "classification": {
-         "actual_field": "animal_class",
-         "metrics": {
-            "auc_roc" : {
-              "class_name": "dog"
-            }
-         }
-      }
-   }
+  "licenses": [
+    {
+      "uid":"893361dc-9749-4997-93cb-802e3d7fa4xx",
+      "type":"basic",
+      "issue_date_in_millis":1411948800000,
+      "expiry_date_in_millis":1914278399999,
+      "max_nodes":1,
+      "issued_to":"issuedTo",
+      "issuer":"issuer",
+      "signature":"xx"
+    }
+    ]
 }

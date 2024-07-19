@@ -1,6 +1,8 @@
-PUT _cluster/settings
+PUT _snapshot/my_gcs_repository
 {
-  "persistent": {
-    "xpack.monitoring.collection.enabled": true
+  "type": "gcs",
+  "settings": {
+    "bucket": "my_other_bucket",
+    "base_path": "dev"
   }
 }

@@ -1,27 +1,30 @@
-POST place/_search?pretty
+PUT /my-index-000001
 {
-  "suggest": {
-    "place_suggestion": {
-      "prefix": "tim",
-      "completion": {
-        "field": "suggest",
-        "size": 10,
-        "contexts": {
-          "location": [            
-                      {
-              "lat": 43.6624803,
-              "lon": -79.3863353,
-              "precision": 2
-            },
-            {
-              "context": {
-                "lat": 43.6624803,
-                "lon": -79.3863353
-              },
-              "boost": 2
-            }
-          ]
+  "settings": {
+    "index": {
+      "analysis": {
+        "analyzer": {
+          "my_synonyms": {
+            "tokenizer": "whitespace",
+            "filter": [ "synonym" ]
+          }
+        },
+        "filter": {
+          "synonym": {
+            "type": "synonym_graph",
+            "synonyms_path": "analysis/synonym.txt", 
+            "updateable": true                       
+          }
         }
+      }
+    }
+  },
+  "mappings": {
+    "properties": {
+      "text": {
+        "type": "text",
+        "analyzer": "standard",
+        "search_analyzer": "my_synonyms"             
       }
     }
   }

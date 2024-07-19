@@ -1,9 +1,17 @@
-POST log-messages/_search?filter_path=aggregations
+GET /_search
 {
-  "aggs": {
-    "categories": {
-      "categorize_text": {
-        "field": "message"
+  "query": {
+    "bool": {
+      "filter": {
+        "script": {
+          "script": {
+            "source": "doc['num1'].value > params.param1",
+            "lang": "painless",
+            "params": {
+              "param1": 5
+            }
+          }
+        }
       }
     }
   }

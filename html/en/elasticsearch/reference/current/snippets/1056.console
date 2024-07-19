@@ -1,6 +1,11 @@
-POST _application/search_application/my_search_application/_search
-  {
-    "params": {
-      "query_string": "Where is the best place for mountain climbing?"
-    }
+POST _reindex?wait_for_completion=false
+{
+  "source": {
+    "index": "test-data",
+    "size": 50
+  },
+  "dest": {
+    "index": "hugging-face-embeddings",
+    "pipeline": "hugging_face_embeddings"
   }
+}

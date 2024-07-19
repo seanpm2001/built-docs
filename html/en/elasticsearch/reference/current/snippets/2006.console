@@ -1,19 +1,17 @@
-PUT _watcher/watch/log_error_watch
+PUT /_security/role_mapping/direct_pki_only
 {
-  "trigger" : { "schedule" : { "interval" : "10s" }},
-  "input" : {
-    "search" : {
-      "request" : {
-        "indices" : [ "logs" ],
-        "body" : {
-          "query" : {
-            "match" : { "message": "error" }
-          }
+  "roles" : [ "role_for_pki1_direct" ],
+  "rules" : {
+    "all": [
+      {
+        "field": {"realm.name": "pki1"}
+      },
+      {
+        "field": {
+          "metadata.pki_delegated_by_user": null
         }
       }
-    }
+    ]
   },
-  "condition" : {
-    "compare" : { "ctx.payload.hits.total" : { "gt" : 0 }}
-  }
+  "enabled": true
 }
