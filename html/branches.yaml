@@ -8477,7 +8477,7 @@ tech-content:
   Starting with the Elasticsearch Platform and its Solutions/welcome-to-elastic/8.7: 1ab4f3d16c6790ab91cd97df4864a9f73ecc53cb
   Starting with the Elasticsearch Platform and its Solutions/welcome-to-elastic/8.8: 6767b0f309389efa61341764fdc86b189db7bfc1
   Starting with the Elasticsearch Platform and its Solutions/welcome-to-elastic/8.9: cc0115d98bc65dffbd7a888d059a8d5d95a6b70f
-  Starting with the Elasticsearch Platform and its Solutions/welcome-to-elastic/main: 2878aa046e7450c3f33205f0c30fe0e6b2241170
+  Starting with the Elasticsearch Platform and its Solutions/welcome-to-elastic/main: local
 terraform-provider-ec:
   Elastic Cloud Terraform Provider/docs-elastic/master: 6e18a059218406fc56b8a0d93076205b01137e1e
 x-pack:
