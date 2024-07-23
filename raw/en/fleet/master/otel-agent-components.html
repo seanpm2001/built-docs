@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Elastic Agent OTel components | Fleet and Elastic Agent Guide [master] | Elastic</title>
+<meta class="elastic" name="content" content="Elastic Agent OTel components | Fleet and Elastic Agent Guide [master]">
+
+<link rel="home" href="index.html" title="Fleet and Elastic Agent Guide [master]"/>
+<link rel="up" href="otel-agent.html" title="Run Elastic Agent as an OTel Collector"/>
+<link rel="prev" href="otel-agent-configuration.html" title="Elastic Agent OTel configuration"/>
+<link rel="next" href="elastic-agent-unprivileged.html" title="Run Elastic Agent without administrative privileges"/>
+<meta class="elastic" name="product_version" content="master"/>
+<meta class="elastic" name="product_name" content="Fleet and Elastic Agent"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Fleet/Guide/Elastic Agent/master"/>
+<meta name="DC.subject" content="Fleet and Elastic Agent"/>
+<meta name="DC.identifier" content="master"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body>
+<div class="page_header">
+This documentation contains work-in-progress information for future Elastic Stack and Cloud releases. Use the version selector to view supported release docs. It also contains some Elastic Cloud serverless information. Check out our <a href="https://www.elastic.co/docs/current/serverless">serverless docs</a> for more details.
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="otel-agent-configuration.html">« Elastic Agent OTel configuration</a>
+</span>
+<span class="next">
+<a href="elastic-agent-unprivileged.html">Run Elastic Agent without administrative privileges »</a>
+</span>
+</div>
+<div class="book" lang="en">
+<div class="titlepage">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Fleet and Elastic Agent Guide [master]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="elastic-agent-installation.html">Install Elastic Agents</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="otel-agent.html">Run Elastic Agent as an OTel Collector</a></span>
+</div>
+<div>
+<div><h1 class="title"><a id="id-1"></a>Elastic Agent OTel components</h1><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/ingest-docs/edit/main/docs/en/ingest-management/elastic-agent/otel-agent-components.asciidoc">edit</a></div>
+</div>
+<!--EXTRA-->
+</div>
+<div id="content">
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="otel-agent-components"></a>Elastic Agent OTel components<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/ingest-docs/edit/main/docs/en/ingest-management/elastic-agent/otel-agent-components.asciidoc">edit</a></h3>
+</div></div></div>
+<div class="warning admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>This functionality is in technical preview and may be changed or removed in a future release. Elastic will work to fix any issues, but features in technical preview are not subject to the support SLA of official GA features.</p>
+</div>
+</div>
+<p>The following components are included in the Elastic Distribution for OpenTelemetry Collector.</p>
+<div class="table">
+<p class="title"><strong>Table 1. Receivers</strong></p>
+<div class="table-contents">
+<table border="1" cellpadding="4px" summary="Receivers">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Component</th>
+<th align="left" valign="top">Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">filelogreceiver</code></p></td>
+<td align="left" valign="top"><p>v0.97.0</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><code class="literal">otlpreceiver</code></p></td>
+<td align="left" valign="top"><p>v0.97.0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="table">
+<p class="title"><strong>Table 2. Exporters</strong></p>
+<div class="table-contents">
+<table border="1" cellpadding="4px" summary="Exporters">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Component</th>
+<th align="left" valign="top">Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">elasticsearchexporter</code></p></td>
+<td align="left" valign="top"><p>v0.97.0</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><code class="literal">fileexporter</code></p></td>
+<td align="left" valign="top"><p>v0.97.0</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><code class="literal">debugexporter</code></p></td>
+<td align="left" valign="top"><p>v0.97.0</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><code class="literal">otlpexporter</code></p></td>
+<td align="left" valign="top"><p>v0.97.0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="table">
+<p class="title"><strong>Table 3. Processors</strong></p>
+<div class="table-contents">
+<table border="1" cellpadding="4px" summary="Processors">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Component</th>
+<th align="left" valign="top">Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">attributesprocessor</code></p></td>
+<td align="left" valign="top"><p>v0.97.0</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><code class="literal">filterprocessor</code></p></td>
+<td align="left" valign="top"><p>v0.97.0</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><code class="literal">resourceprocessor</code></p></td>
+<td align="left" valign="top"><p>v0.97.0</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><code class="literal">transformprocessor</code></p></td>
+<td align="left" valign="top"><p>v0.97.0</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><code class="literal">batchprocessor</code></p></td>
+<td align="left" valign="top"><p>v0.97.0</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><code class="literal">memorylimiterprocessor</code></p></td>
+<td align="left" valign="top"><p>v0.97.0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div><div class="navfooter">
+<span class="prev">
+<a href="otel-agent-configuration.html">« Elastic Agent OTel configuration</a>
+</span>
+<span class="next">
+<a href="elastic-agent-unprivileged.html">Run Elastic Agent without administrative privileges »</a>
+</span>
+</div>
+</body>
+</html>

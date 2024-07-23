@@ -7,7 +7,7 @@
 
 <link rel="home" href="index.html" title="Fleet and Elastic Agent Guide [master]"/>
 <link rel="up" href="elastic-agent-installation.html" title="Install Elastic Agents"/>
-<link rel="prev" href="agent-environment-variables.html" title="Elastic Agent environment variables"/>
+<link rel="prev" href="otel-agent-components.html" title="Elastic Agent OTel components"/>
 <link rel="next" href="install-agent-msi.html" title="Install Elastic Agent from an MSI package"/>
 <meta class="elastic" name="product_version" content="master"/>
 <meta class="elastic" name="product_name" content="Fleet and Elastic Agent"/>
@@ -23,7 +23,7 @@ This documentation contains work-in-progress information for future Elastic Stac
 </div>
 <div class="navheader">
 <span class="prev">
-<a href="agent-environment-variables.html">« Elastic Agent environment variables</a>
+<a href="otel-agent-components.html">« Elastic Agent OTel components</a>
 </span>
 <span class="next">
 <a href="install-agent-msi.html">Install Elastic Agent from an MSI package »</a>
@@ -88,7 +88,7 @@ Doing so may result in <a class="xref" href="fleet-troubleshooting.html#agent-su
 <h4><a id="unprivileged-command-behaviors"></a>Agent and dashboard behaviors in unprivileged mode<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/ingest-docs/edit/main/docs/en/ingest-management/elastic-agent/elastic-agent-unprivileged-mode.asciidoc">edit</a></h4>
 <p>In addition to the <a class="xref" href="elastic-agent-unprivileged.html#unprivileged-integrations" title="Using Elastic integrations">integrations that are not available</a> when Elastic Agent is run in unpriviledged mode, certain data streams are also not available. The following tables show, for different operating systems, the impact when the agent does not have full administrative privileges. In most cases the limitations can be mediated by granting permissions for a user or group to the files indicated.</p>
 <div class="table">
-<p class="title"><strong>Table 1. macOS</strong></p>
+<p class="title"><strong>Table 4. macOS</strong></p>
 <div class="table-contents">
 <table border="1" cellpadding="4px" summary="macOS">
 <colgroup>
@@ -134,7 +134,7 @@ Doing so may result in <a class="xref" href="fleet-troubleshooting.html#agent-su
 </div>
 </div>
 <div class="table">
-<p class="title"><strong>Table 2. Linux</strong></p>
+<p class="title"><strong>Table 5. Linux</strong></p>
 <div class="table-contents">
 <table border="1" cellpadding="4px" summary="Linux">
 <colgroup>
@@ -180,7 +180,7 @@ Doing so may result in <a class="xref" href="fleet-troubleshooting.html#agent-su
 </div>
 </div>
 <div class="table">
-<p class="title"><strong>Table 3. Windows</strong></p>
+<p class="title"><strong>Table 6. Windows</strong></p>
 <div class="table-contents">
 <table border="1" cellpadding="4px" summary="Windows">
 <colgroup>
@@ -312,7 +312,7 @@ Then, once added to the group, the <code class="literal">elastic-agent status</c
 </div>
 </div><div class="navfooter">
 <span class="prev">
-<a href="agent-environment-variables.html">« Elastic Agent environment variables</a>
+<a href="otel-agent-components.html">« Elastic Agent OTel components</a>
 </span>
 <span class="next">
 <a href="install-agent-msi.html">Install Elastic Agent from an MSI package »</a>

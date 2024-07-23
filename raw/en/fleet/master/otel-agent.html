@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Run Elastic Agent as an OTel Collector | Fleet and Elastic Agent Guide [master] | Elastic</title>
+<meta class="elastic" name="content" content="Run Elastic Agent as an OTel Collector | Fleet and Elastic Agent Guide [master]">
+
+<link rel="home" href="index.html" title="Fleet and Elastic Agent Guide [master]"/>
+<link rel="up" href="elastic-agent-installation.html" title="Install Elastic Agents"/>
+<link rel="prev" href="agent-environment-variables.html" title="Elastic Agent environment variables"/>
+<link rel="next" href="otel-agent-configuration.html" title="Elastic Agent OTel configuration"/>
+<meta class="elastic" name="product_version" content="master"/>
+<meta class="elastic" name="product_name" content="Fleet and Elastic Agent"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Fleet/Guide/Elastic Agent/master"/>
+<meta name="DC.subject" content="Fleet and Elastic Agent"/>
+<meta name="DC.identifier" content="master"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body>
+<div class="page_header">
+This documentation contains work-in-progress information for future Elastic Stack and Cloud releases. Use the version selector to view supported release docs. It also contains some Elastic Cloud serverless information. Check out our <a href="https://www.elastic.co/docs/current/serverless">serverless docs</a> for more details.
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="agent-environment-variables.html">« Elastic Agent environment variables</a>
+</span>
+<span class="next">
+<a href="otel-agent-configuration.html">Elastic Agent OTel configuration »</a>
+</span>
+</div>
+<div class="book" lang="en">
+<div class="titlepage">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Fleet and Elastic Agent Guide [master]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="elastic-agent-installation.html">Install Elastic Agents</a></span>
+</div>
+<div>
+<div><h1 class="title"><a id="id-1"></a>Run Elastic Agent as an OTel Collector</h1><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/ingest-docs/edit/main/docs/en/ingest-management/elastic-agent/otel-agent.asciidoc">edit</a></div>
+</div>
+<!--EXTRA-->
+</div>
+<div id="content">
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="otel-agent"></a>Run Elastic Agent as an OTel Collector<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/ingest-docs/edit/main/docs/en/ingest-management/elastic-agent/otel-agent.asciidoc">edit</a></h2>
+</div></div></div>
+<div class="warning admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>This functionality is in technical preview and may be changed or removed in a future release. Elastic will work to fix any issues, but features in technical preview are not subject to the support SLA of official GA features.</p>
+</div>
+</div>
+<p>The <a href="https://opentelemetry.io/docs/collector/" class="ulink" target="_top">OpenTelemetry Collector</a> is a vendor-neutral way to receive, process, and export telemetry data. Elastic Agent includes an embedded OTel Collector, enabling you to instrument your applications and infrastructure once, and send data to multiple vendors and backends.</p>
+<p>When you run Elastic Agent in <code class="literal">otel</code> mode it supports the standard OTel Collector configuration format that defines a set of receivers, processors, exporters, and connectors. Logs, metrics, and traces can be ingested using OpenTelemetry data formats.</p>
+<p>The following steps will help you to get set up quickly using Elastic Agent as an OTel Collector.</p>
+<p>For the full command syntax for running Elastic Agent in <code class="literal">otel</code> mode, refer to <a class="xref" href="elastic-agent-cmd-options.html#elastic-agent-otel-command" title="elastic-agent otel">elastic-agent otel</a> in the command reference.</p>
+<p>For a list of components included in the Elastic Distribution for OpenTelemetry Collector, refer to <a class="xref" href="otel-agent-components.html" title="Elastic Agent OTel components">Elastic Agent OTel components</a>.</p>
+<h4><a id="_run_elastic_agent_in_otel_mode"></a>Run Elastic Agent in OTel mode<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/ingest-docs/edit/main/docs/en/ingest-management/elastic-agent/otel-agent.asciidoc">edit</a></h4>
+<p>For simplicity, these steps demonstrate OTel mode using standalone Elastic Agent. The install steps for Fleet-managed Elastic Agent are very similar. Refer to the <a class="xref" href="elastic-agent-installation.html" title="Install Elastic Agents">Install Elastic Agents</a> section for the full set of requirements and steps for any install scenario.</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+<p>On your host, download and extract the Elastic Agent installation package.</p>
+<div class="tabs" data-tab-group="os">
+  <div role="tablist" aria-label="Download">
+    <button role="tab"
+            aria-selected="true"
+            aria-controls="mac-tab-download"
+            id="mac-download">
+      macOS
+    </button>
+    <button role="tab"
+            aria-selected="false"
+            aria-controls="linux-tab-download"
+            id="linux-download"
+            tabindex="-1">
+      Linux
+    </button>
+    <button role="tab"
+            aria-selected="false"
+            aria-controls="win-tab-download"
+            id="win-download"
+            tabindex="-1">
+      Windows
+    </button>
+    <button role="tab"
+            aria-selected="false"
+            aria-controls="deb-tab-download"
+            id="deb-download"
+            tabindex="-1">
+      DEB
+    </button>
+    <button role="tab"
+            aria-selected="false"
+            aria-controls="rpm-tab-download"
+            id="rpm-download"
+            tabindex="-1">
+      RPM
+    </button>
+  </div>
+  <div tabindex="0"
+       role="tabpanel"
+       id="mac-tab-download"
+       aria-labelledby="mac-download">
+<p>Version 8.16.0 of Elastic Agent has not yet been released.</p>
+  </div>
+  <div tabindex="0"
+       role="tabpanel"
+       id="linux-tab-download"
+       aria-labelledby="linux-download"
+       hidden="">
+<p>Version 8.16.0 of Elastic Agent has not yet been released.</p>
+  </div>
+  <div tabindex="0"
+       role="tabpanel"
+       id="win-tab-download"
+       aria-labelledby="win-download"
+       hidden="">
+<p>Version 8.16.0 of Elastic Agent has not yet been released.</p>
+  </div>
+  <div tabindex="0"
+       role="tabpanel"
+       id="deb-tab-download"
+       aria-labelledby="deb-download"
+       hidden="">
+<p>Version 8.16.0 of Elastic Agent has not yet been released.</p>
+  </div>
+  <div tabindex="0"
+       role="tabpanel"
+       id="rpm-tab-download"
+       aria-labelledby="rpm-download"
+       hidden="">
+<p>Version 8.16.0 of Elastic Agent has not yet been released.</p>
+  </div>
+</div>
+<p>The commands shown are for AMD platforms, but ARM packages are also available.
+Refer to the Elastic Agent <a href="/downloads/elastic-agent" class="ulink" target="_top">downloads page</a>
+for the full list of available packages.</p>
+</li>
+<li class="listitem">
+<p>Change into the agent package directory and run Elastic Agent with the <code class="literal">otel</code> subcommand and the <code class="literal">-h</code> option to view the command syntax and available parameters:</p>
+<div class="pre_wrapper lang-shell">
+<div class="console_code_copy" title="Copy to clipboard"></div>
+<pre class="programlisting prettyprint lang-shell">cd &lt;agent-package-name&gt;
+./elastic-agent otel -h</pre>
+</div>
+<div class="tip admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>You can also refer to the <a class="xref" href="elastic-agent-cmd-options.html#elastic-agent-otel-command" title="elastic-agent otel">Elastic Agent OTel</a> command documentation for the full command syntax.</p>
+</div>
+</div>
+</li>
+<li class="listitem">
+<p>View or update the OTel configuration file.</p>
+<p>A basic OTel configuration file named <code class="literal">otel.yml</code> is included in the Elastic Agent package. You can view or update it using any text editor.</p>
+<div class="pre_wrapper lang-yaml">
+<div class="console_code_copy" title="Copy to clipboard"></div>
+<pre class="programlisting prettyprint lang-yaml">receivers:
+  filelog:
+    include: [ /var/log/system.log ]
+    start_at: beginning
+
+processors:
+  resource:
+    attributes:
+    - key: service.name
+      action: insert
+      value: elastic-otel-test
+
+exporters:
+  debug:
+    verbosity: detailed
+    sampling_initial: 10000
+    sampling_thereafter: 10000
+
+service:
+  pipelines:
+    logs:
+      receivers: [filelog]
+      processors: [resource]
+      exporters:
+        - debug%</pre>
+</div>
+<p>By default, the default OTel configuration sets Elastic Agent to:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Read the contents of <code class="literal">/var/log/system.log</code>.
+</li>
+<li class="listitem">
+Run a processor to insert <code class="literal">elastic-otel-test</code> into the output.
+</li>
+<li class="listitem">
+<p>Send the data with a <code class="literal">detailed</code> level of verbosity.</p>
+<p>Refer to <a class="xref" href="otel-agent-configuration.html" title="Elastic Agent OTel configuration">Elastic Agent OTel configuration</a> to learn more about setting up this file.</p>
+</li>
+</ul>
+</div>
+</li>
+<li class="listitem">
+<p>[Optional] Override a setting in the OTel configuration</p>
+<p>You can use the <code class="literal">set</code> flag to manually override any setting defined in the OTel configuration file. For example, run the following command to change the default verbosity setting from <code class="literal">detailed</code> to <code class="literal">normal</code>.</p>
+<div class="pre_wrapper lang-shell">
+<div class="console_code_copy" title="Copy to clipboard"></div>
+<pre class="programlisting prettyprint lang-shell">./elastic-agent otel --config otel.yml --set "exporters::debug::verbosity=normal"</pre>
+</div>
+</li>
+</ol>
+</div>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>You can also run the <code class="literal">./otelcol</code> command, which calls <code class="literal">./elastic-agent otel</code> and passes any arguments to it.</p>
+</div>
+</div>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+<p>Validate the configuration</p>
+<p>To validate the OTel configuration for your Elastic Agent, run the <code class="literal">otel</code> command with the <code class="literal">validate</code> option and the path to the config file:</p>
+<div class="pre_wrapper lang-shell">
+<div class="console_code_copy" title="Copy to clipboard"></div>
+<pre class="programlisting prettyprint lang-shell">./elastic-agent otel validate --config otel.yml</pre>
+</div>
+<p>If no error is returned, the configuration file is determined to be valid.</p>
+</li>
+<li class="listitem">
+<p>Run Elastic Agent</p>
+<p>Now, run Elastic Agent with OTel mode configured:</p>
+<div class="pre_wrapper lang-shell">
+<div class="console_code_copy" title="Copy to clipboard"></div>
+<pre class="programlisting prettyprint lang-shell">./elastic-agent otel --config otel.yml</pre>
+</div>
+<p>You should see a response indicating that Elastic Agent has started successfully in OTel mode:</p>
+<div class="pre_wrapper lang-shell">
+<div class="console_code_copy" title="Copy to clipboard"></div>
+<pre class="programlisting prettyprint lang-shell">Starting in otel mode
+2024-05-31T12:39:43.047-0400	info	service@v0.94.1/telemetry.go:59	Setting up own telemetry...
+2024-05-31T12:39:43.049-0400	info	service@v0.94.1/telemetry.go:104	Serving metrics	{"address": ":8888", "level": "Basic"}
+2024-05-31T12:39:43.052-0400	info	exporter@v0.94.1/exporter.go:275	Development component. May change in the future.	{"kind": "exporter", "data_type": "logs", "name": "debug"}
+2024-05-31T12:39:43.055-0400	info	service@v0.94.1/service.go:140	Starting ./elastic-agent...	{"Version": "8.13.4", "NumCPU": 10}
+2024-05-31T12:39:43.055-0400	info	extensions/extensions.go:34	Starting extensions...
+2024-05-31T12:39:43.056-0400	info	adapter/receiver.go:45	Starting stanza receiver	{"kind": "receiver", "name": "filelog", "data_type": "logs"}
+2024-05-31T12:39:43.057-0400	info	service@v0.94.1/service.go:166	Everything is ready. Begin running and processing data.
+2024-05-31T12:39:43.057-0400	warn	localhostgate/featuregate.go:63	The default endpoints for all servers in components will change to use localhost instead of 0.0.0.0 in a future version. Use the feature gate to preview the new default.	{"feature gate ID": "component.UseLocalHostAsDefaultHost"}
+2024-05-31T12:39:43.261-0400	info	fileconsumer/file.go:261	Started watching file	{"kind": "receiver", "name": "filelog", "data_type": "logs", "component": "fileconsumer", "path": "/var/log/system.log"}</pre>
+</div>
+</li>
+<li class="listitem">
+<p>Check the Elastic Agent status</p>
+<p>Finally, confirm that Elastic Agent is running as expected. Open a second terminal shell and run the <code class="literal">status</code> command.</p>
+<div class="pre_wrapper lang-shell">
+<div class="console_code_copy" title="Copy to clipboard"></div>
+<pre class="programlisting prettyprint lang-shell">./elastic-agent status --output full</pre>
+</div>
+<p>The returned status indicates that Elastic Agent is healthy and not enrolled in Fleet (which is expected because in this example we&#8217;re using standalone Elastic Agent).</p>
+<div class="pre_wrapper lang-shell">
+<div class="console_code_copy" title="Copy to clipboard"></div>
+<pre class="programlisting prettyprint lang-shell">┌─ fleet
+│  └─ status: (STOPPED) Not enrolled into Fleet
+└─ elastic-agent
+   ├─ status: (HEALTHY) Running
+   └─ info
+      ├─ id:
+      ├─ version: 8.14.0
+      └─ commit: d0bce03b68012224ac1bab4ca20ba36060d135a3</pre>
+</div>
+</li>
+</ol>
+</div>
+
+
+</div>
+</div>
+</div><div class="navfooter">
+<span class="prev">
+<a href="agent-environment-variables.html">« Elastic Agent environment variables</a>
+</span>
+<span class="next">
+<a href="otel-agent-configuration.html">Elastic Agent OTel configuration »</a>
+</span>
+</div>
+</body>
+</html>
