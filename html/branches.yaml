@@ -45,9 +45,9 @@ apm-agent-nodejs:
   APM Node.js Agent/docs/main: b144a3c7c6bc2eebe317d08bcd1354412266368c
 apm-agent-php:
   APM PHP Agent/CHANGELOG.asciidoc/1.x: 45177c355981f2c9e03b0336bd6ce2414739893a
-  APM PHP Agent/CHANGELOG.asciidoc/main: 1e0182eb3ca43fc2b9e671d4479e4e14b10c7cce
+  APM PHP Agent/CHANGELOG.asciidoc/main: local
   APM PHP Agent/docs/1.x: 45177c355981f2c9e03b0336bd6ce2414739893a
-  APM PHP Agent/docs/main: 1e0182eb3ca43fc2b9e671d4479e4e14b10c7cce
+  APM PHP Agent/docs/main: local
 apm-agent-python:
   APM Python Agent/CHANGELOG.asciidoc/5.x: 7f8968292a3b393ee00ef361762ab73bb933833e
   APM Python Agent/CHANGELOG.asciidoc/6.x: 25d9f6ff62c4cbebfce1e7153b7338a84dc46bad
