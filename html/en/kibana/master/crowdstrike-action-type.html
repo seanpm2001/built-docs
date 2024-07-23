@@ -3,13 +3,13 @@
   <head>
     
 <meta charset="UTF-8">
-<title>D3 Security connector and action | Kibana Guide [master] | Elastic</title>
-<meta class="elastic" name="content" content="D3 Security connector and action | Kibana Guide [master]">
+<title>CrowdStrike connector | Kibana Guide [master] | Elastic</title>
+<meta class="elastic" name="content" content="CrowdStrike connector | Kibana Guide [master]">
 
 <link rel="home" href="index.html" title="Kibana Guide [master]"/>
 <link rel="up" href="action-types.html" title="Connectors"/>
-<link rel="prev" href="crowdstrike-action-type.html" title="CrowdStrike connector"/>
-<link rel="next" href="email-action-type.html" title="Email connector and action"/>
+<link rel="prev" href="cases-action-type.html" title="Cases connector and action"/>
+<link rel="next" href="d3security-action-type.html" title="D3 Security connector and action"/>
 <meta class="elastic" name="product_version" content="master"/>
 <meta class="elastic" name="product_name" content="Kibana"/>
 <meta class="elastic" name="website_area" content="documentation"/>
@@ -107,10 +107,10 @@ This documentation contains work-in-progress information for future Elastic Stac
 </div>
 <div class="navheader">
 <span class="prev">
-<a href="crowdstrike-action-type.html">« CrowdStrike connector</a>
+<a href="cases-action-type.html">« Cases connector and action</a>
 </span>
 <span class="next">
-<a href="email-action-type.html">Email connector and action »</a>
+<a href="d3security-action-type.html">D3 Security connector and action »</a>
 </span>
 </div>
 <div class="book" lang="en">
@@ -122,119 +122,70 @@ This documentation contains work-in-progress information for future Elastic Stac
 <span class="chevron-right">›</span><span class="breadcrumb-link"><a href="action-types.html">Connectors</a></span>
 </div>
 <div>
-<div><h1 class="title"><a id="id-1"></a>D3 Security connector and action</h1><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/management/connectors/action-types/d3security.asciidoc">edit</a></div>
+<div><h1 class="title"><a id="id-1"></a>CrowdStrike connector</h1><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/management/connectors/action-types/crowdstrike.asciidoc">edit</a></div>
 </div>
 <!--EXTRA-->
 </div>
 <div id="content">
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="d3security-action-type"></a>D3 Security connector and action<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/management/connectors/action-types/d3security.asciidoc">edit</a></h2>
+<h2 class="title"><a id="crowdstrike-action-type"></a>CrowdStrike connector<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/management/connectors/action-types/crowdstrike.asciidoc">edit</a></h2>
 </div></div></div>
 
-<p>The D3 Security connector uses <a href="https://github.com/axios/axios" class="ulink" target="_top">axios</a> to send a POST request to a D3 Security endpoint. The connector uses the <a class="xref" href="execute-connector-api.html" title="Run connector API">run connector API</a> to send the request. You can use the connector for rule actions.</p>
-<p>To create this connector, you must first configure a webhook key in your D3 SOAR environment. For configuration tips, refer to <a class="xref" href="d3security-action-type.html#configure-d3security" title="Configure D3 Security">Configure D3 Security</a>.</p>
-<h4><a id="define-d3security-ui"></a>Create connectors in Kibana<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/management/connectors/action-types/d3security.asciidoc">edit</a></h4>
-<p>You can create connectors in <span class="strong strong"><strong>Stack Management &gt; Connectors</strong></span>.  For example:</p>
+<div class="warning admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>This functionality is in technical preview and may be changed or removed in a future release. Elastic will work to fix any issues, but features in technical preview are not subject to the support SLA of official GA features.</p>
+</div>
+</div>
+<p>The CrowdStrike connector communicates with CrowdStrike Management Console via REST API.</p>
+<h4><a id="define-crowdstrike-ui"></a>Create connectors in Kibana<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/management/connectors/action-types/crowdstrike.asciidoc">edit</a></h4>
+<p>You can create connectors in <span class="strong strong"><strong>Stack Management &gt; Connectors</strong></span>. For example:</p>
 <div class="imageblock screenshot">
 <div class="content">
-<img src="management/connectors/images/d3security-connector.png" alt="D3 Security connector">
+<img src="management/connectors/images/crowdstrike-connector.png" alt="Crowdstrike connector">
 </div>
 </div>
-<h5><a id="d3security-connector-configuration"></a>Connector configuration<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/management/connectors/action-types/d3security.asciidoc">edit</a></h5>
-<p>D3 Security connectors have the following configuration properties:</p>
+<h5><a id="crowdstrike-connector-configuration"></a>Connector configuration<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/management/connectors/action-types/crowdstrike.asciidoc">edit</a></h5>
+<p>CrowdStrike connectors have the following configuration properties:</p>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
 <span class="term">
-Name
+CrowdStrike API URL
 </span>
 </dt>
 <dd>
-The name of the connector.
+The CrowdStrike tenant URL. If you are using the <a class="xref" href="alert-action-settings-kb.html#action-settings" title="Action settings"><code class="literal">xpack.actions.allowedHosts</code></a> setting, make sure the hostname is added to the allowed hosts.
 </dd>
 <dt>
 <span class="term">
-URL
+CrowdStrike Client ID
 </span>
 </dt>
 <dd>
-The D3 Security API request URL.
+A CrowdStrike API client ID.
 </dd>
 <dt>
 <span class="term">
-Token
+Client Secret
 </span>
 </dt>
 <dd>
-The D3 Security token.
+A CrowdStrike API client secret created by the user.
 </dd>
 </dl>
 </div>
-<h4><a id="d3security-action-configuration"></a>Test connectors<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/management/connectors/action-types/d3security.asciidoc">edit</a></h4>
-<p>You can test connectors with the <a class="xref" href="execute-connector-api.html" title="Run connector API">run connector API</a> or
-as you&#8217;re creating or editing the connector in Kibana. For example:</p>
-<div class="imageblock screenshot">
-<div class="content">
-<img src="management/connectors/images/d3security-params-test.png" alt="D3 Security params test">
-</div>
-</div>
-<p>The D3 Security actions have the following configuration properties.</p>
-<div class="variablelist">
-<dl class="variablelist">
-<dt>
-<span class="term">
-Body
-</span>
-</dt>
-<dd>
-<p>
-A typeless payload sent to the D3 Security API URL. For example:
-</p>
-<div class="pre_wrapper lang-text">
-<div class="console_code_copy" title="Copy to clipboard"></div>
-<pre class="programlisting prettyprint lang-text">this can be any type, it is not validated</pre>
-</div>
-</dd>
-</dl>
-</div>
-<h4><a id="d3security-connector-networking-configuration"></a>Connector networking configuration<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/management/connectors/action-types/d3security.asciidoc">edit</a></h4>
-<p>Use the <a class="xref" href="alert-action-settings-kb.html#action-settings" title="Action settings">Action configuration settings</a> to customize connector networking configurations, such as proxies, certificates, or TLS settings. You can set configurations that apply to all your connectors or use <code class="literal">xpack.actions.customHostSettings</code> to set per-host configurations.</p>
-<h4><a id="configure-d3security"></a>Configure D3 Security<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/management/connectors/action-types/d3security.asciidoc">edit</a></h4>
-<p>To generate an API URL and a token in D3 Security:</p>
-<div class="olist orderedlist">
-<ol class="orderedlist">
-<li class="listitem">
-Log in to your D3 SOAR environment.
-</li>
-<li class="listitem">
-Navigate to <span class="strong strong"><strong>Configuration</strong></span>.
-</li>
-<li class="listitem">
-Navigate to <span class="strong strong"><strong>Integration</strong></span>. Search for Kibana. Click <span class="strong strong"><strong>Fetch Event</strong></span>.
-</li>
-<li class="listitem">
-Select the <span class="strong strong"><strong>Enable Webhook</strong></span> checkbox.
-</li>
-<li class="listitem">
-Click <span class="strong strong"><strong>Set up Webhook Keys</strong></span>.
-</li>
-<li class="listitem">
-Under <span class="strong strong"><strong>Event Ingestion</strong></span>, click the plus sign(+). Select the site for the webhook integration, then click <span class="strong strong"><strong>Generate</strong></span>.
-</li>
-<li class="listitem">
-Copy the request URL and request header value to configure the connector.
-</li>
-</ol>
-</div>
+<h4><a id="crowdstrike-action-parameters"></a>Test connectors<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/management/connectors/action-types/crowdstrike.asciidoc">edit</a></h4>
+<p>At this time, you cannot test the CrowdStrike connector.</p>
 </div>
 </div>
 </div><div class="navfooter">
 <span class="prev">
-<a href="crowdstrike-action-type.html">« CrowdStrike connector</a>
+<a href="cases-action-type.html">« Cases connector and action</a>
 </span>
 <span class="next">
-<a href="email-action-type.html">Email connector and action »</a>
+<a href="d3security-action-type.html">D3 Security connector and action »</a>
 </span>
 </div>
 
