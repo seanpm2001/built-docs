@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Logstash 8.15.0 Release Notes | Logstash Reference [8.15] | Elastic</title>
+<meta class="elastic" name="content" content="Logstash 8.15.0 Release Notes | Logstash Reference [8.15]">
+
+<link rel="home" href="index.html" title="Logstash Reference [8.15]"/>
+<link rel="up" href="releasenotes.html" title="Release Notes"/>
+<link rel="prev" href="releasenotes.html" title="Release Notes"/>
+<link rel="next" href="logstash-8-14-3.html" title="Logstash 8.14.3 Release Notes"/>
+<meta class="elastic" name="product_version" content="8.15"/>
+<meta class="elastic" name="product_name" content="Logstash"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Logstash/Reference/8.15"/>
+<meta name="DC.subject" content="Logstash"/>
+<meta name="DC.identifier" content="8.15"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body>
+<div class="page_header">
+This documentation contains work-in-progress information for future Elastic Stack and Cloud releases. Use the version selector to view supported release docs. It also contains some Elastic Cloud serverless information. Check out our <a href="https://www.elastic.co/docs/current/serverless">serverless docs</a> for more details.
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="releasenotes.html">« Release Notes</a>
+</span>
+<span class="next">
+<a href="logstash-8-14-3.html">Logstash 8.14.3 Release Notes »</a>
+</span>
+</div>
+<div class="book" lang="en">
+<div class="titlepage">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Logstash Reference [8.15]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="releasenotes.html">Release Notes</a></span>
+</div>
+<div>
+<div><h1 class="title"><a id="id-1"></a>Logstash 8.15.0 Release Notes</h1></div>
+</div>
+<!--EXTRA-->
+</div>
+<div id="content">
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="logstash-8-15-0"></a>Logstash 8.15.0 Release Notes</h2>
+</div></div></div>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Update bundled JDK to 21 <a href="https://github.com/elastic/logstash/pull/16055" class="ulink" target="_top">#16055</a>
+</li>
+<li class="listitem">
+Handle non-unicode payload in Logstash. <a href="https://github.com/elastic/logstash/pull/16072" class="ulink" target="_top">#16072</a>
+</li>
+<li class="listitem">
+Update log4j rollover to configure time retention <a href="https://github.com/elastic/logstash/pull/16179" class="ulink" target="_top">#16179</a>
+</li>
+<li class="listitem">
+Adding quotes in pqcheck.bat to support spaces in path <a href="https://github.com/elastic/logstash/pull/16205" class="ulink" target="_top">#16205</a>
+</li>
+<li class="listitem">
+Ensure pipeline metrics are cleared on the shutdown <a href="https://github.com/elastic/logstash/pull/16264" class="ulink" target="_top">#16264</a>
+</li>
+<li class="listitem">
+Backport PR #16265 to 8.15: add flow-informed tuning guidance <a href="https://github.com/elastic/logstash/pull/16289" class="ulink" target="_top">#16289</a>
+</li>
+<li class="listitem">
+Json normalization performance <a href="https://github.com/elastic/logstash/pull/16313" class="ulink" target="_top">#16313</a>
+</li>
+<li class="listitem">
+Backport PR #16323 to 8.15: make pipeline resilient to stack overflow during compilation <a href="https://github.com/elastic/logstash/pull/16336" class="ulink" target="_top">#16336</a>
+</li>
+<li class="listitem">
+Backport PR #16335 to 8.15: Doc: Reposition worker-utilization in doc <a href="https://github.com/elastic/logstash/pull/16337" class="ulink" target="_top">#16337</a>
+</li>
+<li class="listitem">
+Backport PR #16339 to 8.15: settings: add support for observing settings after post-process hooks <a href="https://github.com/elastic/logstash/pull/16348" class="ulink" target="_top">#16348</a>
+</li>
+</ul>
+</div>
+<p>121b1c963 - update jruby to 9.4.8.0 (#16278) (3 weeks ago) &lt;João Duarte&gt;</p>
+<p>095733c40 - Doc: Add ecs and datastream requirement for intg filter (#16268) (4 weeks ago) &lt;Karen Metts&gt;
+784fa186c - Ensure pipeline metrics are cleared on the pipeline shutdown (#16264) (4 weeks ago) &lt;Edmo Vamerlatti Costa&gt;
+0cfe6b080 - Add <code class="literal">RubyEvent#dup</code> support and unit test case to keep <code class="literal">Json#dump(Event)</code> safe. (#16255) (4 weeks ago) &lt;Mashhur&gt;
+0e1d67eda - produce wolfi docker image in ci (#16252) (4 weeks ago) &lt;João Duarte&gt;
+bc0b9556b - Add quotes to fix path handling in pqcheck.bat (#16205) (4 weeks ago) &lt;Alex S&gt;
+e6682c94b - Pin fileutils version to 1.7+ (#16250) (4 weeks ago) &lt;Mashhur&gt;
+0ec16ca39 - Unicode pipeline and plugin ids (#15971) (4 weeks ago) &lt;Ry Biesemeyer&gt;
+440aa98e4 - [CI] Benchmark pipeline (#16191) (5 weeks ago) &lt;kaisecheng&gt;
+92909cb1c - json: remove unnecessary dup/freeze in serialization (#16213) (5 weeks ago) &lt;Ry Biesemeyer&gt;
+ca1403009 - Forwardport PR #16212 to main: Release notes for 8.14.1 (#16214) (5 weeks ago) &lt;github-actions[bot]&gt;
+321e407e5 - Avoid to log file not found errors when DLQ segments are removed concurrently between writer and reader. (#16204) (5 weeks ago) &lt;Andrea Selva&gt;
+ed930f820 - Avoid mocking the value returned in global SETTINGS constant. (#16245) (5 weeks ago) &lt;Andrea Selva&gt;
+0d385a961 - Update pull-requests.json (#16220) (5 weeks ago) &lt;ev1yehor&gt;
+13a8c4f1a - remove version pinning from rexml (#16224) (5 weeks ago) &lt;João Duarte&gt;
+801f0f441 - Geoip database management cache invalidation (#16222) (5 weeks ago) &lt;Ry Biesemeyer&gt;
+148461440 - Wolfi-based image flavor (#16189) (5 weeks ago) &lt;João Duarte&gt;
+0f6fa5c8f - p2p: adds opt-in pipeline bus with less synchronization (#16194) (5 weeks ago) &lt;Ry Biesemeyer&gt;
+fab345881 - Introduce filesystem signalling from DLQ read to writer to update byte size metric accordingly when the reader uses <code class="literal">clean_consumed</code> (#16195) (5 weeks ago) &lt;Andrea Selva&gt;
+948a0edf1 - Logstash monitoring doc improvements. (#16208) (6 weeks ago) &lt;Mashhur&gt;
+7f424c1f5 - Update logstash_releases.json to account for 7.17.22 (#16185) (6 weeks ago) &lt;João Duarte&gt;
+881f7605f - Bump logstash-releases.json after 8.14.1 release (#16217) (6 weeks ago) &lt;Edmo Vamerlatti Costa&gt;
+23221cadd - Pin rexml gem version to 3.2.6 (#16209) (6 weeks ago) &lt;Edmo Vamerlatti Costa&gt;
+efa83787a - Revert PR #16050 (7 weeks ago) &lt;Andrea Selva&gt;
+70d0f1d02 - Release notes for 8.14.0 (#16155) (#16198) (7 weeks ago) &lt;github-actions[bot]&gt;
+14afa851d - Bump <code class="literal">logstash-releases.json</code> after 8.14.0 release (#16197) (7 weeks ago) &lt;Rob Bavey&gt;
+5c7d41679 - Update log4j rollover to configure time retention (#16179) (7 weeks ago) &lt;Andrea Selva&gt;
+d0606ff09 - Bundle logstash-integration-snmp and remove input-snmp and input-snmptrap as default (#16180) (7 weeks ago) &lt;Edmo Vamerlatti Costa&gt;
+e2acb4d6b - Add incomplete integration plugins to metadata.json as skip (#16174) (8 weeks ago) &lt;Karen Metts&gt;
+1d4038b27 - Add initial buildkite pipeline for Benchmark (#16190) (8 weeks ago) &lt;kaisecheng&gt;
+2a7f05975 - Upgrade jrjackson to 0.4.20 (#16153) (9 weeks ago) &lt;João Duarte&gt;
+73fb21b4a - Update plugins-metadata.json (#16137) (10 weeks ago) &lt;Karen Metts&gt;
+979d30d70 - Handle non-unicode payload in Logstash. (#16072) (2 months ago) &lt;Mashhur&gt;
+53d948017 - [DOC] Remove reference to puppet LS module (#12356) (2 months ago) &lt;Luca Belluccini&gt;
+734405dcb - Replace stack traces with logger in DSL. (#16159) (2 months ago) &lt;Mashhur&gt;
+2eebfd8f0 - Adds section to describe intended usage of <code class="literal">pipeline.buffer.type</code> (#16083) (2 months ago) &lt;Andrea Selva&gt;
+8e8a5b08d - Updated target and source Java definitions in build.gradle becuase deprecated and planned for removal in next major (#16156) (3 months ago) &lt;Andrea Selva&gt;
+1e431b47c - Update releases inventory after 8.13.4 (#16147) (3 months ago) &lt;Andrea Selva&gt;
+21148f160 - Set correct pipeline ownership (#16149) (3 months ago) &lt;Andres Rodriguez&gt;
+0d6ba8d1b - Allow comments in hashes and before EOF (#16058) (3 months ago) &lt;Jonas L. B&gt;
+3068934c6 - upgrade java_input_example to 1.0.3 (#16152) (3 months ago) &lt;João Duarte&gt;
+0d6117173 - update multiple dependencies (#16136) (3 months ago) &lt;João Duarte&gt;
+9e452d2e5 - Update junit 4 13 (#16138) (3 months ago) &lt;Ry Biesemeyer&gt;
+973c2ba3a - force ruby-maven-libs constraint to &gt;= 3.9.6.1 (#16130) (3 months ago) &lt;João Duarte&gt;
+359a24a3e - Release notes for 8.13.3 (#16108) (#16128) (3 months ago) &lt;kaisecheng&gt;
+bf8846d4a - Update logstash_releases.json (#16123) (3 months ago) &lt;kaisecheng&gt;
+4350855e7 - upgrade jruby to 9.4.7.0 (#16125) (3 months ago) &lt;João Duarte&gt;
+830733d75 - (origin/8.10.2) Provide opt-in flag to avoid fields name clash when log format is json (#15969) (3 months ago) &lt;Andrea Selva&gt;</p>
+<p>cb45cd28c - Doc: Remove include statements for screenshots not rendering properly (#15981) (3 months ago) &lt;Karen Metts&gt;</p>
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="_plugins"></a>Plugins</h3>
+</div></div></div>
+<p><span class="strong strong"><strong>De_dot Filter - 1.1.0</strong></span></p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Add support for recursively searching sub-fields with the new <code class="literal">recusive =&gt;</code> config option <a href="https://github.com/logstash-plugins/logstash-filter-de_dot/pull/24" class="ulink" target="_top">#24</a>
+</li>
+</ul>
+</div>
+<p><span class="strong strong"><strong>Elastic_integration Filter - 0.1.13</strong></span></p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Update default elasticsearch tree branch to 8.15 <a href="https://github.com/elastic/logstash-filter-elastic_integration/pull/156" class="ulink" target="_top">#156</a>
+</li>
+</ul>
+</div>
+<p><span class="strong strong"><strong>Geoip Filter - 7.3.0</strong></span></p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Added support for MaxMind GeoIP2 Enterprise and Anonymous-IP databases <a href="https://github.com/logstash-plugins/logstash-filter-geoip/pull/223" class="ulink" target="_top">#223</a>
+</li>
+<li class="listitem">
+Updated MaxMind dependencies.
+</li>
+</ul>
+</div>
+<p><span class="strong strong"><strong>Http Filter - 1.6.0</strong></span></p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Added new <code class="literal">ssl_enabled</code> setting for enabling/disabling the SSL configurations <a href="https://github.com/logstash-plugins/logstash-filter-http/pull/52" class="ulink" target="_top">#52</a>
+</li>
+</ul>
+</div>
+<p><span class="strong strong"><strong>Http_poller Input - 5.6.0</strong></span></p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Added new <code class="literal">ssl_enabled</code> setting for enabling/disabling the SSL configurations <a href="https://github.com/logstash-plugins/logstash-input-http_poller/pull/146" class="ulink" target="_top">#146</a>
+</li>
+</ul>
+</div>
+<p><span class="strong strong"><strong>Aws Integration - 7.1.7</strong></span></p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Remove empty temporary dirs at plugin close <a href="https://github.com/logstash-plugins/logstash-integration-aws/pull/46" class="ulink" target="_top">#46</a>
+</li>
+</ul>
+</div>
+<p><span class="strong strong"><strong>Kafka Integration - 11.5.0</strong></span></p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Add "auto_create_topics" option to allow disabling of topic auto creation <a href="https://github.com/logstash-plugins/logstash-integration-kafka/pull/172" class="ulink" target="_top">#172</a>
+</li>
+</ul>
+</div>
+<p><span class="strong strong"><strong>Snmp Integration - 4.0.4</strong></span></p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Introduce Snmp Integration by default, replacing Snmp Input v1.3.3 and Snmptrap Input v3.1.0
+</li>
+</ul>
+</div>
+<p><span class="strong strong"><strong>Http_client Mixin - 7.4.0</strong></span></p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Adds new <code class="literal">ssl_enabled</code> setting for enabling/disabling the SSL configurations <a href="https://github.com/logstash-plugins/logstash-mixin-http_client/pull/44" class="ulink" target="_top">#44</a>
+</li>
+</ul>
+</div>
+<p><span class="strong strong"><strong>Http Output - 5.7.0</strong></span></p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Added new <code class="literal">ssl_enabled</code> setting for enabling/disabling the SSL configurations <a href="https://github.com/logstash-plugins/logstash-output-http/pull/144" class="ulink" target="_top">#144</a>
+</li>
+</ul>
+</div>
+<p><span class="strong strong"><strong>Redis Output - 5.2.0</strong></span></p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Added support to SSL/TLS configurations <a href="https://github.com/logstash-plugins/logstash-output-redis/pull/69" class="ulink" target="_top">#69</a>
+</li>
+<li class="listitem">
+<code class="literal">ssl_enabled</code>
+</li>
+<li class="listitem">
+<code class="literal">ssl_certificate_authorities</code>
+</li>
+<li class="listitem">
+<code class="literal">ssl_certificate</code>
+</li>
+<li class="listitem">
+<code class="literal">ssl_key</code>
+</li>
+<li class="listitem">
+<code class="literal">ssl_verification_mode</code>
+</li>
+<li class="listitem">
+<code class="literal">ssl_supported_protocols</code>
+</li>
+<li class="listitem">
+<code class="literal">ssl_cipher_suites</code>
+</li>
+<li class="listitem">
+Added basic support for SSL <a href="https://github.com/logstash-plugins/logstash-output-redis/pull/59" class="ulink" target="_top">#59</a>
+</li>
+<li class="listitem">
+Fixed documentation of required settings <a href="https://github.com/logstash-plugins/logstash-output-redis/pull/61" class="ulink" target="_top">#61</a>
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+</div>
+</div><div class="navfooter">
+<span class="prev">
+<a href="releasenotes.html">« Release Notes</a>
+</span>
+<span class="next">
+<a href="logstash-8-14-3.html">Logstash 8.14.3 Release Notes »</a>
+</span>
+</div>
+</body>
+</html>
