@@ -5919,7 +5919,7 @@ ecs:
   Elastic Common Schema (ECS) Reference/docs/8.9: f816f2a0138c65d9ba7a3f33bde9239df9485ff8
   Elastic Common Schema (ECS) Reference/docs/main: 146c96aae530af83b4d3f7283cf2f081fb51f442
 ecs-dotnet:
-  ECS Logging .NET Reference/docs/main: 795342e84ae26ce7d2a984ec1f8566e9f9370437
+  ECS Logging .NET Reference/docs/main: local
 ecs-logging:
   ECS Logging .NET Reference/docs/main: b68bc0efccceeba467b6019f666576f9e9a9c0ea
   ECS Logging Go (Logrus) Reference/docs/main: b68bc0efccceeba467b6019f666576f9e9a9c0ea
