@@ -107,7 +107,7 @@ apm-server:
   APM Guide/CHANGELOG.asciidoc/8.7: 1806463a65657bf4e1dac70c3be0b0a03c82bcc1
   APM Guide/CHANGELOG.asciidoc/8.8: 1b0fa942a4b6ecf406ab831811e2f56110703cce
   APM Guide/CHANGELOG.asciidoc/8.9: 0d0c08a85bc8768c0b9ecb95fa4badfceebb33da
-  APM Guide/CHANGELOG.asciidoc/main: fceda210b4cd50647acf99174ebd3bbc0a52cb7d
+  APM Guide/CHANGELOG.asciidoc/main: local
   APM Guide/changelogs/7.16: 28d9e919ecfbcc262cace3720101688295b27aff
   APM Guide/changelogs/7.17: e604c2d377dc751989dc4412e536cc4d419a666f
   APM Guide/changelogs/8.0: 75d75663c93cce1c2a72bbdafcb90632c4fcb679
@@ -126,7 +126,7 @@ apm-server:
   APM Guide/changelogs/8.7: 1806463a65657bf4e1dac70c3be0b0a03c82bcc1
   APM Guide/changelogs/8.8: 1b0fa942a4b6ecf406ab831811e2f56110703cce
   APM Guide/changelogs/8.9: 0d0c08a85bc8768c0b9ecb95fa4badfceebb33da
-  APM Guide/changelogs/main: fceda210b4cd50647acf99174ebd3bbc0a52cb7d
+  APM Guide/changelogs/main: local
   APM Guide/docs/data/7.16: 28d9e919ecfbcc262cace3720101688295b27aff
   APM Guide/docs/data/7.17: e604c2d377dc751989dc4412e536cc4d419a666f
   APM Guide/docs/data/8.0: 75d75663c93cce1c2a72bbdafcb90632c4fcb679
@@ -145,7 +145,7 @@ apm-server:
   APM Guide/docs/data/8.7: 1806463a65657bf4e1dac70c3be0b0a03c82bcc1
   APM Guide/docs/data/8.8: 1b0fa942a4b6ecf406ab831811e2f56110703cce
   APM Guide/docs/data/8.9: 0d0c08a85bc8768c0b9ecb95fa4badfceebb33da
-  APM Guide/docs/data/main: fceda210b4cd50647acf99174ebd3bbc0a52cb7d
+  APM Guide/docs/data/main: local
   APM Guide/docs/spec/7.16: 28d9e919ecfbcc262cace3720101688295b27aff
   APM Guide/docs/spec/7.17: e604c2d377dc751989dc4412e536cc4d419a666f
   APM Guide/docs/spec/8.0: 75d75663c93cce1c2a72bbdafcb90632c4fcb679
@@ -164,7 +164,7 @@ apm-server:
   APM Guide/docs/spec/8.7: 1806463a65657bf4e1dac70c3be0b0a03c82bcc1
   APM Guide/docs/spec/8.8: 1b0fa942a4b6ecf406ab831811e2f56110703cce
   APM Guide/docs/spec/8.9: 0d0c08a85bc8768c0b9ecb95fa4badfceebb33da
-  APM Guide/docs/spec/main: fceda210b4cd50647acf99174ebd3bbc0a52cb7d
+  APM Guide/docs/spec/main: local
   Fleet and Elastic Agent Guide/docs/7.12: 51abf1c8d33be3aa030233341fee28fa4c7acbe2
   Fleet and Elastic Agent Guide/docs/7.13: cff29a0e9e251c685adc396a94ba1d903c0c78ec
   Fleet and Elastic Agent Guide/docs/7.14: cd8c96fa751fcca7b9be5bc77d5e59c810164199
@@ -361,7 +361,7 @@ apm-server:
   Observability/CHANGELOG.asciidoc/8.13: b1c0c87a7c41e1ed35a3f1d4382411b774575af4
   Observability/CHANGELOG.asciidoc/8.14: 8d9554ccf79fcd502f919cf8c3a055c55c7ca8c7
   Observability/CHANGELOG.asciidoc/8.15: 97647bf58a50aead141abd0e0462480dcce3a318
-  Observability/CHANGELOG.asciidoc/main: fceda210b4cd50647acf99174ebd3bbc0a52cb7d
+  Observability/CHANGELOG.asciidoc/main: local
   Observability/changelogs/7.10: 556316b18ed2010c01d77728fe867edbd14e31a5
   Observability/changelogs/7.11: b47faa9aad515043f703fcc052410b027bd51285
   Observability/changelogs/7.12: 51abf1c8d33be3aa030233341fee28fa4c7acbe2
@@ -373,7 +373,7 @@ apm-server:
   Observability/changelogs/8.13: b1c0c87a7c41e1ed35a3f1d4382411b774575af4
   Observability/changelogs/8.14: 8d9554ccf79fcd502f919cf8c3a055c55c7ca8c7
   Observability/changelogs/8.15: 97647bf58a50aead141abd0e0462480dcce3a318
-  Observability/changelogs/main: fceda210b4cd50647acf99174ebd3bbc0a52cb7d
+  Observability/changelogs/main: local
   Observability/docs/7.10: 556316b18ed2010c01d77728fe867edbd14e31a5
   Observability/docs/7.11: b47faa9aad515043f703fcc052410b027bd51285
   Observability/docs/7.12: 51abf1c8d33be3aa030233341fee28fa4c7acbe2
@@ -399,7 +399,7 @@ apm-server:
   Observability/docs/8.7: a2d496ce63f96e7190e0ae9f7214eb093d9f907f
   Observability/docs/8.8: 0b7b5760c04a65a23d5934b08906e508e1a7ff9f
   Observability/docs/8.9: 2633e3cb10765ac031bd61e2cd51e735bc79fc1f
-  Observability/docs/main: fceda210b4cd50647acf99174ebd3bbc0a52cb7d
+  Observability/docs/main: local
 beats:
   Auditbeat Reference/CHANGELOG.asciidoc/6.0: 1a1e78606b0f02fa237335087d432d8df7605e4e
   Auditbeat Reference/CHANGELOG.asciidoc/6.1: 84f0799995d538abb48f37573398d0b294e5fa89
