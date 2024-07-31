@@ -68,6 +68,9 @@ This documentation contains work-in-progress information for future Elastic Stac
 <a class="xref" href="rules-ui-management.html#manage-rules-ui" title="Manage rules">Manage rules</a>
 </li>
 <li class="listitem">
+<a class="xref" href="rules-ui-management.html#manually-run-rules" title="Run rules manually">Run rules manually</a>
+</li>
+<li class="listitem">
 <a class="xref" href="rules-ui-management.html#snooze-rule-actions" title="Snooze rule actions">Snooze rule actions</a>
 </li>
 <li class="listitem">
@@ -237,6 +240,35 @@ To <a class="xref" href="rules-ui-management.html#snooze-rule-actions" title="Sn
 </li>
 </ol>
 </div>
+<h3><a id="manually-run-rules"></a>Run rules manually<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/rules-ui-manage.asciidoc">edit</a></h3>
+<p>Manually run enabled rules for a specified period of time for testing purposes or additional rule coverage.</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+Go to <span class="strong strong"><strong>Rules</strong></span> &#8594; <span class="strong strong"><strong>Detection rules (SIEM)</strong></span>.
+</li>
+<li class="listitem">
+<p>Do one of the following:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Select the <span class="strong strong"><strong>All actions</strong></span> menu on a rule (<span class="strong strong"><strong>&#8230;&#8203;</strong></span> → <span class="strong strong"><strong>All actions</strong></span> in the rules list), then select <span class="strong strong"><strong>Manual run</strong></span>.
+</li>
+<li class="listitem">
+Select all the rules you want to manually run, select the <span class="strong strong"><strong>Bulk actions</strong></span> menu, then select <span class="strong strong"><strong>Manual run</strong></span>.
+</li>
+</ul>
+</div>
+</li>
+<li class="listitem">
+Specify when the manual run starts and ends. The default selection is the current day starting three hours in the past. The rule will search for events during the selected time range.
+</li>
+<li class="listitem">
+Click <span class="strong strong"><strong>Run</strong></span> to manually run the rule.
+</li>
+</ol>
+</div>
+<p>The manual run&#8217;s details are recorded in the <a class="xref" href="alerts-ui-monitor.html#manual-runs-table" title="Manual runs table">Manual runs</a> table on the the <span class="strong strong"><strong>Execution results</strong></span> tab.</p>
 <h3><a id="snooze-rule-actions"></a>Snooze rule actions<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/rules-ui-manage.asciidoc">edit</a></h3>
 <p>Instead of turning rules off to stop alert notifications, you can snooze rule actions for a specified time period. When you snooze rule actions, the rule continues to run on its defined schedule, but won&#8217;t perform any actions or send alert notifications.</p>
 <p>You can snooze notifications temporarily or indefinitely. When actions are snoozed, you can cancel or change the duration of the snoozed state. You can also schedule and manage recurring downtime for actions.</p>
