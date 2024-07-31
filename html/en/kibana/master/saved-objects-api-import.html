@@ -223,7 +223,15 @@ This functionality is in technical preview and may be changed or removed in a fu
 </span>
 </dt>
 <dd>
+<p>
 (Optional, string) An identifier for the <a class="xref" href="xpack-spaces.html" title="Spaces">space</a>. If <code class="literal">space_id</code> is not provided in the URL, the default space is used.
+</p>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>It is possible to specify a non-existing <code class="literal">space_id</code>.  The objects will be imported and will be available if the space is later created.</p>
+</div>
+</div>
 </dd>
 </dl>
 </div>
