@@ -3480,11 +3480,11 @@ cloud:
   'Elastic Cloud Enterprise - Elastic Cloud on your Infrastructure/docs/shared/ms-81': 18ae11c6ead13e6fdf3e22c6b6c9b4f41bc7a6ad
   'Elastic Cloud Enterprise - Elastic Cloud on your Infrastructure/docs/shared/ms-92': 10872892daa91d048b3a30e2ee475970fc3864fc
   'Elastic Cloud Enterprise - Elastic Cloud on your Infrastructure/docs/shared/release-ms-41': d0eaa3ecc37738d47c0d9ed66953e017a5c5aa0c
-  'Elastic Cloud, Hosted Elastic Stack/docs/saas/ms-110': 381289779eb75ce89d0ad931dfacadbf5a38c130
-  'Elastic Cloud, Hosted Elastic Stack/docs/shared/ms-110': 381289779eb75ce89d0ad931dfacadbf5a38c130
-  'Elasticsearch Add-On for Heroku - Hosted Elasticsearch and Kibana for Heroku Users/docs/heroku/ms-110': 381289779eb75ce89d0ad931dfacadbf5a38c130
-  'Elasticsearch Add-On for Heroku - Hosted Elasticsearch and Kibana for Heroku Users/docs/saas/ms-110': 381289779eb75ce89d0ad931dfacadbf5a38c130
-  'Elasticsearch Add-On for Heroku - Hosted Elasticsearch and Kibana for Heroku Users/docs/shared/ms-110': 381289779eb75ce89d0ad931dfacadbf5a38c130
+  'Elastic Cloud, Hosted Elastic Stack/docs/saas/ms-110': local
+  'Elastic Cloud, Hosted Elastic Stack/docs/shared/ms-110': local
+  'Elasticsearch Add-On for Heroku - Hosted Elasticsearch and Kibana for Heroku Users/docs/heroku/ms-110': local
+  'Elasticsearch Add-On for Heroku - Hosted Elasticsearch and Kibana for Heroku Users/docs/saas/ms-110': local
+  'Elasticsearch Add-On for Heroku - Hosted Elasticsearch and Kibana for Heroku Users/docs/shared/ms-110': local
 cloud-assets:
   'Elastic Cloud Enterprise - Elastic Cloud on your Infrastructure/docs/master': b70f40df284e56997bcf38c1ce654b42969d915d
 cloud-on-k8s:
