@@ -3,13 +3,13 @@
   <head>
     
 <meta charset="UTF-8">
-<title>Elastic Security fields and object schemas | Elastic Security Solution [master] | Elastic</title>
-<meta class="elastic" name="content" content="Elastic Security fields and object schemas | Elastic Security Solution [master]">
+<title>Get Conversation | Elastic Security Solution [master] | Elastic</title>
+<meta class="elastic" name="content" content="Get Conversation | Elastic Security Solution [master]">
 
 <link rel="home" href="index.html" title="Elastic Security Solution [master]"/>
-<link rel="up" href="index.html" title="Elastic Security Solution [master]"/>
-<link rel="prev" href="conversation-api-update.html" title="Update Conversation"/>
-<link rel="next" href="runtime-fields.html" title="Create runtime fields in Elastic Security"/>
+<link rel="up" href="assistant-api-overview.html" title="Elastic AI Assistant API"/>
+<link rel="prev" href="conversation-api-find.html" title="Find Conversation"/>
+<link rel="next" href="conversation-api-update.html" title="Update Conversation"/>
 <meta class="elastic" name="product_version" content="master"/>
 <meta class="elastic" name="product_name" content="Security"/>
 <meta class="elastic" name="website_area" content="documentation"/>
@@ -107,10 +107,10 @@ This documentation contains work-in-progress information for future Elastic Stac
 </div>
 <div class="navheader">
 <span class="prev">
-<a href="conversation-api-update.html">« Update Conversation</a>
+<a href="conversation-api-find.html">« Find Conversation</a>
 </span>
 <span class="next">
-<a href="runtime-fields.html">Create runtime fields in Elastic Security »</a>
+<a href="conversation-api-update.html">Update Conversation »</a>
 </span>
 </div>
 <div class="book" lang="en">
@@ -118,51 +118,70 @@ This documentation contains work-in-progress information for future Elastic Stac
 <div class="breadcrumbs">
 <span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
 <span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elastic Security Solution [master]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="security-apis.html">Elastic Security APIs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="assistant-api-overview.html">Elastic AI Assistant API</a></span>
 </div>
 <div>
-<div><h1 class="title"><a id="id-1"></a>Elastic Security fields and object schemas</h1><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/reference/ref-intro.asciidoc">edit</a></div>
+<div><h1 class="title"><a id="id-1"></a>Get Conversation</h1><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/AI-for-security/api/conversation-api-get.asciidoc">edit</a></div>
 </div>
 <!--EXTRA-->
 </div>
 <div id="content">
-<div class="part xpack">
+<div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="security-ref-intro"></a>Elastic Security fields and object schemas<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/reference/ref-intro.asciidoc">edit</a></h2>
+<h2 class="title"><a id="conversation-api-get"></a>Get Conversation<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/AI-for-security/api/conversation-api-get.asciidoc">edit</a></h2>
 </div></div></div>
-<div class="openblock partintro">
-<div class="content">
-<p>This reference section provides details on the fields Elastic Security uses
-to display data in the UI and Elastic Security JSON object schemas:</p>
-<div class="ulist itemizedlist">
-<ul class="itemizedlist">
-<li class="listitem">
-<a class="xref" href="runtime-fields.html" title="Create runtime fields in Elastic Security">Create runtime fields in Elastic Security</a>
-</li>
-<li class="listitem">
-<a class="xref" href="siem-field-reference.html" title="Elastic Security ECS field reference">ECS fields required and/or used to analyze and display data</a>
-</li>
-<li class="listitem">
-<a class="xref" href="timeline-object-schema.html" title="Timeline schema">Timeline object schema</a>
-</li>
-<li class="listitem">
-<a class="xref" href="alert-schema.html" title="Alert schema">Alert schema</a>
-</li>
-</ul>
+<p>Fetch existing Conversation by ID.</p>
+<h3><a id="_request_url_78"></a>Request URL<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/AI-for-security/api/conversation-api-get.asciidoc">edit</a></h3>
+<p><code class="literal">GET &lt;kibana host&gt;:&lt;port&gt;/api/security_ai_assistant/current_user/conversations/{id}</code></p>
+<h3><a id="_example_requests_39"></a>Example requests<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/AI-for-security/api/conversation-api-get.asciidoc">edit</a></h3>
+<p><span class="strong strong"><strong>Example 1</strong></span></p>
+<p>Fetch existing Conversation by ID.</p>
+<div class="pre_wrapper lang-console">
+<div class="console_code_copy" title="Copy to clipboard"></div>
+<pre class="programlisting prettyprint lang-console">GET api/security_ai_assistant/current_user/conversations/a696901d-efff-4871-acbe-8123af841932</pre>
 </div>
+<div class="console_widget" data-snippet="snippets/147.console"></div>
+<h3><a id="_response_code_101"></a>Response code<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/AI-for-security/api/conversation-api-get.asciidoc">edit</a></h3>
+<p><code class="literal">200</code>
+    Indicates a successful call.</p>
+<h3><a id="_response_payload_77"></a>Response payload<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/AI-for-security/api/conversation-api-get.asciidoc">edit</a></h3>
+<p>A JSON Conversation object with a unique <code class="literal">id</code>.</p>
+<p><span class="strong strong"><strong>Example 1</strong></span></p>
+<p>Conversation response payload:</p>
+<div class="pre_wrapper lang-json">
+<div class="console_code_copy" title="Copy to clipboard"></div>
+<pre class="programlisting prettyprint lang-json">{
+    "timestamp": "2024-08-02T07:19:08.124Z",
+    "createdAt": "2024-08-02T07:19:08.124Z",
+    "users": [
+        {
+            "id": "u_mGBROF_q5bmFCATbLXAcCwKa0k8JvONAwSruelyKA5E_0",
+            "name": "elastic"
+        }
+    ],
+    "title": "Welcome",
+    "category": "assistant",
+    "apiConfig": {
+        "connectorId": "my-gpt4o-ai",
+        "actionTypeId": ".gen-ai"
+    },
+    "isDefault": true,
+    "messages": [],
+    "updatedAt": "2024-08-02T07:19:08.124Z",
+    "replacements": {},
+    "namespace": "default",
+    "id": "a696901d-efff-4871-acbe-8123af841932"
+}</pre>
 </div>
-</div>
-
-
-
-
 </div>
 </div>
 </div><div class="navfooter">
 <span class="prev">
-<a href="conversation-api-update.html">« Update Conversation</a>
+<a href="conversation-api-find.html">« Find Conversation</a>
 </span>
 <span class="next">
-<a href="runtime-fields.html">Create runtime fields in Elastic Security »</a>
+<a href="conversation-api-update.html">Update Conversation »</a>
 </span>
 </div>
 
