@@ -8140,7 +8140,7 @@ observability-docs:
   APM Guide/docs/en/8.12: f1e14ba19d39bcd233b50c7fc2df7e2392982f40
   APM Guide/docs/en/8.13: 7a33fd2983a7207a1529d996de04e3cc0f74083b
   APM Guide/docs/en/8.14: 485c0cda4bbd18ca9c2a000f2d3a15ed49d19e23
-  APM Guide/docs/en/8.15: 4c193f8dffca45963a7cdbd444f70f30ef8ee910
+  APM Guide/docs/en/8.15: local
   APM Guide/docs/en/8.2: ac50400f4df15ba300537da7078781bb599768d5
   APM Guide/docs/en/8.3: 6e45b55b2323f0bf7cfb31d6c5dd0075f91c4572
   APM Guide/docs/en/8.4: a9b2e224c0608c6e3b0c9956128644aa27c041c8
@@ -8167,7 +8167,7 @@ observability-docs:
   Fleet and Elastic Agent Guide/docs/en/8.12: f1e14ba19d39bcd233b50c7fc2df7e2392982f40
   Fleet and Elastic Agent Guide/docs/en/8.13: 7a33fd2983a7207a1529d996de04e3cc0f74083b
   Fleet and Elastic Agent Guide/docs/en/8.14: 485c0cda4bbd18ca9c2a000f2d3a15ed49d19e23
-  Fleet and Elastic Agent Guide/docs/en/8.15: 4c193f8dffca45963a7cdbd444f70f30ef8ee910
+  Fleet and Elastic Agent Guide/docs/en/8.15: local
   Fleet and Elastic Agent Guide/docs/en/8.2: ac50400f4df15ba300537da7078781bb599768d5
   Fleet and Elastic Agent Guide/docs/en/8.3: 6e45b55b2323f0bf7cfb31d6c5dd0075f91c4572
   Fleet and Elastic Agent Guide/docs/en/8.4: a9b2e224c0608c6e3b0c9956128644aa27c041c8
@@ -8224,7 +8224,7 @@ observability-docs:
   Observability/docs/en/8.12: f1e14ba19d39bcd233b50c7fc2df7e2392982f40
   Observability/docs/en/8.13: 7a33fd2983a7207a1529d996de04e3cc0f74083b
   Observability/docs/en/8.14: 485c0cda4bbd18ca9c2a000f2d3a15ed49d19e23
-  Observability/docs/en/8.15: 4c193f8dffca45963a7cdbd444f70f30ef8ee910
+  Observability/docs/en/8.15: local
   Observability/docs/en/8.2: ac50400f4df15ba300537da7078781bb599768d5
   Observability/docs/en/8.3: 6e45b55b2323f0bf7cfb31d6c5dd0075f91c4572
   Observability/docs/en/8.4: a9b2e224c0608c6e3b0c9956128644aa27c041c8
