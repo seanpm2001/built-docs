@@ -237,7 +237,74 @@ The error codes associated with the response
 -d '
 {
    "description" : "string",
-   "expiration" : "string"
+   "expiration" : "string",
+   "role_assignments" : {
+      "deployment" : [
+         {
+            "all" : true,
+            "application_roles" : [
+               "string"
+            ],
+            "deployment_ids" : [
+               "string"
+            ],
+            "organization_id" : "string",
+            "role_id" : "string"
+         }
+      ],
+      "organization" : [
+         {
+            "organization_id" : "string",
+            "role_id" : "string"
+         }
+      ],
+      "platform" : [
+         {
+            "role_id" : "string"
+         }
+      ],
+      "project" : {
+         "elasticsearch" : [
+            {
+               "all" : true,
+               "application_roles" : [
+                  "string"
+               ],
+               "organization_id" : "string",
+               "project_ids" : [
+                  "string"
+               ],
+               "role_id" : "string"
+            }
+         ],
+         "observability" : [
+            {
+               "all" : true,
+               "application_roles" : [
+                  "string"
+               ],
+               "organization_id" : "string",
+               "project_ids" : [
+                  "string"
+               ],
+               "role_id" : "string"
+            }
+         ],
+         "security" : [
+            {
+               "all" : true,
+               "application_roles" : [
+                  "string"
+               ],
+               "organization_id" : "string",
+               "project_ids" : [
+                  "string"
+               ],
+               "role_id" : "string"
+            }
+         ]
+      }
+   }
 }
 '</pre>
 </div>
