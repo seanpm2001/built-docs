@@ -291,6 +291,31 @@ return different <code class="literal">id</code>; thus always use the most recen
 next search request.</p>
 </div>
 </div>
+<p>In addition to <code class="literal">keep_alive</code>, we can also define the <code class="literal">allow_partial_search_results</code> parameter
+which specifies whether the <a class="xref" href="point-in-time-api.html" title="Point in time API">point in time (PIT)</a> should tolerate unavailable shards or
+<a class="xref" href="docs-replication.html#shard-failures" title="Shard failures">shard failures</a> when initially creating the point in time. If <code class="literal">true</code>, the point in time will be
+created with just the available shards, otherwise the operation will fail if there is at
+least one shard that is unavailable. Defaults to <code class="literal">false</code>.</p>
+<p>The PIT response now also contains a report on the total number of shards,
+as well as how many of those were successful when creating the PIT.</p>
+<a id="b16700002af3aa70639f3e88c733bf35"></a>
+<div class="pre_wrapper lang-console">
+<div class="console_code_copy" title="Copy to clipboard"></div>
+<pre class="programlisting prettyprint lang-console">POST /my-index-000001/_pit?keep_alive=1m&amp;allow_partial_search_results=true</pre>
+</div>
+<div class="console_widget" data-snippet="snippets/3061.console"></div>
+<div class="pre_wrapper lang-js">
+<div class="console_code_copy" title="Copy to clipboard"></div>
+<pre class="programlisting prettyprint lang-js">{
+  "id": "46ToAwMDaWR5BXV1aWQyKwZub2RlXzMAAAAAAAAAACoBYwADaWR4BXV1aWQxAgZub2RlXzEAAAAAAAAAAAEBYQADaWR5BXV1aWQyKgZub2RlXzIAAAAAAAAAAAwBYgACBXV1aWQyAAAFdXVpZDEAAQltYXRjaF9hbGw_gAAAAA=",
+  "_shards": {
+    "total": 10,
+    "successful": 10,
+    "skipped": 0,
+    "failed": 0
+  }
+}</pre>
+</div>
 </div>
 
 <div class="section">
@@ -358,7 +383,7 @@ console.log(response);</pre>
 <div class="console_code_copy" title="Copy to clipboard"></div>
 <pre class="programlisting prettyprint lang-console default has-php has-ruby has-go has-js">GET /_nodes/stats/indices/search</pre>
 </div>
-<div class="console_widget has-php has-ruby has-go has-js" data-snippet="snippets/3061.console"></div>
+<div class="console_widget has-php has-ruby has-go has-js" data-snippet="snippets/3062.console"></div>
 </div>
 
 <div class="section">
@@ -393,7 +418,7 @@ console.log(response);</pre>
     "id" : "46ToAwMDaWR5BXV1aWQyKwZub2RlXzMAAAAAAAAAACoBYwADaWR4BXV1aWQxAgZub2RlXzEAAAAAAAAAAAEBYQADaWR5BXV1aWQyKgZub2RlXzIAAAAAAAAAAAwBYgACBXV1aWQyAAAFdXVpZDEAAQltYXRjaF9hbGw_gAAAAA=="
 }</pre>
 </div>
-<div class="console_widget has-ruby has-js" data-snippet="snippets/3062.console"></div>
+<div class="console_widget has-ruby has-js" data-snippet="snippets/3063.console"></div>
 <p>The API returns the following response:</p>
 <a id="dc6c3c097ec6fae32e02dc62648d9749"></a>
 <div class="pre_wrapper lang-console-result">
@@ -495,7 +520,7 @@ GET /_search
   }
 }</pre>
 </div>
-<div class="console_widget has-js" data-snippet="snippets/3063.console"></div>
+<div class="console_widget has-js" data-snippet="snippets/3064.console"></div>
 <div class="calloutlist default has-js lang-console">
 <table border="0" summary="Callout list">
 <tr>
