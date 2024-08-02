@@ -7128,7 +7128,7 @@ elasticsearch-java:
   Java Client/docs/8.7: 2ed4fcb2937113cba076ba84417897066b5765e7
   Java Client/docs/8.8: b73b17ac19a885f972b1606c99091add8a780f63
   Java Client/docs/8.9: 00ba9bdbcace2f87218813639ea7458ac23e70da
-  Java Client/docs/main: 23ac082fd65d1df5391390f42f652f205551c62d
+  Java Client/docs/main: local
   Java Client/java-client/src/test/java/co/elastic/clients/documentation/7.16: 17c14e7be0dac9eef050407a14cd6817868cd7ef
   Java Client/java-client/src/test/java/co/elastic/clients/documentation/7.17: 0076f030122c4a955034f79a66d5d6394ccb88e7
   Java Client/java-client/src/test/java/co/elastic/clients/documentation/8.0: 97fbe290ec8ecce2b8a00db7db7eafd2f0ddf44f
@@ -7147,7 +7147,7 @@ elasticsearch-java:
   Java Client/java-client/src/test/java/co/elastic/clients/documentation/8.7: 2ed4fcb2937113cba076ba84417897066b5765e7
   Java Client/java-client/src/test/java/co/elastic/clients/documentation/8.8: b73b17ac19a885f972b1606c99091add8a780f63
   Java Client/java-client/src/test/java/co/elastic/clients/documentation/8.9: 00ba9bdbcace2f87218813639ea7458ac23e70da
-  Java Client/java-client/src/test/java/co/elastic/clients/documentation/main: 23ac082fd65d1df5391390f42f652f205551c62d
+  Java Client/java-client/src/test/java/co/elastic/clients/documentation/main: local
 elasticsearch-js:
   Elasticsearch Guide/docs/doc_examples/8.0: 833c248a62c8527084f0ed1014fabe25596610ef
   Elasticsearch Guide/docs/doc_examples/8.1: 3a27d3fdd39e41e35f2dbb9e18076e798f96b1dd
