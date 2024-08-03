@@ -3,13 +3,13 @@
   <head>
     
 <meta charset="UTF-8">
-<title>Tutorials | Elastic Observability [master] | Elastic</title>
-<meta class="elastic" name="content" content="Tutorials | Elastic Observability [master]">
+<title>New services experience | Elastic Observability [master] | Elastic</title>
+<meta class="elastic" name="content" content="New services experience | Elastic Observability [master]">
 
 <link rel="home" href="index.html" title="Elastic Observability [master]"/>
-<link rel="up" href="index.html" title="Elastic Observability [master]"/>
-<link rel="prev" href="metrics-app-fields.html" title="Infrastructure app fields"/>
-<link rel="next" href="monitor-gcp.html" title="Monitor Google Cloud Platform"/>
+<link rel="up" href="observability-tutorials.html" title="Tutorials"/>
+<link rel="prev" href="elastic-entity-model.html" title="Elastic Entity Model"/>
+<link rel="next" href="redirects.html" title="Appendix A: Deleted pages"/>
 <meta class="elastic" name="product_version" content="master"/>
 <meta class="elastic" name="product_name" content="Observability"/>
 <meta class="elastic" name="website_area" content="documentation"/>
@@ -107,10 +107,10 @@ This documentation contains work-in-progress information for future Elastic Stac
 </div>
 <div class="navheader">
 <span class="prev">
-<a href="metrics-app-fields.html">« Infrastructure app fields</a>
+<a href="elastic-entity-model.html">« Elastic Entity Model</a>
 </span>
 <span class="next">
-<a href="monitor-gcp.html">Monitor Google Cloud Platform »</a>
+<a href="redirects.html">Appendix A: Deleted pages »</a>
 </span>
 </div>
 <div class="book" lang="en">
@@ -118,58 +118,84 @@ This documentation contains work-in-progress information for future Elastic Stac
 <div class="breadcrumbs">
 <span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
 <span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elastic Observability [master]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="observability-tutorials.html">Tutorials</a></span>
 </div>
 <div>
-<div><h1 class="title"><a id="id-1"></a>Tutorials</h1><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/observability-docs/edit/main/docs/en/observability/tutorials.asciidoc">edit</a></div>
+<div><h1 class="title"><a id="id-1"></a>New services experience</h1><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/observability-docs/edit/main/docs/en/observability/apm/new-experience-services.asciidoc">edit</a></div>
 </div>
 <!--EXTRA-->
 </div>
 <div id="content">
-<div class="part">
+<div class="chapter exclude">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="observability-tutorials"></a>Tutorials<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/observability-docs/edit/main/docs/en/observability/tutorials.asciidoc">edit</a></h2>
+<h2 class="title"><a id="new-experience-services"></a>New services experience<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/observability-docs/edit/main/docs/en/observability/apm/new-experience-services.asciidoc">edit</a></h2>
 </div></div></div>
-<div class="openblock partintro">
+<div class="warning admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>This functionality is in technical preview and may be changed or removed in a future release. Elastic will work to fix any issues, but features in technical preview are not subject to the support SLA of official GA features.</p>
+</div>
+</div>
+<p>With this technical preview,
+Elastic expands the <span class="strong strong"><strong>Services</strong></span> inventory to include services found in logs.
+This means you can monitor the services you care about even if you only have logs
+and aren&#8217;t ready to instrument your services.</p>
+<p>The new <span class="strong strong"><strong>Services</strong></span> inventory shows services instrumented with APM or OpenTelemetry,
+plus any services declared using <code class="literal">service.name</code> in your logs:</p>
+<div class="imageblock screenshot">
 <div class="content">
-<p>Using Elastic Observability, learn how to analyze log data, monitor system and
-service metrics, instrument code and collect performance data, and monitor host
-availability and endpoints.</p>
-<p>The Elastic Stack provides a variety of ways to add monitoring data to Elasticsearch.
-The tutorials in this section focus on Elastic Agent and Beats.</p>
-<p>It&#8217;s recommended that you use Elastic Agent, when possible, to achieve your monitoring
-goals. However, if Elastic Agent doesn&#8217;t work for your use case, you can use Beats
-instead.</p>
-<p>Not sure which agent to use? Refer to
-<a href="/guide/en/fleet/master/beats-agent-comparison.html" class="ulink" target="_top">Beats and Elastic Agent capabilities</a>.</p>
+<img src="images/entity-centric-services-inventory.png" alt="Services inventory that shows APM data and log data">
+</div>
+</div>
+<p>For instrumented services that also have custom logs, the APM and log data are displayed in the same view.
+For services that only have log data,
+the log data is displayed, and you have the option of adding APM later.</p>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>The new <span class="strong strong"><strong>Services</strong></span> inventory requires the Elastic Entity Model (EEM). To learn more, refer to <a class="xref" href="elastic-entity-model.html" title="Elastic Entity Model"><em>Elastic Entity Model</em></a>.</p>
+</div>
+</div>
+<h3><a id="_turn_on_the_new_experience"></a>Turn on the new experience<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/observability-docs/edit/main/docs/en/observability/apm/new-experience-services.asciidoc">edit</a></h3>
+<p>The new services experience is turned off by default. To turn it on:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+Go to <span class="strong strong"><strong>Observability</strong></span> → <span class="strong strong"><strong>APM</strong></span> → <span class="strong strong"><strong>Services</strong></span>.
+</li>
+<li class="listitem">
+Click <span class="strong strong"><strong>Try out Elastic&#8217;s new experience!</strong></span>
+</li>
+</ol>
+</div>
+<p>If you have the correct privileges, the EEM will be turned on automatically.
+Otherwise, you need to ask your administrator to turn on this feature under <span class="strong strong"><strong>Stack Management</strong></span>.</p>
+<p>To turn off the new experience, click <span class="strong strong"><strong>Restore classic view</strong></span>.
+You can switch back and forth between the new and classic views whenever you want.</p>
+<div class="sidebar">
+<div class="titlepage"></div>
+<p><span class="strong strong"><strong>Does turning on the new experience affect other users?</strong></span></p>
+<p>No. The settings are applied at the browser level,
+which means that other users need to turn on the new experience if they want to use it.</p>
+</div>
+<h3><a id="_add_services_to_the_inventory"></a>Add services to the inventory<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/observability-docs/edit/main/docs/en/observability/apm/new-experience-services.asciidoc">edit</a></h3>
+<p>To add services to the inventory, use one of the following approaches:</p>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
 <li class="listitem">
-<a class="xref" href="monitor-gcp.html" title="Monitor Google Cloud Platform">Monitor Google Cloud Platform (GCP)</a>
-</li>
-<li class="listitem">
-<a class="xref" href="monitor-java-app.html" title="Monitor a Java application">Monitor a Java application</a>
-</li>
-<li class="listitem">
-<a class="xref" href="monitor-kubernetes.html" title="Monitor Kubernetes: Observe the health and performance of your Kubernetes deployments">Monitor Kubernetes</a>
+Instrument your services with APM or OpenTelemetry.
+To learn how, refer to <a class="xref" href="traces-get-started.html" title="Get started with application traces and APM">Traces and APM</a>.
 </li>
 </ul>
 </div>
 </div>
 </div>
-
-
-
-
-
-
-</div>
-</div>
 </div><div class="navfooter">
 <span class="prev">
-<a href="metrics-app-fields.html">« Infrastructure app fields</a>
+<a href="elastic-entity-model.html">« Elastic Entity Model</a>
 </span>
 <span class="next">
-<a href="monitor-gcp.html">Monitor Google Cloud Platform »</a>
+<a href="redirects.html">Appendix A: Deleted pages »</a>
 </span>
 </div>
 
